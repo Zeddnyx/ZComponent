@@ -10,7 +10,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex h-screen w-full">
+    <main className="flex h-screen w-full overflow-hidden">
       <Sidebar />
       <div className="flex size-full flex-col">
         <div className="root-layout">
@@ -19,7 +19,7 @@ export default function RootLayout({
           </Link>
           <MobileNav />
         </div>
-        {children}
+        <div className="p-2 animate-fade-in">{children}</div>
       </div>
     </main>
   );

@@ -1,18 +1,69 @@
-import { logo } from "@/lib/image";
+import { AiOutlineForm } from "react-icons/ai";
+import { RxButton } from "react-icons/rx";
+import { GoTable } from "react-icons/go";
+
+import { ROUTES } from "@/configs/routes";
+
 export const sidebarItems: ISidebar[] = [
   {
-    icon: logo,
-    title: "Home",
-    href: "/",
+    icon: AiOutlineForm,
+    title: "Form",
+    href: "/form",
+    children: [
+      {
+        title: "Input",
+        href: ROUTES.formUrl("input"),
+      },
+      {
+        title: "Input Search",
+        href: ROUTES.formUrl("input-search"),
+      },
+      {
+        title: "Dynamic Input",
+        href: ROUTES.formUrl("dynamic-search"),
+      },
+      {
+        title: "Textarea",
+        href: ROUTES.formUrl("textarea"),
+      },
+      {
+        title: "Dropdown",
+        href: ROUTES.formUrl("dropdown"),
+      },
+      {
+        title: "Dropdown Search",
+        href: ROUTES.formUrl("dropdown-search"),
+      },
+      {
+        title: "Checkbox",
+        href: ROUTES.formUrl("checkbox"),
+      },
+      {
+        title: "Otp",
+        href: ROUTES.formUrl("radio"),
+      },
+    ],
   },
   {
-    icon: logo,
-    title: "About",
-    href: "/about",
+    icon: RxButton,
+    title: "Button",
+    href: "/button",
+    children: [
+      {
+        title: "button",
+        href: ROUTES.buttonUrl("button"),
+      },
+    ],
   },
   {
-    icon: logo,
-    title: "Contact",
-    href: "/contact",
-  },
+    icon: GoTable,
+    title: "Table",
+    href: "/table",
+    children: [
+      {
+        title: "table",
+        href: ROUTES.tableUrl("table"),
+      },
+    ],
+  }
 ];

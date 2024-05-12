@@ -1,61 +1,86 @@
 "use client";
+
 import Link from "next/link";
-import Image from "next/image";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./sheet";
+import { IoMdMenu } from "react-icons/io";
 import { usePathname } from "next/navigation";
 
 import { sidebarItems } from "@/constants";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 export default function MobileNav() {
   const path = usePathname();
+  const [selectedParent, setSelectedParent] = useState<
+    string[] | string | null
+  >(sidebarItems.map((item) => item.href));
+
+  const handleParentClick = (href: string) => {
+    setSelectedParent(selectedParent === href ? null : href);
+  };
+
   return (
-    <section className="w-full max-w-[164px]">
+    <section className="w-full max-w-[164px] flex justify-end">
       <Sheet>
         <SheetTrigger>
-          <p className="">Menu</p>
+          <IoMdMenu className="text-light text-24" />
         </SheetTrigger>
         <SheetContent
           side="right"
-          className="bg-light flex items-start gap-5 p-5"
+          className="bg-dark-300 flex flex-col items-start gap-5 p-5"
         >
-          <div className="moobilenav-sheet w-full">
+          <Link href="/">
+            <h1 className="font-bold text-24">ZComponent</h1>
+          </Link>
+          <div className="mobilenav-sheet w-full">
             <SheetClose className="flex h-full flex-col w-full">
-              <nav className="w-full flex items-end flex-col gap-5 pt-20">
+              <nav className="flex flex-col gap-5 w-full pr-5">
                 {sidebarItems.map((item) => {
-                  const isActive =
-                    path === item.href || path.startsWith(`${item.href}/`);
+                  const isParentSelected = selectedParent?.includes(item.href);
+
                   return (
-                    <SheetClose asChild key={item.href}>
-                      <Link
-                        href={item.href}
+                    <div key={item.href}>
+                      <div
                         className={cn(
-                          "sidebar-link !rounded-[10px] p-4 hover:bg-primary group",
-                          {
-                            "bg-primary": isActive,
-                          },
+                          "sidebar-link hover:bg-primary group cursor-pointer transition-colors",
                         )}
+                        onClick={() => handleParentClick(item.href)}
                       >
-                        <div>
-                          <Image
-                            src={item.icon}
-                            alt={item.title}
-                            width={24}
-                            height={24}
-                            className={cn({
-                              "brightness-[3] invert-0": isActive,
-                            })}
-                          />
-                        </div>
-                        <p
-                          className={cn("group-hover:!text-light font-medium", {
-                            "!text-light": isActive,
-                          })}
-                        >
+                        <item.icon className={cn("text-light text-20")} />
+                        <p className={cn("sidebar-title !flex !text-light")}>
                           {item.title}
                         </p>
-                      </Link>
-                    </SheetClose>
+                      </div>
+                      <div
+                        className={cn("flex flex-col", {
+                          "my-2 ml-4 px-4 border-l border-dark-900":
+                            isParentSelected,
+                        })}
+                      >
+                        {isParentSelected &&
+                          item.children &&
+                          item.children.length > 0 &&
+                          item.children.map((child) => {
+                            const isChildActive = path === child.href;
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className={cn(
+                                  "hover:bg-primary rounded-md p-3 text-light-200 text-sm",
+                                  {
+                                    "bg-primary": isChildActive,
+                                  },
+                                )}
+                              >
+                                <p className="capitalize text-start">
+                                  {child.title}
+                                </p>
+                              </Link>
+                            );
+                          })}
+                      </div>
+                    </div>
                   );
                 })}
               </nav>

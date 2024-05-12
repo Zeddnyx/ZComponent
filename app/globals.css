@@ -22,21 +22,21 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #dddddd;
+  @apply bg-dark-500
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #5c5c7b;
+  @apply bg-primary;
   border-radius: 50px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #7878a3;
+  @apply bg-primary
 }
 
 @layer base {
   body {
-    @apply bg-light text-dark;
+    @apply bg-dark-200 text-light-200;
   }
 }
 
@@ -87,11 +87,11 @@
 
  /* Root Layout */
   .root-layout {
-    @apply flex h-16 items-center justify-between p-5 shadow-md sm:p-8 md:hidden;
+    @apply flex h-16 items-center justify-between p-5 shadow-md sm:p-8 lg:hidden;
   }
 /* Mobile nav */
   .mobilenav-sheet {
-    @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto;
+    @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto custom-scrollbar 
   }
 
   .mobilenav-sheet_close {
@@ -101,27 +101,24 @@
 
   /* HOME */
   .home {
-    @apply no-scrollbar flex w-full flex-row max-xl:max-h-screen max-xl:overflow-y-scroll;
+    @apply no-scrollbar h-svh w-full overflow-y-scroll
   }
 
-  .home-content {
-    @apply no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
-  }
 
   /* SIDEBAR */
   .sidebar {
-    @apply sticky left-0 top-0 flex h-screen w-fit flex-col justify-between border-r border-gray-200 bg-white pt-8 text-white max-md:hidden sm:pl-4 xl:pl-6 2xl:w-[355px];
+    @apply sticky left-0 bottom-0 flex h-[calc(100vh-72px)] w-full overflow-y-auto custom-scrollbar custom-scrollbar flex-col justify-between pt-8 text-light sm:p-4 
   }
 
   .sidebar-logo {
-    @apply 2xl:text-26 font-ibm-plex-serif text-[26px] font-bold text-dark-100 max-xl:hidden;
+    @apply 2xl:text-26 text-[26px] font-bold text-dark-100 max-lg:hidden;
   }
 
   .sidebar-link {
-    @apply flex gap-3 items-center py-1 md:p-3 2xl:p-4 !rounded-l-[10px] justify-center xl:justify-start;
+    @apply flex gap-3 py-1 md:p-3 2xl:p-4 rounded-[5px] justify-start;
   }
 
   .sidebar-title {
-    @apply text-16 font-semibold text-dark-200 max-xl:hidden;
+    @apply text-14 font-normal text-light-200 max-lg:hidden;
   }
 }
