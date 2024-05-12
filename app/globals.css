@@ -22,7 +22,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-dark-500
+  @apply bg-dark-500;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -31,7 +31,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary
+  @apply bg-primary;
 }
 
 @layer base {
@@ -85,29 +85,28 @@
     @apply text-[36px] leading-[44px];
   }
 
- /* Root Layout */
+  /* Root Layout */
   .root-layout {
     @apply flex h-16 items-center justify-between p-5 shadow-md sm:p-8 lg:hidden;
   }
-/* Mobile nav */
+
+  /* Mobile nav */
   .mobilenav-sheet {
-    @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto custom-scrollbar 
+    @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto custom-scrollbar;
   }
 
   .mobilenav-sheet_close {
     @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-60;
   }
 
-
   /* HOME */
   .home {
-    @apply no-scrollbar h-svh w-full overflow-y-scroll
+    @apply no-scrollbar h-svh w-full overflow-y-scroll;
   }
-
 
   /* SIDEBAR */
   .sidebar {
-    @apply sticky left-0 bottom-0 flex h-[calc(100vh-72px)] w-full overflow-y-auto custom-scrollbar custom-scrollbar flex-col justify-between pt-8 text-light sm:p-4 
+    @apply sticky left-0 bottom-0 flex h-[calc(100vh-72px)] w-full overflow-y-auto custom-scrollbar custom-scrollbar flex-col justify-between pt-8 text-light sm:p-4;
   }
 
   .sidebar-logo {
@@ -120,5 +119,20 @@
 
   .sidebar-title {
     @apply text-14 font-normal text-light-200 max-lg:hidden;
+  }
+
+  /* FORM */
+  /* FORM Input */
+  .input-label {
+    @apply block cursor-pointer pb-1.5 font-medium text-dark/70 rtl:text-right dark:text-light/70;
+  }
+
+  .input-logo {
+    @apply pl-1 absolute left-0 top-0 bottom-0 flex items-center text-xl ring-light-900;
+  }
+
+  .input {
+    @apply !h-11 w-full appearance-none rounded px-2 py-2 pl-3 text-14 text-light bg-primary/10  border-[0.5px] border-dark-900;
+    @apply focus:outline-none  focus:border-primary placeholder:text-dark-900 focus:border-[0.5px] md:h-12 lg:px-5 xl:h-[50px];
   }
 }

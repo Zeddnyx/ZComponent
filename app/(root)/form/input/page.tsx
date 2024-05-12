@@ -1,8 +1,9 @@
+import Input from "@/components/form/input";
 
- export default function Page() {
+export default function Page() {
   return (
     <div>
-      page
+      <Input />
     </div>
-  )
+  );
 }
