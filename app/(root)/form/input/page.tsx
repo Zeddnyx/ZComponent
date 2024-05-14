@@ -1,9 +1,14 @@
 import Input from "@/components/form/input";
+import Title from "@/components/ui/Title";
+import Wrapper from "@/components/ui/Wrapper";
 
 export default function Page() {
   return (
     <div>
-      <Input />
+      <Title title="Input" />
+      <Wrapper>
+        <Input />
+      </Wrapper>
     </div>
   );
 }

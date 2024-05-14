@@ -34,6 +34,11 @@
   @apply bg-primary;
 }
 
+.stripes.diagonal {
+  @apply bg-dark-500;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+}
+
 @layer base {
   body {
     @apply bg-dark-200 text-light-200;
@@ -132,7 +137,7 @@
   }
 
   .input {
-    @apply !h-11 w-full appearance-none rounded px-2 py-2 pl-3 text-14 text-light bg-primary/10  border-[0.5px] border-dark-900;
-    @apply focus:outline-none  focus:border-primary placeholder:text-dark-900 focus:border-[0.5px] md:h-12 lg:px-5 xl:h-[50px];
+    @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-dark-200  border-[0.5px] border-dark-700;
+    @apply focus:outline-none  focus:border-primary placeholder:text-dark-700 focus:border-[0.5px] md:h-12 lg:px-5 xl:h-[50px];
   }
 }

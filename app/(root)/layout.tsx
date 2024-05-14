@@ -19,7 +19,7 @@ export default function RootLayout({
           </Link>
           <MobileNav />
         </div>
-        <div className="p-2 animate-fade-in">{children}</div>
+        <div className="p-5 animate-fade-in">{children}</div>
       </div>
     </main>
   );
