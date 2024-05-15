@@ -1,4 +1,5 @@
 "use client";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -19,11 +20,17 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     ref,
   ) => {
     return (
-      <div className={`${className} red-900 relative`}>
-        <label className="block text-13px">
-          {label && <span className="input-label">{label}</span>}
+      <div className={`${className} relative`}>
+        <label className="block ">
+          {label && (
+            <span className={cn("input-label", { "!text-red-500": error })}>
+              {label}
+            </span>
+          )}
           <span className="flex relative">
-            <span className="input-logo">{logo && logo}</span>
+            <span className={cn("input-logo", { "!text-red-500": error })}>
+              {logo && logo}
+            </span>
             <input
               type={type}
               ref={ref}
@@ -31,18 +38,20 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               onChange={onChange}
               className={cn(`input  ${inputClassName}`, {
                 "opacity-50 cursor-not-allowed": disabled,
-                "!pl-7": logo,
+                "!pl-8": logo,
+                "border !border-red-500": error,
               })}
-              style={{ border: error && "1px solid #E11D48" }}
-              disabled={disabled}
+              disabled={disabled||isLoading}
             />
+            {isLoading && (
+              <span className="input-loading">
+                <AiOutlineLoading3Quarters />
+              </span>
+            )}
           </span>
         </label>
-        {isLoading && (
-          <span className="block pt-2 text-xs text-tertiary">loading...</span>
-        )}
         {error && (
-          <span role="alert" className="block pt-2 text-xs text-danger">
+          <span role="alert" className="input-error">
             {error}
           </span>
         )}

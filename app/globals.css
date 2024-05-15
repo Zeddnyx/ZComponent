@@ -36,7 +36,11 @@
 
 .stripes.diagonal {
   @apply bg-dark-500;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+  background-image: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 35px,
+      rgba(33, 33, 33, 0.5) 5px,
+      rgba(33, 33, 33, 0.5) 70px);
 }
 
 @layer base {
@@ -46,10 +50,6 @@
 }
 
 @layer utilities {
-  .input-class {
-    @apply text-16 placeholder:text-16 rounded-lg border border-gray-300 text-gray-900 placeholder:text-gray-500;
-  }
-
   .text-10 {
     @apply text-[10px] leading-[14px];
   }
@@ -129,15 +129,24 @@
   /* FORM */
   /* FORM Input */
   .input-label {
-    @apply block cursor-pointer pb-1.5 font-medium text-dark/70 rtl:text-right dark:text-light/70;
+    @apply block cursor-pointer pb-1.5 font-medium text-light/70 rtl:text-right text-14;
   }
 
   .input-logo {
-    @apply pl-1 absolute left-0 top-0 bottom-0 flex items-center text-xl ring-light-900;
+    @apply pl-2 absolute left-0 top-0 bottom-0 flex items-center text-xl text-dark-700;
+  }
+
+  .input-loading {
+    @apply absolute right-2 top-0 bottom-0 text-xs text-dark-700 flex items-center animate-spin text-lg
+  }
+
+  .input-error {
+    @apply text-12 text-red-500 absolute -bottom-5;
   }
 
   .input {
-    @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-dark-200  border-[0.5px] border-dark-700;
-    @apply focus:outline-none  focus:border-primary placeholder:text-dark-700 focus:border-[0.5px] md:h-12 lg:px-5 xl:h-[50px];
+    @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-dark-200 border-[0.5px] border-dark-700;
+    @apply focus:outline-none focus:border-primary placeholder:text-dark-700 focus:border-[0.5px] md:h-12 lg:px-5 xl:h-[50px];
   }
+  /* end FORM Input */
 }
