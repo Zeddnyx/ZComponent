@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 "!pl-8": logo,
                 "border !border-red-500": error,
               })}
-              disabled={disabled||isLoading}
+              disabled={disabled}
             />
             {isLoading && (
               <span className="input-loading">

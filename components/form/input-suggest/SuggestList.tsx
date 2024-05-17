@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { cn } from "@/lib/utils";
 
 interface ISuggest {
@@ -9,9 +7,6 @@ interface ISuggest {
 }
 
 export default function SuggestList({ data, isOpen, onClick }: ISuggest) {
-  useEffect(() => {
-
-    }, [data]);
 
   return (
     <div
