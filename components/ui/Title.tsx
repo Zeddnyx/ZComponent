@@ -1,12 +1,16 @@
 interface ITitle {
-  title: string;
+  title?: string;
+  subtitle: string;
 }
 
-export default function Title({ title }: ITitle) {
+export default function Title({ title, subtitle }: ITitle) {
   return (
-    <h2 className="text-lg font-bold py-2">
-      <span className="text-primary">#</span>
-      {title}
-    </h2>
+    <div>
+      <h2 className="text-2xl font-bold py-2">{title}</h2>
+      <h3 className="text-base font-bold text-light-800">
+        <span className="text-primary">#</span>
+        {subtitle}
+      </h3>
+    </div>
   );
 }

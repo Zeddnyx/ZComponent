@@ -30,6 +30,7 @@ export default function Index() {
         const firstItem = filterData[0];
         setForm({ ...form, name: firstItem });
         setIsOpen(false);
+        setDatas([]);
       }
     });
   }, [KEYBOARD.ESCAPE, KEYBOARD.ENTER, filterData]);

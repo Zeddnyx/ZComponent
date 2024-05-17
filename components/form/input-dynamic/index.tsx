@@ -1,0 +1,61 @@
+"use client";
+
+import { useState } from "react";
+import { MdDelete, MdOutlineAdd } from "react-icons/md";
+
+import Input from "@/components/ui/form/Input";
+import Button from "@/components/ui/Button";
+
+export default function Index() {
+  const [form, setForm] = useState([
+    {
+      name: "",
+    },
+  ]);
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    id: number,
+  ) => {
+    const { name, value } = event.target;
+    const updatedForm = [...form] as any;
+    updatedForm[id][name] = value;
+    setForm(updatedForm);
+  };
+
+  const handleAction = (index?: number) => {
+    if (index) {
+      const updatedForm = form.filter((_, id) => id !== index);
+      setForm(updatedForm);
+    } else setForm([...form, { name: "" }]);
+  };
+
+  return (
+    <div className="flex flex-col gap-3">
+      {form.map((item, id) => (
+        <div key={id} className="flex items-center gap-2">
+          <Input
+            name="name"
+            value={item.name}
+            onChange={(e) => handleChange(e, id)}
+            placeholder="Name"
+          />
+          {id > 0 && (
+            <Button
+              onClick={() => handleAction(id)}
+              text={<MdDelete size={20} />}
+              className="bg-red-500 text-light hover:bg-red-600 focus:bg-red-600 !px-3"
+            />
+          )}
+          {id === form.length - 1 && item.name &&  (
+            <Button
+              onClick={() => handleAction()}
+              text={<MdOutlineAdd size={20} />}
+              className="!px-3"
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}

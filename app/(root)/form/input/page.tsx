@@ -5,7 +5,7 @@ import Wrapper from "@/components/ui/Wrapper";
 export default function Page() {
   return (
     <div>
-      <Title title="Input" />
+      <Title title="Input" subtitle="Input" />
       <Wrapper>
         <Input />
       </Wrapper>

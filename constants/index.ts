@@ -20,7 +20,7 @@ export const sidebarItems: ISidebar[] = [
       },
       {
         title: "Dynamic Input",
-        href: ROUTES.formUrl("dynamic-search"),
+        href: ROUTES.formUrl("dynamic-input"),
       },
       {
         title: "Textarea",
