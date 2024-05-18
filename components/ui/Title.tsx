@@ -6,8 +6,8 @@ interface ITitle {
 export default function Title({ title, subtitle }: ITitle) {
   return (
     <div>
-      <h2 className="text-2xl font-bold py-2">{title}</h2>
-      <h3 className="text-base font-bold text-light-800">
+      <h2 className="text-30 font-bold py-2">{title}</h2>
+      <h3 className="text-16 font-bold text-light-800">
         <span className="text-primary">#</span>
         {subtitle}
       </h3>

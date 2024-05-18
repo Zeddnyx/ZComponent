@@ -19,8 +19,8 @@ export const sidebarItems: ISidebar[] = [
         href: ROUTES.formUrl("input-suggest"),
       },
       {
-        title: "Dynamic Input",
-        href: ROUTES.formUrl("dynamic-input"),
+        title: "Input Dynamic",
+        href: ROUTES.formUrl("input-dynamic"),
       },
       {
         title: "Textarea",

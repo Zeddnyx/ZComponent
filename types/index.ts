@@ -19,3 +19,13 @@ declare interface InputProps
   logo?: React.ReactNode;
   disabled?: boolean;
 }
+
+// Pagination
+declare interface IPagination {
+  prev: string;
+  next: string;
+}
+declare interface IBtnAction {
+  action: "prev" | "next";
+  title: string;
+}

@@ -23,11 +23,13 @@ export default function Index() {
     setForm(updatedForm);
   };
 
-  const handleAction = (index?: number) => {
-    if (index) {
+  const handleAction = (index: number, action: "add" | "delete") => {
+    if (action === "delete") {
       const updatedForm = form.filter((_, id) => id !== index);
       setForm(updatedForm);
-    } else setForm([...form, { name: "" }]);
+    } else {
+      setForm([...form, { name: "" }]);
+    }
   };
 
   return (
@@ -38,18 +40,18 @@ export default function Index() {
             name="name"
             value={item.name}
             onChange={(e) => handleChange(e, id)}
-            placeholder="Name"
+            placeholder="type something here..."
           />
           {id > 0 && (
             <Button
-              onClick={() => handleAction(id)}
+              onClick={() => handleAction(id, "delete")}
               text={<MdDelete size={20} />}
               className="bg-red-500 text-light hover:bg-red-600 focus:bg-red-600 !px-3"
             />
           )}
-          {id === form.length - 1 && item.name &&  (
+          {id === form.length - 1 && item.name && (
             <Button
-              onClick={() => handleAction()}
+              onClick={() => handleAction(id, "add")}
               text={<MdOutlineAdd size={20} />}
               className="!px-3"
             />
