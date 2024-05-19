@@ -5,7 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   disabled?: boolean;
   className?: string;
-  variant?: "text" | "outline" | "solid" | "icon" | "solidDanger" ;
+  variant?: "text" | "outline" | "solid" | "icon" | "danger" ;
   text?: string | React.ReactNode;
 }
 
@@ -16,7 +16,7 @@ const variantClasses = {
   solid:
     "bg-primary text-light hover:bg-dark-300 focus:bg-dark-300 dark:bg-primary_dark",
   icon: "transition-colors duration-200 text-dark-800 hover:text-dark-900 dark:hover:text-light-600",
-  solidDanger: "bg-red-500 text-light hover:bg-red-600 focus:bg-red-600",
+  danger: "bg-red-500 text-light hover:bg-red-600 focus:bg-red-600 !px-3",
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(

@@ -46,7 +46,7 @@ export default function Index() {
             <Button
               onClick={() => handleAction(id, "delete")}
               text={<MdDelete size={20} />}
-              className="bg-red-500 text-light hover:bg-red-600 focus:bg-red-600 !px-3"
+              variant="danger"
             />
           )}
           {id === form.length - 1 && item.name && (

@@ -146,7 +146,22 @@
 
   .input {
     @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-dark-200 border-[0.5px] border-dark-700;
-    @apply focus:outline-none focus:border-primary placeholder:text-dark-700 focus:border-[0.5px] md:h-12 lg:px-3 xl:h-[50px];
+    @apply focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+  }
+
+  .input-outline {
+    @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-transparent border-[0.5px] border-dark-700;
+    @apply focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+  }
+
+  .input-underline {
+    @apply !h-11 w-full appearance-none rounded-none px-2 py-2 pl-3 text-14 text-light bg-transparent border-b-[0.5px] border-dark-700;
+    @apply focus:outline-none placeholder:text-dark-700 focus:border-b-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+  }
+
+  .input-none {
+    @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-transparent !border-0;
+    @apply focus:outline-none placeholder:text-dark-700 md:h-12 lg:px-3 xl:h-[50px];
   }
 
   /* end FORM Input */
@@ -159,5 +174,25 @@
   .input-item-suggest {
     @apply !p-2 hover:bg-dark-700 w-full text-left;
   }
+
   /* end FORM Input suggest */
+
+  /* Pagination */
+  .pagination-action {
+    @apply p-2 rounded-lg hover:bg-dark-500 transition-colors;
+  }
+
+  .pagination-action>span {
+    @apply flex items-center gap-2;
+  }
+
+  .pagination-action>span>p {
+    @apply text-12 md:text-14;
+  }
+
+  /* title */
+  .pagination-action>p {
+    @apply text-left w-full font-semibold text-light-600 text-14 md:text-16 capitalize;
+  }
+  /* end Pagination */
 }

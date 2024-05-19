@@ -19,26 +19,45 @@ export default function Index() {
 
   return (
     <div className="flex flex-col gap-3">
-      <Input name="name" label="default" value={form.name} onChange={handleChange} placeholder="Name" />
-      <Input name="name" label="Required" isRequired value={form.name} onChange={handleChange} placeholder="Name" />
       <Input
+        labelSide="left"
+        label="Solid"
         name="name"
         value={form.name}
         onChange={handleChange}
-        label="Loading"
-        logo={<IoPersonSharp />}
-        isLoading
         placeholder="Name"
+        variant="solid"
       />
       <Input
+        labelSide="left"
+        label="Outline"
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+        logo={<IoPersonSharp />}
+        placeholder="Name"
+        variant="outline"
+      />
+      <Input
+        labelSide="left"
+        label="Underline"
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+        logo={<IoPersonSharp />}
+        placeholder="Name"
+        variant="underline"
+      />
+      <Input
+        labelSide="left"
+        label="None"
         name="email"
         type="email"
         value={form.email}
         onChange={handleChange}
-        label="Error"
         logo={<MdEmail />}
-        error="Email not valid"
         placeholder="Email"
+        variant="none"
       />
     </div>
   );

@@ -5,7 +5,7 @@ import { IoIosArrowBack } from "react-icons/io";
 
 import { getLastPath } from "@/lib/utils";
 
-//TODO make the navigation for pagination automate get the prev path and next path
+//TODO make the pagination automate get the prev path and next path
 export default function Pagination({ prev, next }: IPagination) {
   return (
     <div className="flex justify-between gap-5 my-5">
@@ -21,21 +21,19 @@ const BtnAction = ({ action, title }: IBtnAction) => {
     push(title);
   };
   return (
-    <button onClick={handleAction} className="group p-2 rounded-lg hover:bg-dark-500 transition-colors">
+    <button onClick={handleAction} className="pagination-action">
       {action === "next" ? (
-        <span className="flex items-center gap-2">
+        <span className="justify-end">
           <p>Next</p>
           <IoIosArrowBack className="rotate-180" />
         </span>
       ) : (
-        <span className="flex items-center gap-2">
+        <span>
           <IoIosArrowBack />
           <p>Previous</p>
         </span>
       )}
-      <p className="text-left w-full font-semibold text-light-700 text-20 capitalize">
-        {getLastPath(title)!.replace(/-/g, " ")}
-      </p>
+      <p>{getLastPath(title)!.replace(/-/g, " ")}</p>
     </button>
   );
 };

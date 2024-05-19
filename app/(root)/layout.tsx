@@ -1,8 +1,11 @@
-import MobileNav from "@/components/ui/MobileNav";
-import Sidebar from "@/components/ui/Sidebar";
-import { logo } from "@/lib/image";
 import Image from "next/image";
 import Link from "next/link";
+
+import MobileNav from "@/components/ui/MobileNav";
+import Sidebar from "@/components/ui/Sidebar";
+import Footer from "@/components/ui/Footer";
+
+import { logo } from "@/lib/image";
 
 export default function RootLayout({
   children,
@@ -19,7 +22,10 @@ export default function RootLayout({
           </Link>
           <MobileNav />
         </div>
-        <div className="p-5 animate-fade-in">{children}</div>
+          <div className="p-5 animate-fade-in h-svh overflow-y-auto custom-scrollbar">
+          {children}
+          <Footer />
+        </div>
       </div>
     </main>
   );
