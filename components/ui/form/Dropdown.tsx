@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -12,6 +13,7 @@ export default function DropDown({
   options,
   name,
   label,
+  labelSide = "top",
   value,
   placeholder = "Select",
   variant = "solid",
@@ -67,46 +69,49 @@ export default function DropDown({
 
   return (
     <div
-      className={`${className} input-parent-dropdown relative w-full`}
+      className={cn(`${className} flex w-full`, {
+        "items-center gap-2": labelSide === "left",
+        "flex-col": labelSide === "top",
+      })}
       ref={dropdownRef}
     >
       {label && (
-        <p className="!font-medium ">
+        <p
+          className={cn("input-label", {
+            "w-[80px]": labelSide === "left",
+          })}
+        >
           {label}
           {isRequired && "*"}
         </p>
       )}
-      <button
-        type="button"
-        className={`
-         flexBetween gap-2 truncate
-        ${inputClassName}
-        ${variantInput[variant]}
-        ${!value && "!text-light-900"}
-          `}
-        disabled={isDisabled}
-        onClick={() => setIsOpen(!isOpen)}
-        style={{ border: error && "1px solid #E11D48" }}
-      >
-        {value || placeholder}
-        <IoIosArrowDown className={`animation ${isOpen ? "rotate-180" : ""}`} />
-      </button>
+      <div className="relative w-full">
+        <button
+          type="button"
+          className={cn(
+            `flex justify-between items-center gap-2 truncate ${inputClassName} ${variantInput[variant]}`,
+            {
+              "!text-light-900": !value,
+              "border !border-red-500": error,
+            },
+          )}
+          disabled={isDisabled}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {value || placeholder}
+          <IoIosArrowDown
+            className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+          />
+        </button>
 
-      <p className="error-field">{error && error}</p>
+        <p className="input-error">{error && error}</p>
 
-      {isOpen && (
-        <div className="dropdown-content">
-          {isLoading && <div className="dropdown-loading" />}
-          <div
-            className="py-1"
-            role="menu"
-            aria-orientation="vertical"
-            aria-labelledby="options-menu"
-          >
+        {isOpen && (
+          <div className="dropdown-content">
+            {isLoading && <div className="dropdown-loading" />}
             {options?.map((option, index) => (
               <div
                 key={index}
-                className="dropdown-item"
                 onClick={() => handleSelect(option.value, option.label)}
                 role="menuitem"
               >
@@ -114,8 +119,8 @@ export default function DropDown({
               </div>
             ))}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

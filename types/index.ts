@@ -31,10 +31,10 @@ declare interface IDropDown {
     code?: string;
   }[];
   name: string;
-  label: string;
+  label?: string;
   labelSide?: "left" | "top";
   value: string;
-  setValue?: any;
+  setValue: any;
   placeholder?: string;
   onChange: any;
   isRequired?: boolean;

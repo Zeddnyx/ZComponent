@@ -65,5 +65,40 @@ export const sidebarItems: ISidebar[] = [
         href: ROUTES.tableUrl("table"),
       },
     ],
-  }
+  },
+];
+
+export const OPTOONS = [
+  {
+    label: "Jhon",
+    value: "232323jdwjwoe2",
+  },
+  {
+    label: "Alex",
+    value: "2i3jdwhsasswhhs",
+  },
+  {
+    label: "Lisa",
+    value: "232323jdwjwoe2",
+  },
+  {
+    label: "Brad",
+    value: "232323jdwjwoe2",
+  },
+  {
+    label: "Peep",
+    value: "232323jdwjwoe2",
+  },
+  {
+    label: "Doe",
+    value: "232323jdwjwoe2",
+  },
+  {
+    label: "Jhon Doe",
+    value: "232323jdwjwoe2",
+  },
+  {
+    label: "Bram",
+    value: "232323jdwjwoe2",
+  },
 ];

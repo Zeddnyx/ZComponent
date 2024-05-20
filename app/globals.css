@@ -177,6 +177,22 @@
 
   /* end FORM Input suggest */
 
+
+  /* FORM Dropwdown */
+  .dropdown-content {
+    @apply absolute top-12 z-10 w-full bg-dark-300 rounded-lg max-h-40 h-fit overflow-y-auto custom-scrollbar shadow;
+  }
+
+  .dropdown-loading {
+    @apply p-2 cursor-pointer;
+  }
+
+  .dropdown-content>div {
+    @apply p-2 cursor-pointer hover:bg-dark-500 transition-colors
+  }
+  /* end FORM Dropwdown */
+
+
   /* Pagination */
   .pagination-action {
     @apply p-2 rounded-lg hover:bg-dark-500 transition-colors;
@@ -194,5 +210,6 @@
   .pagination-action>p {
     @apply text-left w-full font-semibold text-light-600 text-14 md:text-16 capitalize;
   }
+
   /* end Pagination */
 }
