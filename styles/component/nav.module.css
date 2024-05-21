@@ -1,0 +1,19 @@
+.nav {
+  @apply w-full max-w-[164px] flex justify-end;
+}
+
+.navContent {
+  @apply bg-dark-200 flex flex-col items-start gap-5 p-5;
+}
+
+.navContentSidebar {
+  @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto;
+}
+
+.mobilenav-sheet_close {
+  @apply flex gap-3 flex-col items-center p-4 rounded-lg w-full max-w-60 h-full w-full;
+}
+
+.mobilenav-sheet_close>nav {
+  @apply flex flex-col gap-5 w-full pr-5
+}

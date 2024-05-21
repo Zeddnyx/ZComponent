@@ -4,10 +4,11 @@ import Link from "next/link";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./sheet";
 import { IoMdMenu } from "react-icons/io";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 import { sidebarItems } from "@/constants";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import styles from "@/styles/component/nav.module.css";
 
 export default function MobileNav() {
   const path = usePathname();
@@ -20,15 +21,12 @@ export default function MobileNav() {
   };
 
   return (
-    <section className="w-full max-w-[164px] flex justify-end">
+    <section className={styles.nav}>
       <Sheet>
         <SheetTrigger>
           <IoMdMenu className="text-light text-24" />
         </SheetTrigger>
-        <SheetContent
-          side="right"
-          className="bg-dark-300 flex flex-col items-start gap-5 p-5"
-        >
+        <SheetContent side="right" className={styles.navContent}>
           <Link href="/">
             <h1 className="font-bold text-24">ZComponent</h1>
           </Link>
@@ -42,7 +40,7 @@ export default function MobileNav() {
                     <div key={item.href}>
                       <div
                         className={cn(
-                          "sidebar-link hover:bg-primary group cursor-pointer transition-colors",
+                          "flex gap-3 py-1 md:p-3 2xl:p-4 rounded-[5px] items-center justify-start hover:bg-primary transition-colors cursor-pointer",
                         )}
                         onClick={() => handleParentClick(item.href)}
                       >
@@ -52,7 +50,7 @@ export default function MobileNav() {
                         </p>
                       </div>
                       <div
-                        className={cn("flex flex-col", {
+                        className={cn("flex flex-col gap-1", {
                           "my-2 ml-4 px-4 border-l border-dark-900":
                             isParentSelected,
                         })}
@@ -73,7 +71,7 @@ export default function MobileNav() {
                                   },
                                 )}
                               >
-                                <p className="capitalize text-start">
+                                <p className="capitalize text-start ">
                                   {child.title}
                                 </p>
                               </Link>

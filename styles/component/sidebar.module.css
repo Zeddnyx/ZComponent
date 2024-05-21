@@ -1,0 +1,35 @@
+.sidebarParent {
+  @apply h-screen w-96 2xl:w-[355px] bg-dark-200 max-lg:hidden;
+}
+
+.sidebarParent>a>div {
+  @apply p-5;
+}
+
+.sidebarParent>a>div>h1 {
+  @apply font-bold text-30 hover:text-primary transition-colors;
+}
+
+.sidebarParent>div {
+  @apply sticky left-0 bottom-0 flex h-[calc(100vh-72px)] w-full overflow-y-auto flex-col justify-between pt-8 text-light sm:p-4;
+}
+
+.sidebarParent>div>nav {
+  @apply flex flex-col gap-5;
+}
+
+.sidebarParent>div>nav>div>div:first-child {
+  @apply flex gap-3 py-1 md:p-3 2xl:p-4 rounded-[5px] justify-start hover:bg-primary transition-colors cursor-pointer;
+}
+
+.sidebarParent>div>nav>div>div:first-child>p {
+  @apply text-14 font-normal text-light-200 max-lg:hidden;
+}
+
+.sidebarParent>div>nav>div>div:last-child {
+  @apply flex flex-col gap-1 hidden;
+}
+
+.sidebarParent>div>nav>div>div:last-child>a {
+  @apply hover:bg-primary rounded-md p-3 text-light-200 text-sm;
+}

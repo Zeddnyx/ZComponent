@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { sidebarItems } from "@/constants";
+import styles from "@/styles/component/sidebar.module.css";
 
 export default function Sidebar() {
   const path = usePathname();
@@ -18,34 +19,32 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="h-screen w-96 2xl:w-[355px] bg-dark-300 max-lg:hidden ">
+    <div className={styles.sidebarParent}>
       <Link href="/">
-        <div className="p-5">
-          <h1 className="font-bold text-30">ZComponent</h1>
+        <div>
+          <h1>ZComponent</h1>
         </div>
       </Link>
-      <div className="sidebar">
-        <nav className="flex flex-col gap-5">
+      <div className="custom-scrollbar">
+        <nav>
           {sidebarItems.map((item) => {
             const isParentSelected = selectedParent?.includes(item.href);
 
             return (
               <div key={item.href}>
                 <div
-                  className="sidebar-link hover:bg-primary group cursor-pointer"
+                  className="group"
                   onClick={() => handleParentClick(item.href)}
                 >
                   <item.icon
-                    className={cn("group-hover:!text-light text-20", {
+                    className={cn("group-hover:!text-light", {
                       "!text-primary": isParentSelected,
                     })}
                   />
-                  <p className="sidebar-title group-hover:!text-light">
-                    {item.title}
-                  </p>
+                  <p className="group-hover:!text-light">{item.title}</p>
                 </div>
                 <div
-                  className={cn("flex flex-col gap-1 hidden", {
+                  className={cn({
                     "my-2 ml-4 px-4 border-l border-dark-900 !flex":
                       isParentSelected,
                   })}
@@ -58,12 +57,9 @@ export default function Sidebar() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className={cn(
-                            "hover:bg-primary rounded-md p-3 text-light-200 text-sm",
-                            {
-                              "bg-primary": isChildActive,
-                            },
-                          )}
+                          className={cn("", {
+                            "bg-primary": isChildActive,
+                          })}
                         >
                           <p className="capitalize">{child.title}</p>
                         </Link>

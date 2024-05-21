@@ -95,36 +95,12 @@
     @apply flex h-16 items-center justify-between p-5 shadow-md sm:p-8 lg:hidden;
   }
 
-  /* Mobile nav */
-  .mobilenav-sheet {
-    @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto custom-scrollbar;
-  }
-
-  .mobilenav-sheet_close {
-    @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-60;
-  }
 
   /* HOME */
   .home {
     @apply no-scrollbar h-svh w-full overflow-y-scroll;
   }
 
-  /* SIDEBAR */
-  .sidebar {
-    @apply sticky left-0 bottom-0 flex h-[calc(100vh-72px)] w-full overflow-y-auto custom-scrollbar custom-scrollbar flex-col justify-between pt-8 text-light sm:p-4;
-  }
-
-  .sidebar-logo {
-    @apply 2xl:text-26 text-[26px] font-bold text-dark-100 max-lg:hidden;
-  }
-
-  .sidebar-link {
-    @apply flex gap-3 py-1 md:p-3 2xl:p-4 rounded-[5px] justify-start;
-  }
-
-  .sidebar-title {
-    @apply text-14 font-normal text-light-200 max-lg:hidden;
-  }
 
   /* FORM */
   /* FORM Input */
