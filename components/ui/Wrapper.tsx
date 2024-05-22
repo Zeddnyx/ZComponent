@@ -1,3 +1,3 @@
 export default function Wrapper({ children }: { children: React.ReactNode }) {
-  return <div className="stripes diagonal mb-5 rounded-lg border border-dark-700 p-10">{children}</div>;
+  return <div className="mb-28 mt-5 rounded-lg border border-dark-700 p-20">{children}</div>;
 }

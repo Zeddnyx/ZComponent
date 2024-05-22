@@ -7,7 +7,7 @@
 }
 
 .sidebarParent>a>div>h1 {
-  @apply font-bold text-30 hover:text-primary transition-colors;
+  @apply font-bold text-[30px] leading-[38px] hover:text-primary transition-colors;
 }
 
 .sidebarParent>div {
@@ -23,7 +23,7 @@
 }
 
 .sidebarParent>div>nav>div>div:first-child>p {
-  @apply text-14 font-normal text-light-200 max-lg:hidden;
+  @apply text-[14px] leading-[20px] font-normal text-light-200 max-lg:hidden;
 }
 
 .sidebarParent>div>nav>div>div:last-child {

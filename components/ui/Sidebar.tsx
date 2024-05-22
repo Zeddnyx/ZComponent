@@ -45,7 +45,7 @@ export default function Sidebar() {
                 </div>
                 <div
                   className={cn({
-                    "my-2 ml-4 px-4 border-l border-dark-900 !flex":
+                    "my-2 ml-4 px-4 border-l border-dark-700 !flex":
                       isParentSelected,
                   })}
                 >

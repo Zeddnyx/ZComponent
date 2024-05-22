@@ -38,7 +38,7 @@
   @apply bg-dark-500;
   background-image: repeating-linear-gradient(45deg,
       transparent,
-      transparent 35px,
+      transparent 2px,
       rgba(33, 33, 33, 0.5) 5px,
       rgba(33, 33, 33, 0.5) 70px);
 }
