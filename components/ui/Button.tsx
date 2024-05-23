@@ -10,7 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses = {
-  solid: "input",
+  solid: "input !bg-dark-400",
   outline: "input-outline",
   none: "input-none",
   danger: "bg-red-500 hover:bg-red-600 text-white",
@@ -34,7 +34,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ref={ref}
       className={`
         transition-fill-colors flex items-center justify-center gap-2 font-medium duration-200
-        min-h-[38px] sm:h-9 rounded-lg py-1 px-4 md:px-5 text-sm
+        min-h-[38px] sm:h-9 rounded-lg py-1 px-4 md:px-5 text-sm hover:opacity-70
         ${isLoading || disabled
           ? "pointer-events-none cursor-not-allowed"
           : "pointer-events-auto cursor-pointer"

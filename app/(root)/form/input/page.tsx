@@ -10,11 +10,11 @@ export default function Page() {
   return (
     <div>
       <Title title="Input" subtitle="Input" />
-      <Wrapper>
+      <Wrapper className="md:px-40">
         <Input />
       </Wrapper>
       <Title  subtitle="Input Variant" />
-      <Wrapper>
+      <Wrapper className="md:px-40">
         <InputVariant />
       </Wrapper>
       <Pagination

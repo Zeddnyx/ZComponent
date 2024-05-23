@@ -22,7 +22,7 @@ export default function RootLayout({
           </Link>
           <MobileNav />
         </div>
-        <div className="p-10 pr-28 animate-fade-in h-svh overflow-y-auto no-scrollbar">
+        <div className="p-10 md:pr-28 animate-fade-in h-svh overflow-y-auto no-scrollbar">
           {children}
           <Footer />
         </div>
