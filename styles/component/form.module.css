@@ -1,0 +1,64 @@
+/* FORM Input */
+.inputLabel {
+  @apply block cursor-pointer pb-1.5 font-medium text-light/70 rtl:text-right text-14;
+}
+
+.inputLogo {
+  @apply pl-2 absolute left-0 top-0 bottom-0 flex items-center text-xl text-dark-700;
+}
+
+.inputLoading {
+  @apply absolute right-2 top-0 bottom-0 text-xs text-dark-700 flex items-center animate-spin text-lg;
+}
+
+.inputError {
+  @apply text-12 text-red-500 absolute -bottom-5;
+}
+
+.input {
+  @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-dark-200 border-[0.5px] border-dark-900;
+  @apply focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+}
+
+.inputOutline {
+  @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-transparent border-[0.5px] border-dark-900;
+  @apply focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+}
+
+.inputUnderline {
+  @apply !h-11 w-full appearance-none rounded-none px-2 py-2 pl-3 text-14 text-light bg-transparent border-b-[0.5px] border-dark-900;
+  @apply focus:outline-none placeholder:text-dark-700 focus:border-b-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+}
+
+.inputNone {
+  @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-transparent !border-0;
+  @apply focus:outline-none placeholder:text-dark-700 md:h-12 lg:px-3 xl:h-[50px];
+}
+
+/* end FORM Input */
+
+/* FORM Input suggest */
+.inputSuggest {
+  @apply absolute top-12 z-10 bg-white w-full max-h-40 h-fit overflow-y-auto shadow rounded-lg bg-dark-300 hidden;
+}
+
+.inputItemSuggest {
+  @apply !p-2 hover:bg-dark-700 w-full text-left;
+}
+
+/* end FORM Input suggest */
+
+/* FORM Dropwdown */
+.dropdownContent {
+  @apply absolute top-12 z-10 w-full bg-dark-300 rounded-lg max-h-40 h-fit overflow-y-auto shadow;
+}
+
+.dropdownContent>div {
+  @apply p-2 cursor-pointer hover:bg-dark-500 transition-colors;
+}
+
+.dropdownLoading {
+  @apply p-2 cursor-pointer;
+}
+
+/* end FORM Dropwdown */

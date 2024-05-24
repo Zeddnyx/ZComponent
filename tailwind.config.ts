@@ -53,6 +53,62 @@ const config = {
           950: "#2b2b2b",
         },
       },
+      fontSize: {
+        12: [
+          "11px",
+          {
+            lineHeight: "16px",
+          },
+        ],
+        14: [
+          "14px",
+          {
+            lineHeight: "20px",
+          },
+        ],
+        16: [
+          "16px",
+          {
+            lineHeight: "24px",
+          },
+        ],
+        18: [
+          "18px",
+          {
+            lineHeight: "24px",
+          },
+        ],
+        20: [
+          "20px",
+          {
+            lineHeight: "24px",
+          },
+        ],
+        24: [
+          "24px",
+          {
+            lineHeight: "30px",
+          },
+        ],
+        26: [
+          "26px",
+          {
+            lineHeight: "32px",
+          },
+        ],
+        30: [
+          "30px",
+          {
+            lineHeight: "36px",
+          },
+        ],
+        36: [
+          "36px",
+          {
+            lineHeight: "42px",
+          },
+        ]
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

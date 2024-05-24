@@ -50,45 +50,6 @@
 }
 
 @layer utilities {
-  .text-10 {
-    @apply text-[10px] leading-[14px];
-  }
-
-  .text-12 {
-    @apply text-[12px] leading-[16px];
-  }
-
-  .text-14 {
-    @apply text-[14px] leading-[20px];
-  }
-
-  .text-16 {
-    @apply text-[16px] leading-[24px];
-  }
-
-  .text-18 {
-    @apply text-[18px] leading-[22px];
-  }
-
-  .text-20 {
-    @apply text-[20px] leading-[24px];
-  }
-
-  .text-24 {
-    @apply text-[24px] leading-[30px];
-  }
-
-  .text-26 {
-    @apply text-[26px] leading-[32px];
-  }
-
-  .text-30 {
-    @apply text-[30px] leading-[38px];
-  }
-
-  .text-36 {
-    @apply text-[36px] leading-[44px];
-  }
 
   /* Root Layout */
   .root-layout {
@@ -99,72 +60,6 @@
   .home {
     @apply no-scrollbar h-svh w-full overflow-y-scroll;
   }
-
-  /* FORM */
-  /* FORM Input */
-  .input-label {
-    @apply block cursor-pointer pb-1.5 font-medium text-light/70 rtl:text-right text-14;
-  }
-
-  .input-logo {
-    @apply pl-2 absolute left-0 top-0 bottom-0 flex items-center text-xl text-dark-700;
-  }
-
-  .input-loading {
-    @apply absolute right-2 top-0 bottom-0 text-xs text-dark-700 flex items-center animate-spin text-lg;
-  }
-
-  .input-error {
-    @apply text-12 text-red-500 absolute -bottom-5;
-  }
-
-  .input {
-    @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-dark-200 border-[0.5px] border-dark-900;
-    @apply focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
-  }
-
-  .input-outline {
-    @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-transparent border-[0.5px] border-dark-900;
-    @apply focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
-  }
-
-  .input-underline {
-    @apply !h-11 w-full appearance-none rounded-none px-2 py-2 pl-3 text-14 text-light bg-transparent border-b-[0.5px] border-dark-900;
-    @apply focus:outline-none placeholder:text-dark-700 focus:border-b-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
-  }
-
-  .input-none {
-    @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-transparent !border-0;
-    @apply focus:outline-none placeholder:text-dark-700 md:h-12 lg:px-3 xl:h-[50px];
-  }
-
-  /* end FORM Input */
-
-  /* FORM Input suggest */
-  .input-parent-suggest {
-    @apply absolute top-12 z-10 bg-white w-full max-h-40 h-fit overflow-y-auto custom-scrollbar shadow rounded-lg bg-dark-300 hidden;
-  }
-
-  .input-item-suggest {
-    @apply !p-2 hover:bg-dark-700 w-full text-left;
-  }
-
-  /* end FORM Input suggest */
-
-  /* FORM Dropwdown */
-  .dropdown-content {
-    @apply absolute top-12 z-10 w-full bg-dark-300 rounded-lg max-h-40 h-fit overflow-y-auto custom-scrollbar shadow;
-  }
-
-  .dropdown-loading {
-    @apply p-2 cursor-pointer;
-  }
-
-  .dropdown-content>div {
-    @apply p-2 cursor-pointer hover:bg-dark-500 transition-colors;
-  }
-
-  /* end FORM Dropwdown */
 
   /* Pagination */
   .pagination-action {
@@ -182,6 +77,10 @@
   /* title */
   .pagination-action>p {
     @apply text-left w-full font-semibold text-light-600 text-14 md:text-16 capitalize;
+  }
+
+  .btn-global {
+    @apply transition-colors flex items-center justify-center gap-2 font-medium duration-200 min-h-[38px] sm:h-9 rounded-lg py-1 px-4 md:px-5 text-sm hover:opacity-70;
   }
 
   /* end Pagination */

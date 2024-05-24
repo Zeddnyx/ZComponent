@@ -2,12 +2,13 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
+import styles from "@/styles/component/form.module.css";
 
 const variantInput = {
-  solid: "input",
-  outline: "input-outline",
-  underline: "input-underline",
-  none: "input-none",
+  solid: styles.input,
+  outline: styles.inputOutline,
+  underline: styles.inputUnderline,
+  none: styles.inputNone,
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -39,7 +40,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         >
           {label && (
             <span
-              className={cn("input-label", {
+              className={cn(styles.inputLabel, {
                 "!text-red-500": error,
                 "w-[80px]": labelSide === "left",
               })}
@@ -48,7 +49,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             </span>
           )}
           <span className="flex relative w-full">
-            <span className={cn("input-logo", { "!text-red-500": error })}>
+            <span className={cn(styles.inputLogo, { "!text-red-500": error })}>
               {logo && logo}
             </span>
             <input
@@ -64,14 +65,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               disabled={disabled}
             />
             {isLoading && (
-              <span className="input-loading">
+              <span className={styles.inputLoading}>
                 <AiOutlineLoading3Quarters />
               </span>
             )}
           </span>
         </label>
         {error && (
-          <span role="alert" className="input-error">
+          <span role="alert" className={styles.inputError}>
             {error}
           </span>
         )}

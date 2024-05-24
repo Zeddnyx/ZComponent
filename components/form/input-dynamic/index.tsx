@@ -41,8 +41,9 @@ export default function Index() {
             value={item.name}
             onChange={(e) => handleChange(e, id)}
             placeholder="type something here..."
+            className="w-full"
           />
-          {id > 0 && (
+          {id > 0 && !item.name  && (
             <Button
               onClick={() => handleAction(id, "delete")}
               text={<MdDelete size={20} />}
@@ -53,7 +54,7 @@ export default function Index() {
             <Button
               onClick={() => handleAction(id, "add")}
               text={<MdOutlineAdd size={20} />}
-              className="!px-3"
+              className="!px-3 !w-fit"
             />
           )}
         </div>

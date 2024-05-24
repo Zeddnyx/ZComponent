@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import styles from "@/styles/component/form.module.css";
 
 const variantInput = {
-  solid: "input",
-  outline: "input-outline",
-  underline: "input-underline",
-  none: "input-none",
+  solid: styles.input,
+  outline: styles.inputOutline,
+  underline: styles.inputUnderline,
+  none: styles.inputNone,
 };
 
 export default function DropDown({
@@ -77,7 +78,7 @@ export default function DropDown({
     >
       {label && (
         <p
-          className={cn("input-label", {
+          className={cn(styles.inputLabel, {
             "w-[80px]": labelSide === "left",
           })}
         >
@@ -104,10 +105,10 @@ export default function DropDown({
           />
         </button>
 
-        <p className="input-error">{error && error}</p>
+        <p className={styles.inputError}>{error && error}</p>
 
         {isOpen && (
-          <div className="dropdown-content">
+          <div className={`${styles.dropdownContent} custom-scrollbar`}>
             {isLoading && <div className="dropdown-loading" />}
             {options?.map((option, index) => (
               <div
