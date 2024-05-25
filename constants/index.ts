@@ -4,7 +4,7 @@ import { GoTable } from "react-icons/go";
 
 import { ROUTES } from "@/configs/routes";
 
-export const sidebarItems: ISidebar[] = [
+export const SIDEBAR_ITEMS: ISidebar[] = [
   {
     icon: AiOutlineForm,
     title: "Form",
@@ -101,4 +101,33 @@ export const OPTOONS = [
     label: "Bram",
     value: "232323jdwjwoe2",
   },
+];
+
+export const RANDOM_NAME = [
+  "Alice",
+  "Bob",
+  "Charlie",
+  "David",
+  "Emma",
+  "Fiona",
+  "George",
+  "Hannah",
+  "Isla",
+  "Jack",
+  "Kara",
+  "Liam",
+  "Mia",
+  "Noah",
+  "Olivia",
+  "Paul",
+  "Quinn",
+  "Ryan",
+  "Sophia",
+  "Tom",
+  "Uma",
+  "Victor",
+  "Wendy",
+  "Xander",
+  "Yara",
+  "Zane",
 ];

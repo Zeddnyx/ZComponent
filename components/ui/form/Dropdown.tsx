@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "@/styles/component/form.module.css";
+import useClickOutside from "@/hooks/useClickOutside";
 
 const variantInput = {
   solid: styles.input,
@@ -36,37 +37,7 @@ export default function DropDown({
     setIsOpen(false);
   };
 
-  const handleEscape = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      setIsOpen(false);
-    }
-  };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
-    ) {
-      setIsOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleEscape);
-
-    return () => {
-      window.removeEventListener("keydown", handleEscape);
-    };
-  }, []);
-  useEffect(() => {
-    window.addEventListener("keydown", handleEscape);
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      window.removeEventListener("keydown", handleEscape);
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  useClickOutside(setIsOpen, dropdownRef);
 
   return (
     <div

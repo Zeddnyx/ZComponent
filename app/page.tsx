@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 
 export default function Page() {
   return (
-    <div className="max-w-[1400px] mx-auto px-5 flex flex-col justify-center gap-4 h-dvh">
+    <div className="max-w-[1400px] mx-auto px-5 flex flex-col justify-center gap-4 h-dvh animate-fade-in8">
       <h1>ZComponent</h1>
       <h2 className="text-5xl xl:text-7xl font-bold  md:w-9/12">
         The alternative component with less third-party dependencies

@@ -30,7 +30,7 @@ const BtnAction = ({ action, title }: IBtnAction) => {
       ) : (
         <span>
           <IoIosArrowBack />
-          <p>Previous</p>
+          <p>Prev</p>
         </span>
       )}
       <p>{getLastPath(title)!.replace(/-/g, " ")}</p>

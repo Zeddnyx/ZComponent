@@ -5,9 +5,31 @@ interface ISuggest {
   data: string[];
   isOpen: boolean;
   onClick: (value: string) => void;
+  searchValue: string;
 }
 
-export default function SuggestList({ data, isOpen, onClick }: ISuggest) {
+export default function SuggestList({
+  data,
+  isOpen,
+  onClick,
+  searchValue,
+}: ISuggest) {
+  const highlightText = (text: string, highlight: string) => {
+    const parts = text.split(new RegExp(`(${highlight})`, "gi"));
+    return (
+      <>
+        {parts.map((part, index) =>
+          part.toLowerCase() === highlight.toLowerCase() ? (
+            <span key={index} style={{ fontWeight: "bold" }}>
+              {part}
+            </span>
+          ) : (
+            part
+          ),
+        )}
+      </>
+    );
+  };
 
   return (
     <div
@@ -23,7 +45,7 @@ export default function SuggestList({ data, isOpen, onClick }: ISuggest) {
             onClick={() => onClick(item)}
             key={id}
           >
-            {item}
+            {highlightText(item, searchValue)}
           </button>
         );
       })}

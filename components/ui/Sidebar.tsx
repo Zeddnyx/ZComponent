@@ -5,14 +5,14 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { sidebarItems } from "@/constants";
+import { SIDEBAR_ITEMS } from "@/constants";
 import styles from "@/styles/component/sidebar.module.css";
 
 export default function Sidebar() {
   const path = usePathname();
   const [selectedParent, setSelectedParent] = useState<
     string[] | string | null
-  >(sidebarItems.map((item) => item.href));
+  >(SIDEBAR_ITEMS.map((item) => item.href));
 
   const handleParentClick = (href: string) => {
     setSelectedParent(selectedParent === href ? null : href);
@@ -27,7 +27,7 @@ export default function Sidebar() {
       </Link>
       <div className="custom-scrollbar">
         <nav>
-          {sidebarItems.map((item) => {
+          {SIDEBAR_ITEMS.map((item) => {
             const isParentSelected = selectedParent?.includes(item.href);
 
             return (

@@ -39,13 +39,13 @@
   background-image: repeating-linear-gradient(45deg,
       transparent,
       transparent 2px,
-      rgba(33, 33, 33, 0.5) 5px,
-      rgba(33, 33, 33, 0.5) 70px);
+      #212121 2px,
+      #212121 70px);
 }
 
 @layer base {
   body {
-    @apply bg-dark-200 text-light-200;
+    @apply bg-dark-200 text-light-200 font-mono;
   }
 }
 
@@ -71,7 +71,7 @@
   }
 
   .pagination-action>span>p {
-    @apply text-12 md:text-14;
+    @apply text-14;
   }
 
   /* title */

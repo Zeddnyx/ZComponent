@@ -6,7 +6,7 @@ import { IoMdMenu } from "react-icons/io";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { sidebarItems } from "@/constants";
+import { SIDEBAR_ITEMS } from "@/constants";
 import { cn } from "@/lib/utils";
 import styles from "@/styles/component/nav.module.css";
 
@@ -14,7 +14,7 @@ export default function MobileNav() {
   const path = usePathname();
   const [selectedParent, setSelectedParent] = useState<
     string[] | string | null
-  >(sidebarItems.map((item) => item.href));
+  >(SIDEBAR_ITEMS.map((item) => item.href));
 
   const handleParentClick = (href: string) => {
     setSelectedParent(selectedParent === href ? null : href);
@@ -33,7 +33,7 @@ export default function MobileNav() {
           <div className="mobilenav-sheet w-full">
             <SheetClose className="flex h-full flex-col w-full">
               <nav className="flex flex-col gap-5 w-full pr-5">
-                {sidebarItems.map((item) => {
+                {SIDEBAR_ITEMS.map((item) => {
                   const isParentSelected = selectedParent?.includes(item.href);
 
                   return (

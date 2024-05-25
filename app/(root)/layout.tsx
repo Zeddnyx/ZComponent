@@ -18,11 +18,11 @@ export default function RootLayout({
       <div className="flex size-full flex-col">
         <div className="root-layout">
           <Link href="/">
-            <Image src={logo} alt="logo" width={100} height={100} />
+            <h1 className="font-bold text-24">ZComponent</h1>
           </Link>
           <MobileNav />
         </div>
-        <div className="p-10 md:pr-28 animate-fade-in h-svh overflow-y-auto no-scrollbar">
+        <div className=" p-5 sm:p-10 h-svh w-full xl:w-[calc(90vw-500px)] animate-fade-in overflow-y-auto no-scrollbar">
           {children}
           <Footer />
         </div>

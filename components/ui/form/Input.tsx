@@ -12,24 +12,22 @@ const variantInput = {
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      label,
-      labelSide = "top",
-      error,
-      type = "text",
-      className,
-      isLoading = false,
-      isRequired = false,
-      onChange,
-      inputClassName,
-      logo,
-      disabled,
-      variant = "solid",
-      ...props
-    },
+  ({
+    label,
+    labelSide = "top",
+    error,
+    type = "text",
+    className,
+    isLoading = false,
+    isRequired = false,
+    onChange,
+    inputClassName,
+    logo,
+    disabled,
+    variant = "solid",
     ref,
-  ) => {
+    ...props
+  }) => {
     return (
       <div className={`${className} relative`}>
         <label

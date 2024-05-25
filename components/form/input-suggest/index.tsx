@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { KEYBOARD } from "@/configs/keyboard";
+import { RANDOM_NAME } from "@/constants";
 
 import Input from "@/components/ui/form/Input";
 import SuggestList from "./SuggestList";
+import useClickOutside from "@/hooks/useClickOutside";
 
 export default function Index() {
+  const inputRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [datas, setDatas] = useState<string[] | any>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +19,7 @@ export default function Index() {
     asyncName: "",
   });
 
-  const filterData = data.filter((item) => {
+  const filterData = RANDOM_NAME.filter((item) => {
     return item.toLowerCase().includes(form.name.toLowerCase());
   });
   const filterDataAsync = datas.filter((item: string) => {
@@ -28,7 +31,7 @@ export default function Index() {
       event.key === KEYBOARD.ESCAPE && setIsOpen(false);
       if (event.key === KEYBOARD.ENTER) {
         const firstItem = filterData[0];
-        setForm({ ...form, name: firstItem });
+        setForm({ ...form, name: firstItem, asyncName: firstItem });
         setIsOpen(false);
         setDatas([]);
       }
@@ -48,7 +51,7 @@ export default function Index() {
   const fetchData = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(data);
+        resolve(RANDOM_NAME);
       }, 2000);
     });
   };
@@ -64,8 +67,10 @@ export default function Index() {
     }
   };
 
+  useClickOutside(setIsOpen, inputRef);
+
   return (
-    <div className="flex flex-col gap-4 ">
+    <div className="flex flex-col gap-4 " ref={inputRef}>
       <div className="relative">
         <Input
           name="name"
@@ -78,6 +83,7 @@ export default function Index() {
           data={filterData}
           isOpen={isOpen}
           onClick={(value) => handleClick(value)}
+          searchValue={form.name}
         />
       </div>
 
@@ -94,10 +100,9 @@ export default function Index() {
           data={filterDataAsync}
           isOpen={datas.length > 0 && !isLoading}
           onClick={(value) => handleClick(value)}
+          searchValue={form.name}
         />
       </div>
     </div>
   );
 }
-
-const data = ["Jhon", "Doe", "Em", "Lil Peep", "21 Savage", "Harry Mack"];

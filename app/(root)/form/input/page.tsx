@@ -10,15 +10,15 @@ export default function Page() {
   return (
     <div>
       <Title title="Input" subtitle="Input" />
-      <Wrapper className="md:px-40">
+      <Wrapper>
         <Input />
       </Wrapper>
-      <Title  subtitle="Input Variant" />
-      <Wrapper className="md:px-40">
+      <Title subtitle="Input Variant" />
+      <Wrapper>
         <InputVariant />
       </Wrapper>
       <Pagination
-        prev={ROUTES.formUrl("input")}
+        prev={ROUTES.formUrl("/")}
         next={ROUTES.formUrl("input-suggest")}
       />
     </div>
