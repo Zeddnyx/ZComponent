@@ -40,7 +40,7 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
       },
       {
         title: "Otp",
-        href: ROUTES.formUrl("radio"),
+        href: ROUTES.formUrl("otp"),
       },
     ],
   },

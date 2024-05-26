@@ -22,7 +22,7 @@ export default function RootLayout({
           </Link>
           <MobileNav />
         </div>
-        <div className=" p-5 sm:p-10 h-svh w-full xl:w-[calc(90vw-500px)] animate-fade-in overflow-y-auto no-scrollbar">
+        <div className=" p-5 sm:p-10 h-svh w-full xl:w-[calc(90vw-500px)] animate-fade-in overflow-y-auto no-scrollbar animate-fade-in8">
           {children}
           <Footer />
         </div>

@@ -61,4 +61,33 @@
   @apply p-2 cursor-pointer;
 }
 
+.btnDanger {
+  @apply bg-red-500 hover:bg-red-600 text-white !px-3 border border-dark-900;
+}
+
 /* end FORM Dropwdown */
+
+/* FORM OTP */
+/* TODO make a width the first input same as other if using divide */
+.otp {
+  @apply flex items-center gap-2;
+}
+
+.otp>div {
+  @apply w-full flex items-center justify-center gap-2;
+}
+
+/* .otp>div:first-child { */
+/*   @apply flex items-end justify-end; */
+/* } */
+
+/* .otp>div>div:not(:last-child) { style all div except last div */
+.otp>div>div {
+  @apply h-0.5 w-full bg-dark-900;
+}
+
+.otp>div>input {
+  @apply w-full font-bold text-center;
+}
+
+/* end FORM OTP */

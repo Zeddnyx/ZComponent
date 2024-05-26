@@ -24,6 +24,7 @@ const config = {
       colors: {
         primary: "#24b47e",
         primary_dark: "#00997B",
+        danger: "#EB5757",
 
         light: {
           DEFAULT: "#ffffff",

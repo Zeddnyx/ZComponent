@@ -3,7 +3,6 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-# Prompt for a commit message
 echo ""
 read -p "Enter commit message: " commit_message
 read -p "Which branch?: " branch

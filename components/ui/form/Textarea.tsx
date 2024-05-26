@@ -1,5 +1,4 @@
 "use client";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import styles from "@/styles/component/form.module.css";
@@ -11,12 +10,11 @@ const variantInput = {
   none: styles.inputNone,
 };
 
-const Input = forwardRef<HTMLInputElement, IInput>(
+const Input = forwardRef<any, IInput>(
   ({
     label,
     labelSide = "top",
     error,
-    type = "text",
     className,
     isLoading = false,
     isRequired = false,
@@ -49,10 +47,8 @@ const Input = forwardRef<HTMLInputElement, IInput>(
             <span className={cn(styles.inputLogo, { "!text-red-500": error })}>
               {logo && logo}
             </span>
-            <input
-              type={type}
+            <textarea
               {...props}
-              onChange={onChange}
               className={cn(`${variantInput[variant]} ${inputClassName}`, {
                 "opacity-50 cursor-not-allowed": disabled,
                 "!pl-8": logo,
@@ -60,11 +56,6 @@ const Input = forwardRef<HTMLInputElement, IInput>(
               })}
               disabled={disabled}
             />
-            {isLoading && (
-              <span className={styles.inputLoading}>
-                <AiOutlineLoading3Quarters />
-              </span>
-            )}
           </span>
         </label>
         {error && (
