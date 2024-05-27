@@ -51,7 +51,7 @@ export default function Otp({
               disabled={disabled}
               onChange={handleChange}
               onKeyDown={(e) => handleKeyDown(e, id)}
-              className={cn(`${styles.input} ${className}`, {
+              className={cn(`${styles.inputDefault} ${styles.inputSolid} ${className}`, {
                 "border-primary": id === current,
                 "!border-danger": isError,
                 "!border-primary": isCorrect,

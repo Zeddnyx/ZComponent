@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import styles from "@/styles/component/form.module.css";
 
 const variantInput = {
-  solid: styles.input,
+  solid: styles.inputSolid,
   outline: styles.inputOutline,
   underline: styles.inputUnderline,
   none: styles.inputNone,
@@ -53,7 +53,7 @@ const Input = forwardRef<HTMLInputElement, IInput>(
               type={type}
               {...props}
               onChange={onChange}
-              className={cn(`${variantInput[variant]} ${inputClassName}`, {
+              className={cn(`${variantInput[variant]} ${styles.inputDefault} ${inputClassName}`, {
                 "opacity-50 cursor-not-allowed": disabled,
                 "!pl-8": logo,
                 "border !border-red-500": error,

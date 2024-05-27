@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, DM_Mono } from "next/font/google";
+import {  DM_Mono } from "next/font/google";
 import "./globals.css";
 import "@/styles/component/sidebar.module.css";
 import "@/styles/component/nav.module.css";

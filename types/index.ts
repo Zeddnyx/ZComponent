@@ -74,7 +74,8 @@ declare interface IButton
   disabled?: boolean;
   className?: string;
   variant?: "text" | "outline" | "solid" | "danger";
-  text?: string | React.ReactNode;
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  text: string | React.ReactNode;
   href?: string;
 }
 

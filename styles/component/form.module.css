@@ -15,24 +15,24 @@
   @apply text-12 text-red-500 absolute -bottom-5;
 }
 
-.input {
-  @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-dark-200 border-[0.5px] border-dark-900;
-  @apply focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+.inputDefault {
+  @apply h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px] ;
+}
+
+.inputSolid {
+  @apply bg-dark-200;
 }
 
 .inputOutline {
-  @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-transparent border-[0.5px] border-dark-900;
-  @apply focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+  @apply bg-transparent;
 }
 
 .inputUnderline {
-  @apply !h-11 w-full appearance-none rounded-none px-2 py-2 pl-3 text-14 text-light bg-transparent border-b-[0.5px] border-dark-900;
-  @apply focus:outline-none placeholder:text-dark-700 focus:border-b-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px];
+  @apply bg-transparent border-0 border-b-[0.5px] border-dark-900;
 }
 
 .inputNone {
-  @apply !h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light bg-transparent !border-0;
-  @apply focus:outline-none placeholder:text-dark-700 md:h-12 lg:px-3 xl:h-[50px];
+  @apply bg-transparent !border-0;
 }
 
 /* end FORM Input */
@@ -61,9 +61,6 @@
   @apply p-2 cursor-pointer;
 }
 
-.btnDanger {
-  @apply bg-red-500 hover:bg-red-600 text-white !px-3 border border-dark-900;
-}
 
 /* end FORM Dropwdown */
 
@@ -91,3 +88,4 @@
 }
 
 /* end FORM OTP */
+

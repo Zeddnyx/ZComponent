@@ -79,7 +79,7 @@ input[type="checkbox"]::before {
 
   /* Pagination */
   .pagination-action {
-    @apply p-2 rounded-lg hover:bg-dark-500 transition-colors;
+    @apply p-2 rounded-lg hover:bg-dark-400 transition-colors;
   }
 
   .pagination-action>span {

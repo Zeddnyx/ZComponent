@@ -19,7 +19,7 @@ export default function Page() {
           variant="outline"
           href="https://github.com/Zeddnyx/ZComponent"
           text={
-            <p className="flex items-center gap-2">
+            <p className="flex items-center gap-2 justify-center">
               See on GitHub <FaGithub className="size-5" />
             </p>
           }

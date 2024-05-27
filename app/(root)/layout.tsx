@@ -1,11 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import MobileNav from "@/components/ui/MobileNav";
 import Sidebar from "@/components/ui/Sidebar";
 import Footer from "@/components/ui/Footer";
-
-import { logo } from "@/lib/image";
 
 export default function RootLayout({
   children,
@@ -22,7 +19,7 @@ export default function RootLayout({
           </Link>
           <MobileNav />
         </div>
-        <div className=" p-5 sm:p-10 h-svh w-full xl:w-[calc(90vw-500px)] animate-fade-in overflow-y-auto no-scrollbar animate-fade-in8">
+        <div className=" p-5 sm:p-10 h-svh w-full xl:w-[calc(90vw-500px)] 2xl:w-full animate-fade-in overflow-y-auto no-scrollbar animate-fade-in8">
           {children}
           <Footer />
         </div>
