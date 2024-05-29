@@ -63,11 +63,6 @@ input[type="checkbox"]::before {
 
 @layer utilities {
 
-  /* Root Layout */
-  .root-layout {
-    @apply flex h-16 items-center justify-between p-5 shadow-md sm:p-8 lg:hidden;
-  }
-
   /* HOME */
   .home {
     @apply no-scrollbar h-svh w-full overflow-y-scroll;

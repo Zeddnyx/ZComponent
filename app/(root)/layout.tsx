@@ -3,6 +3,7 @@ import Link from "next/link";
 import MobileNav from "@/components/ui/MobileNav";
 import Sidebar from "@/components/ui/Sidebar";
 import Footer from "@/components/ui/Footer";
+import styles from "@/styles/component/layout.module.css";
 
 export default function RootLayout({
   children,
@@ -10,16 +11,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex h-screen max-w-7xl mx-auto overflow-hidden">
+    <main className={styles.layout}>
       <Sidebar />
-      <div className="flex size-full flex-col">
-        <div className="root-layout">
+      <div className={styles.main}>
+        <div>
           <Link href="/">
             <h1 className="font-bold text-24">ZComponent</h1>
           </Link>
           <MobileNav />
         </div>
-        <div className=" p-5 sm:p-10 h-svh w-full xl:w-[calc(90vw-500px)] 2xl:w-full animate-fade-in overflow-y-auto no-scrollbar animate-fade-in8">
+        <div className="no-scrollbar ">
           {children}
           <Footer />
         </div>

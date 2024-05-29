@@ -1,4 +1,4 @@
-import Textarea from "@/components/form/input-textarea";
+import Textarea from "@/components/form/textarea";
 import Pagination from "@/components/ui/Pagination";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
