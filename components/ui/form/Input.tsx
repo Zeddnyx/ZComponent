@@ -27,6 +27,9 @@ const Input = forwardRef<HTMLInputElement, IInput>(
     variant = "solid",
     ...props
   }) => {
+
+    // TODO add props isUnderline for remove padding left
+
     return (
       <div className={`${className} relative`}>
         <label
@@ -46,16 +49,21 @@ const Input = forwardRef<HTMLInputElement, IInput>(
             </span>
           )}
           <span className="flex relative w-full">
-            <span className={cn(styles.inputLogo, { "!text-red-500": error })}>
+            <span
+              className={cn(styles.inputLogo, {
+                "!text-red-500": error,
+              })}
+            >
               {logo && logo}
             </span>
             <input
               type={type}
               {...props}
               onChange={onChange}
-              className={cn(`${variantInput[variant]} ${styles.inputDefault} ${inputClassName}`, {
+              className={cn(`${variantInput[variant]} ${styles.inputDefault}`, {
+                inputClassName,
                 "opacity-50 cursor-not-allowed": disabled,
-                "!pl-8": logo,
+                "!pl-8":logo,
                 "border !border-red-500": error,
               })}
               disabled={disabled}

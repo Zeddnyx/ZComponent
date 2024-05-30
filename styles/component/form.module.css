@@ -16,7 +16,7 @@
 }
 
 .inputDefault {
-  @apply h-11 w-full appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-12 lg:px-3 xl:h-[50px] ;
+  @apply h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-11 xl:h-[50px] ;
 }
 
 .inputSolid {
@@ -28,7 +28,7 @@
 }
 
 .inputUnderline {
-  @apply bg-transparent border-0 border-b-[0.5px] border-dark-900;
+  @apply bg-transparent rounded-none border-0 border-b-[0.5px] border-dark-900 focus:outline-none focus:border-0 focus:border-b-[0.5px] focus:border-primary; 
 }
 
 .inputNone {

@@ -44,6 +44,15 @@ export default function Index() {
         name="name"
         value={form.name}
         onChange={handleChange}
+        placeholder="Name"
+        variant="underline"
+      />
+      <Input
+        labelSide="left"
+        label="Underline"
+        name="name"
+        value={form.name}
+        onChange={handleChange}
         logo={<IoPersonSharp />}
         placeholder="Name"
         variant="underline"
@@ -56,6 +65,16 @@ export default function Index() {
         value={form.email}
         onChange={handleChange}
         logo={<MdEmail />}
+        placeholder="Email"
+        variant="none"
+      />
+      <Input
+        labelSide="left"
+        label="None"
+        name="email"
+        type="email"
+        value={form.email}
+        onChange={handleChange}
         placeholder="Email"
         variant="none"
       />
