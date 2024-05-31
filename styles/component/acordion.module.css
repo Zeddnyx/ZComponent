@@ -1,0 +1,23 @@
+.acordionSolid {
+  @apply bg-dark-300 rounded-lg;
+}
+
+.acordionUnderline>button:first-child {
+  @apply border-b border-dark-800;
+}
+
+.acordion{
+  @apply p-2
+}
+
+.acordion>button:first-child {
+  @apply flex justify-between items-center w-full;
+}
+
+.acordion>button:first-child>* {
+  @apply transition-all duration-300;
+}
+
+.acordion>div:nth-child(2) {
+  @apply transition-all duration-300 ease-in-out overflow-hidden;
+}

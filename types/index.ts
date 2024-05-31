@@ -79,6 +79,12 @@ declare interface IButton
   href?: string;
 }
 
+declare interface IAcordion {
+  title: string | React.ReactNode;
+  children: React.ReactNode;
+  variant?: "solid" | "underline" | "none";
+}
+
 // Pagination
 declare interface IPagination {
   prev: string;

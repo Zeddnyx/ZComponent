@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/component/Button";
 
 export default function Page() {
   return (

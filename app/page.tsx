@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/component/Button";
 import { FaGithub } from "react-icons/fa";
 
 export default function Page() {

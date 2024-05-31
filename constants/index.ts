@@ -1,6 +1,5 @@
 import { AiOutlineForm } from "react-icons/ai";
-import { RxButton } from "react-icons/rx";
-import { GoTable } from "react-icons/go";
+import { BiSolidComponent } from "react-icons/bi";
 
 import { ROUTES } from "@/configs/routes";
 
@@ -45,24 +44,25 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
     ],
   },
   {
-    icon: RxButton,
-    title: "Button",
-    href: "/button",
+    icon: BiSolidComponent,
+    title: "Component",
+    href: "/component",
     children: [
+      {
+        title: "acordion",
+        href: ROUTES.componentUrl("acordion"),
+      },
       {
         title: "button",
-        href: ROUTES.buttonUrl("button"),
+        href: ROUTES.componentUrl("button"),
       },
-    ],
-  },
-  {
-    icon: GoTable,
-    title: "Table",
-    href: "/table",
-    children: [
       {
         title: "table",
-        href: ROUTES.tableUrl("table"),
+        href: ROUTES.componentUrl("table"),
+      },
+      {
+        title: "modal",
+        href: ROUTES.componentUrl("modal"),
       },
     ],
   },
