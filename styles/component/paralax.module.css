@@ -1,13 +1,13 @@
 .paralax {
-  @apply w-full h-[calc(100vh-250px)] overflow-y-auto sticky top-0;
+  @apply w-full h-[calc(100vh-450px)] md:h-[calc(100vh-250px)] overflow-y-auto sticky top-0 snap-y snap-mandatory;
 }
 
 .paralax>div{
-  @apply sticky top-0;
+  @apply sticky top-0 snap-start snap-always;
 }
 
 .paralax>div>img {
-  @apply h-[calc(100vh-250px)] w-full;
+  @apply h-[calc(100vh-450px)] md:h-[calc(100vh-250px)] w-full object-cover object-center rounded-md;
 }
 
 .paralaxWithContent {

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Index() {
   return (
-    <div className={`${styles.paralax} custom-scrollbar`}>
+    <div className={`${styles.paralax} no-scrollbar`}>
       {randomItems.map((item, id) => {
         return (
           <div className={styles.paralaxWithContent} key={id}>
