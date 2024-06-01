@@ -64,42 +64,54 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
         title: "modal",
         href: ROUTES.componentUrl("modal"),
       },
+      {
+        title: "paralax",
+        href: ROUTES.componentUrl("paralax"),
+      },
     ],
   },
 ];
 
 export const OPTOONS = [
   {
-    label: "Jhon",
-    value: "232323jdwjwoe2",
+    label: "Reading",
+    value: "reading",
   },
   {
-    label: "Alex",
-    value: "2i3jdwhsasswhhs",
+    label: "Gardening",
+    value: "gardening",
   },
   {
-    label: "Lisa",
-    value: "232323jdwjwoe2",
+    label: "Photography",
+    value: "photography",
   },
   {
-    label: "Brad",
-    value: "232323jdwjwoe2",
+    label: "Cooking",
+    value: "cooking",
   },
   {
-    label: "Peep",
-    value: "232323jdwjwoe2",
+    label: "Traveling",
+    value: "traveling",
   },
   {
-    label: "Doe",
-    value: "232323jdwjwoe2",
+    label: "Fishing",
+    value: "fishing",
   },
   {
-    label: "Jhon Doe",
-    value: "232323jdwjwoe2",
+    label: "Drawing",
+    value: "drawing",
   },
   {
-    label: "Bram",
-    value: "232323jdwjwoe2",
+    label: "Cycling",
+    value: "cycling",
+  },
+  {
+    label: "Knitting",
+    value: "knitting",
+  },
+  {
+    label: "Hiking",
+    value: "hiking",
   },
 ];
 
@@ -130,4 +142,34 @@ export const RANDOM_NAME = [
   "Xander",
   "Yara",
   "Zane",
+];
+
+export const randomItems = [
+  {
+    title: "First Item",
+    image: "https://source.unsplash.com/random/800x450?sunny,orange",
+    description:
+      "This is the description for the first item. Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit",
+  },
+  {
+    title: "Second Item",
+    image: "https://source.unsplash.com/random/800x450?city,night",
+    description: "This is the description for the second item.",
+  },
+  {
+    title: "Third Item",
+    image: "https://source.unsplash.com/random/800x450?dark,green",
+    description: "This is the description for the third item.",
+  },
+  {
+    title: "Fourth Item",
+    image: "https://source.unsplash.com/random/800x450?nature,water",
+    description: "This is the description for the fourth item.",
+  },
+  {
+    title: "Fifth Item",
+    image: "https://source.unsplash.com/random/800x450?space,dark",
+    description:
+      "This is the description for the first item. Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit",
+  },
 ];
