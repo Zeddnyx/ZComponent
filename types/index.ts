@@ -94,3 +94,25 @@ declare interface IBtnAction {
   action: "prev" | "next";
   title: string;
 }
+
+interface IModal {
+  children: React.ReactNode;
+  text: React.ReactNode | string;
+  title?: React.ReactNode | string;
+  outsideClickable?: boolean;
+  autoOpen?: boolean;
+  classNameDrawer?: string;
+  classNameHeader?: string;
+  className?: string;
+}
+interface IModalItem {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  children: React.ReactNode;
+  classNameDrawer?: string;
+  classNameHeader?: string;
+  className?: string;
+  title: React.ReactNode | string;
+  outsideClickable?: boolean;
+  autoOpen?: boolean;
+}

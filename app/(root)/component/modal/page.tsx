@@ -1,4 +1,4 @@
-import Acordion from "@/components/component/acordion";
+import Modal from "@/components/component/modal/modal";
 import Pagination from "@/components/ui/Pagination";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
@@ -8,11 +8,11 @@ import { ROUTES } from "@/configs/routes";
 export default function Page() {
   return (
     <div>
-      <Title title="Acordion" subtitle="Acordion Variant" />
+      <Title title="Modal" subtitle="Modal" />
       <Wrapper>
-        <Acordion />
+        <Modal />
       </Wrapper>
-      <Pagination prev={ROUTES.formUrl("otp")} next={ROUTES.componentUrl("button")} />
+      <Pagination prev={ROUTES.componentUrl("table")} next={ROUTES.componentUrl("")} />
     </div>
   );
 }

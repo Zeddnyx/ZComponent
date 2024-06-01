@@ -111,7 +111,7 @@ const config = {
           {
             lineHeight: "42px",
           },
-        ]
+        ],
       },
       keyframes: {
         "accordion-down": {
@@ -132,6 +132,46 @@ const config = {
             transform: "translateY(0px)",
           },
         },
+        zoomIn: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.95)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+        zoomOut: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.95)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+        slideInUp: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        slideInDown: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-30px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -139,6 +179,10 @@ const config = {
         "fade-in": "fade-in 0.2s ease-out",
         "fade-in5": "fade-in 0.5s ease-out",
         "fade-in8": "fade-in 0.8s ease-out",
+        "zoom-in": "zoomIn 0.3s ease-in-out",
+        "zoom-out": "zoomOut 0.3s ease-in-out",
+        "slide-in-up": "slideInUp 0.4s ease-in-out",
+        "slide-in-down": "slideInDown 0.4s ease-in-out",
       },
     },
   },
