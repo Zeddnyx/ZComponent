@@ -1,7 +1,9 @@
 "use client";
-import { IoMdClose } from "react-icons/io";
-import styles from "@/styles/component/modal.module.css";
 import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
+
+import styles from "@/styles/component/modal.module.css";
+import { useEsc } from "@/hooks";
 
 const ModalItem = ({
   isOpen,
@@ -18,6 +20,7 @@ const ModalItem = ({
     setIsOpen(false);
   };
 
+  useEsc(closeModal);
   const handleOutsideClick = (e: any) => {
     if (outsideClickable && e.target === e.currentTarget) {
       closeModal();
@@ -73,7 +76,6 @@ export default function Modal({
 }: IModal) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const isOppened = isOpen || autoOpen;
   return (
     <div>
       <div className="cursor-pointer" onClick={() => setIsOpen(true)}>

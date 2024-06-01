@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function useClickOutside(
+export function useClickOutside(
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
   ref: React.RefObject<any>,
 ) {
@@ -33,5 +33,15 @@ export default function useClickOutside(
       window.removeEventListener("keydown", handleEscape);
       document.removeEventListener("mousedown", handleClickOutside);
     };
+  }, []);
+}
+
+export function useEsc(callback: () => void) {
+  useEffect(() => {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        callback();
+      }
+    });
   }, []);
 }

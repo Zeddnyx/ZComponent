@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
-import {  useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "@/styles/component/form.module.css";
-import useClickOutside from "@/hooks/useClickOutside";
+import { useClickOutside } from "@/hooks";
 
 const variantInput = {
   solid: styles.input,

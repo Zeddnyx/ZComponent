@@ -7,7 +7,7 @@ import { RANDOM_NAME } from "@/constants";
 
 import Input from "@/components/ui/form/Input";
 import SuggestList from "./SuggestList";
-import useClickOutside from "@/hooks/useClickOutside";
+import { useClickOutside } from "@/hooks";
 
 export default function Index() {
   const inputRef = useRef<HTMLDivElement>(null);

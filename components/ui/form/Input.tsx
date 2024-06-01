@@ -27,15 +27,6 @@ const Input = forwardRef<HTMLInputElement, IInput>(
     variant = "solid",
     ...props
   }) => {
-    const isUnderlineWiLogo =
-      logo && variantInput["underline"] == styles.inputUnderline;
-    const isUnderlineWoLogo =
-      !logo && variantInput["underline"] == styles.inputUnderline;
-    const isNotUnderlineWiLogo =
-      logo && variantInput["underline"] !== styles.inputUnderline;
-    const isNotUnderlineWoLogo =
-      !logo && variantInput["underline"] !== styles.inputUnderline;
-
     return (
       <div className={`${className} relative`}>
         <label
@@ -58,8 +49,6 @@ const Input = forwardRef<HTMLInputElement, IInput>(
             <span
               className={cn(styles.inputLogo, {
                 "!text-red-500": error,
-                "!pl-0": isUnderlineWiLogo || isUnderlineWoLogo,
-                "!pl-2": isNotUnderlineWiLogo || isNotUnderlineWoLogo,
               })}
             >
               {logo && logo}
@@ -71,10 +60,7 @@ const Input = forwardRef<HTMLInputElement, IInput>(
               className={cn(`${variantInput[variant]} ${styles.inputDefault}`, {
                 inputClassName,
                 "opacity-50 cursor-not-allowed": disabled,
-                "!pl-2": isNotUnderlineWoLogo,
-                "!pl-8": isNotUnderlineWiLogo,
-                "!pl-7": isUnderlineWiLogo,
-                "!pl-0": isUnderlineWoLogo,
+                "!pl-8": logo,
                 "border !border-red-500": error,
               })}
               disabled={disabled}
