@@ -36,7 +36,7 @@ export default function Index() {
         setDatas([]);
       }
     });
-  }, [KEYBOARD.ESCAPE, KEYBOARD.ENTER, filterData]);
+  }, [filterData]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
