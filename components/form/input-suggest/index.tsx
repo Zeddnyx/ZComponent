@@ -59,6 +59,7 @@ export default function Index() {
           isOpen={isOpen}
           onClick={(value) => handleClick(value)}
           searchValue={form.name}
+          highlightSelected={(value) => value}
         />
       </div>
     </div>

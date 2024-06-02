@@ -1,11 +1,11 @@
-import { randomItems } from "@/constants";
+import { RANDOM_ITEMS } from "@/constants";
 import styles from "@/styles/component/paralax.module.css";
 import Image from "next/image";
 
 export default function Index() {
   return (
     <div className={`${styles.paralax} no-scrollbar`}>
-      {randomItems.map((item, id) => {
+      {RANDOM_ITEMS.map((item, id) => {
         return (
           <div className={styles.paralaxWithContent} key={id}>
             <Image

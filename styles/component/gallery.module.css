@@ -1,0 +1,18 @@
+.container {
+  @apply flex gap-2 flex-wrap md:flex-row justify-center items-start;
+}
+
+.column {
+  @apply flex flex-col gap-2 ;
+  flex: 0 0 22%;
+}
+
+.column>div>img {
+  @apply size-full rounded-md object-cover object-center;
+}
+
+@media (max-width: 968px) {
+  .column {
+    flex: 0 0 46%;
+  }
+}

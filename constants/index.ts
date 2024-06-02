@@ -148,7 +148,7 @@ export const RANDOM_NAME = [
   "zane",
 ];
 
-export const randomItems = [
+export const RANDOM_ITEMS = [
   {
     title: "First Item",
     image: "https://source.unsplash.com/random/800x450?sunny,orange",
@@ -176,4 +176,34 @@ export const randomItems = [
     description:
       "This is the description for the first item. Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit",
   },
+];
+
+export const RANDOM_IMAGE = [
+  "https://source.unsplash.com/random?sunny,orange",
+  "https://source.unsplash.com/random?city,night",
+  "https://source.unsplash.com/random?dark,green",
+  "https://source.unsplash.com/random?nature,water",
+  "https://source.unsplash.com/random?space,dark",
+  "https://source.unsplash.com/random?rain,dark",
+  "https://source.unsplash.com/random?nature,day",
+  "https://source.unsplash.com/random?apocalyps,fresh",
+  "https://source.unsplash.com/random?nature,water",
+  "https://source.unsplash.com/random?space,aestatic",
+  "https://source.unsplash.com/random?rain,dark",
+  "https://source.unsplash.com/random?nature,day",
+  "https://source.unsplash.com/random?programing,fresh",
+  "https://source.unsplash.com/random?nature,water",
+  "https://source.unsplash.com/random?rain,dark",
+  "https://source.unsplash.com/random?anime,summer",
+  "https://source.unsplash.com/random?apocalyps,cool",
+  "https://source.unsplash.com/random?space,dark",
+  "https://source.unsplash.com/random?rain,dark",
+  "https://source.unsplash.com/random?nature,day",
+  "https://source.unsplash.com/random?apocalyps,fresh",
+  "https://source.unsplash.com/random?nature,water",
+  "https://source.unsplash.com/random?space,aestatic",
+  "https://source.unsplash.com/random?rain,dark",
+  "https://source.unsplash.com/random?nature,day",
+  "https://source.unsplash.com/random?nature,water",
+  "https://source.unsplash.com/random?happy,aestatic",
 ];
