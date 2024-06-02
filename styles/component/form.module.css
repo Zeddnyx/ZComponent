@@ -16,7 +16,7 @@
 }
 
 .inputDefault {
-  @apply h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-11 xl:h-[50px] ;
+  @apply h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-11 xl:h-[50px];
 }
 
 .inputSolid {
@@ -28,7 +28,7 @@
 }
 
 .inputUnderline {
-  @apply bg-transparent rounded-none border-0 border-b-[0.5px] border-dark-900 focus:outline-none focus:border-0 focus:border-b-[0.5px] focus:border-primary; 
+  @apply bg-transparent rounded-none border-0 border-b-[0.5px] border-dark-900 focus:outline-none focus:border-0 focus:border-b-[0.5px] focus:border-primary;
 }
 
 .inputNone {
@@ -39,11 +39,11 @@
 
 /* FORM Input suggest */
 .inputSuggest {
-  @apply absolute top-12 z-10 bg-white w-full max-h-40 h-fit overflow-y-auto shadow rounded-lg bg-dark-300 hidden;
+  @apply absolute top-14 z-10 bg-white w-full max-h-40 h-fit overflow-y-auto shadow rounded-lg bg-dark-300 hidden;
 }
 
 .inputItemSuggest {
-  @apply !p-2 hover:bg-dark-700 w-full text-left;
+  @apply !p-2 hover:bg-dark-500 w-full text-left;
 }
 
 /* end FORM Input suggest */
@@ -61,11 +61,9 @@
   @apply p-2 cursor-pointer;
 }
 
-
 /* end FORM Dropwdown */
 
 /* FORM OTP */
-/* TODO make a width the first input same as other if using divide */
 .otp {
   @apply flex items-center gap-2;
 }
@@ -78,7 +76,6 @@
 /*   @apply flex items-end justify-end; */
 /* } */
 
-/* .otp>div>div:not(:last-child) { style all div except last div */
 .otp>div>div {
   @apply h-0.5 w-full bg-dark-900;
 }
@@ -89,3 +86,25 @@
 
 /* end FORM OTP */
 
+/* FORM Input tag */
+.parentTag {
+  @apply w-full flex flex-wrap items-center rounded-md p-1;
+}
+
+.parentTag>div:last-child {
+  @apply relative w-full;
+}
+
+.tag {
+  @apply flex items-center gap-2 flex-wrap;
+}
+
+.tag>div {
+  @apply flex items-center gap-2 bg-dark-500 p-1 px-2 rounded;
+}
+
+.tagListActive {
+  @apply bg-dark-500;
+}
+
+/* end FORM Input tag */

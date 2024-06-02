@@ -11,8 +11,6 @@ import { useClickOutside } from "@/hooks";
 
 export default function Index() {
   const inputRef = useRef<HTMLDivElement>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [datas, setDatas] = useState<string[] | any>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -20,20 +18,16 @@ export default function Index() {
   });
 
   const filterData = RANDOM_NAME.filter((item) => {
-    return item.toLowerCase().includes(form.name.toLowerCase());
-  });
-  const filterDataAsync = datas.filter((item: string) => {
-    return item.toLowerCase().includes(form.asyncName.toLowerCase());
+    return item.toLowerCase().includes(form.name?.toLowerCase());
   });
 
   useEffect(() => {
     document.addEventListener("keydown", (event) => {
       event.key === KEYBOARD.ESCAPE && setIsOpen(false);
-      if (event.key === KEYBOARD.ENTER) {
+      if (event.key === KEYBOARD.ENTER && form.name.trim().length > 1) {
         const firstItem = filterData[0];
         setForm({ ...form, name: firstItem, asyncName: firstItem });
         setIsOpen(false);
-        setDatas([]);
       }
     });
   }, [filterData]);
@@ -46,25 +40,6 @@ export default function Index() {
   const handleClick = (value: string) => {
     setIsOpen(!isOpen);
     setForm({ ...form, name: value });
-  };
-
-  const fetchData = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(RANDOM_NAME);
-      }, 2000);
-    });
-  };
-
-  const displayData = async () => {
-    try {
-      setIsLoading(true);
-      const result = await fetchData();
-      setDatas(result);
-      setIsLoading(false);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
   };
 
   useClickOutside(setIsOpen, inputRef);
@@ -82,23 +57,6 @@ export default function Index() {
         <SuggestList
           data={filterData}
           isOpen={isOpen}
-          onClick={(value) => handleClick(value)}
-          searchValue={form.name}
-        />
-      </div>
-
-      <div className="relative">
-        <Input
-          name="asyncName"
-          value={form.asyncName}
-          onChange={handleChange}
-          placeholder="Search Name Here..."
-          onKeyDown={() => displayData()}
-          isLoading={isLoading}
-        />
-        <SuggestList
-          data={filterDataAsync}
-          isOpen={datas.length > 0 && !isLoading}
           onClick={(value) => handleClick(value)}
           searchValue={form.name}
         />

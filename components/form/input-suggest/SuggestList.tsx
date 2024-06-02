@@ -1,11 +1,14 @@
 import { cn } from "@/lib/utils";
 import styles from "@/styles/component/form.module.css";
+import highlightText from "./highlightText";
 
 interface ISuggest {
   data: string[];
   isOpen: boolean;
   onClick: (value: string) => void;
   searchValue: string;
+  className?: string;
+  highlightSelected: (value: string) => string;
 }
 
 export default function SuggestList({
@@ -13,34 +16,19 @@ export default function SuggestList({
   isOpen,
   onClick,
   searchValue,
+  className,
+  highlightSelected,
 }: ISuggest) {
-  const highlightText = (text: string, highlight: string) => {
-    const parts = text.split(new RegExp(`(${highlight})`, "gi"));
-    return (
-      <>
-        {parts.map((part, index) =>
-          part.toLowerCase() === highlight.toLowerCase() ? (
-            <span key={index} style={{ fontWeight: "bold" }}>
-              {part}
-            </span>
-          ) : (
-            part
-          ),
-        )}
-      </>
-    );
-  };
-
   return (
     <div
-      className={cn(`${styles.inputSuggest} custom-scrollbar `, {
+      className={cn(`${styles.inputSuggest} ${className} custom-scrollbar `, {
         "!flex flex-col items-start": isOpen,
       })}
     >
       {data?.map((item, id) => {
         return (
           <button
-            className={styles.inputItemSuggest}
+            className={`${styles.inputItemSuggest} ${highlightSelected(item)}`}
             type="button"
             onClick={() => onClick(item)}
             key={id}
