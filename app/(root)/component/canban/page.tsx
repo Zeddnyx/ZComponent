@@ -1,4 +1,4 @@
-import Gallery from "@/components/component/gallery";
+import Canban from "@/components/component/canban";
 import Pagination from "@/components/ui/Pagination";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
@@ -8,11 +8,11 @@ import { ROUTES } from "@/configs/routes";
 export default function Page() {
   return (
     <div>
-      <Title title="Gallery" subtitle="gallery" />
+      <Title title="Canban" subtitle="canban" />
       <Wrapper>
-        <Gallery />
+        <Canban />
       </Wrapper>
-      <Pagination prev={ROUTES.formUrl("paralax")} next={ROUTES.formUrl("/canban")} />
+      <Pagination prev={ROUTES.formUrl("gallery")} next={ROUTES.formUrl("/")} />
     </div>
   );
 }

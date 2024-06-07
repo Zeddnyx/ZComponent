@@ -72,6 +72,10 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
         title: "gallery",
         href: ROUTES.componentUrl("gallery"),
       },
+      {
+        title: "canban",
+        href: ROUTES.componentUrl("canban"),
+      },
     ],
   },
 ];
