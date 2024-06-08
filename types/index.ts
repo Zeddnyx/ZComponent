@@ -116,3 +116,13 @@ interface IModalItem {
   outsideClickable?: boolean;
   autoOpen?: boolean;
 }
+
+// canban
+declare interface ICanban {
+  position: string | number;
+  title: string;
+  column: string;
+}
+declare interface ICanbanCard extends ICanban {
+  handleDragStart: any;
+}

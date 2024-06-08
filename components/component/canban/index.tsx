@@ -1,100 +1,122 @@
-"use client";
-import { useState } from "react";
+import { useState, DragEvent } from "react";
+import Card, { DropIndicator } from "./card";
 
-const initialData = {
-  tasks: [
-    { id: 1, title: "slicing", status: "To Do" },
-    { id: 2, title: "integrasi", status: "In Progress" },
-    { id: 3, title: "testing", status: "Done" },
-  ],
-  columns: ["To Do", "In Progress", "Done"],
-};
-
-const statusTask = (status: string) => {
-  switch (status) {
-    case "To Do":
-      return "bg-dark-600/10 border-dark-600";
-    case "In Progress":
-      return "bg-blue-700/10 border-blue-700";
-    case "Done":
-      return "bg-green-500/10 border-green-500";
-    default:
-      return "bg-dark-600/10 border-dark-400";
-  }
-};
-
-const KanbanBoard = () => {
+const KanbanBoard = ({ initialData }: any) => {
   const [data, setData] = useState(initialData);
-  const [dragIndex, setDragIndex] = useState<number | null>(null);
 
-  const handleDragStart = (e: any, taskId: number) => {
-    e.dataTransfer.setData("taskId", taskId);
+  const dragStart = (e: any, card: any) => {
+    const { position } = card;
+    e?.dataTransfer?.setData("cardID", position);
   };
 
-  const handleDragEnd = () => {
-    setDragIndex(null);
+  const highlightIndicator = (e: DragEvent, column: string) => {
+    const indicator = getIndicator(column);
+    clearHighlight(indicator, column);
+    const el = getNearestElement(e, indicator);
+    el?.el?.classList.add("opacity-100");
   };
 
-  const handleDrop = (e: any, column: string) => {
-    const taskId = e.dataTransfer.getData("taskId");
-    const updatedTasks = getUpdatedTasks(data.tasks, taskId, column, dragIndex);
-    setData({ ...data, tasks: updatedTasks });
-    handleDragEnd();
+  const clearHighlight = (els?: any, column?: string) => {
+    const indicator = els || getIndicator(column || "");
+    indicator?.forEach((el: any) => {
+      el.classList.remove("opacity-100");
+    });
   };
 
-  const handleDragOver = (e: any, index: number) => {
+  const getIndicator = (column: string) => {
+    return Array.from(document.querySelectorAll(`[data-column="${column}"]`));
+  };
+
+  const getNearestElement = (e: any, indicator: any) => {
+    const DISTANCE = 50;
+
+    const el = indicator?.reduce(
+      (prev: any, curr: any) => {
+        const box = curr?.getBoundingClientRect();
+        const offset = e.clientY - (box.top + DISTANCE);
+
+        if (offset < 0 && offset > prev.offset) {
+          return { offset, el: curr };
+        } else {
+          return prev;
+        }
+      },
+      {
+        offset: Number.NEGATIVE_INFINITY,
+        el: indicator[indicator.length - 1],
+      },
+    );
+
+    return el;
+  };
+
+  const dragOver = (e: DragEvent, column: string) => {
     e.preventDefault();
-    setDragIndex(index);
+    highlightIndicator(e, column);
   };
 
-  const getUpdatedTasks = (
-    tasks: any,
-    taskId: any,
-    column: any,
-    targetIndex: any,
-  ) => {
-    const taskIndex = tasks.findIndex((t: any) => t.id === Number(taskId));
-    const task = tasks[taskIndex];
-    const filteredTasks = tasks.filter((t: any) => t.id !== Number(taskId));
-    const columnTasks = filteredTasks.filter((t: any) => t.status === column);
-
-    const newColumnTasks = [
-      ...columnTasks.slice(0, targetIndex),
-      { ...task, status: column },
-      ...columnTasks.slice(targetIndex),
-    ];
-
-    return [
-      ...filteredTasks.filter((t: any) => t.status !== column),
-      ...newColumnTasks,
-    ];
+  const dragLeave = (column: string) => {
+    clearHighlight("", column);
   };
+
+  const handleDrop = (e: DragEvent, column: string) => {
+    clearHighlight("", column);
+
+    const cardID = e?.dataTransfer?.getData("cardID");
+    const indicator = getIndicator(column);
+    const { el } = getNearestElement(e, indicator);
+    const prev = el?.dataset?.before || -1;
+
+    if (prev !== cardID) {
+      let copy = [...(data || [])];
+
+      const cardToTransferIndex = copy.findIndex(
+        (c: any) => c.position == cardID,
+      );
+      if (cardToTransferIndex === -1) return;
+
+      const cardToTransfer = {
+        ...copy[cardToTransferIndex],
+        column,
+      };
+
+      copy.splice(cardToTransferIndex, 1);
+
+      const insertAtIndex =
+        prev == -1
+          ? copy.length
+          : copy.findIndex((c: any) => c.position == prev);
+
+      copy.splice(insertAtIndex, 0, cardToTransfer);
+
+      setData(copy);
+    }
+  };
+
+  const col = ["todo", "in-progress", "done"];
   return (
-    <div className="flex space-x-4 p-4">
-      {data.columns.map((column) => (
+    <div className="flex gap-5 p-4 w-full">
+      {col.map((c) => (
         <div
-          key={column}
-          className="flex flex-col w-1/3 bg-dark-400 p-4 rounded-lg shadow-md"
-          onDrop={(e) => handleDrop(e, column)}
-          onDragOver={(e) => e.preventDefault()}
+          key={c}
+          className="flex flex-col min-w-52 bg-dark-400 p-4 rounded-lg shadow-md"
+          onDragOver={(e) => dragOver(e, c)}
+          onDragLeave={() => dragLeave(c)}
+          onDrop={(e) => handleDrop(e, c)}
         >
-          <h2 className="text-lg font-bold mb-4">{column}</h2>
-          {data.tasks
-            .filter((task) => task.status === column)
-            .map((task, idx) => (
-              <div
-                key={task.id}
-                className={`p-2 mb-2 rounded shadow cursor-pointer border
-                  ${statusTask(task.status)}
-                  `}
-                draggable
-                onDragStart={(e) => handleDragStart(e, task.id)}
-                onDragEnd={handleDragEnd}
-                onDragOver={(e) => handleDragOver(e, idx)}
-              >
-                {task.title}
-              </div>
+          <h2 className="text-lg font-bold mb-4">{c}</h2>
+          {data
+            .filter((d: any) => d.column == c)
+            .map((task: any) => (
+              <Card
+                key={task.position}
+                position={task.position}
+                title={task.title}
+                column={task.column}
+                handleDragStart={(e: any) => dragStart(e, task)}
+              />
             ))}
+          <DropIndicator column={c} before={-1} />
         </div>
       ))}
     </div>

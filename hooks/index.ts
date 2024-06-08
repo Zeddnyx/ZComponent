@@ -45,3 +45,24 @@ export function useEsc(callback: () => void) {
     });
   }, []);
 }
+
+export function useScrollX() {
+  const handleWheel = (e: WheelEvent) => {
+    if (e.altKey) {
+      e.preventDefault();
+      const container = e.currentTarget as HTMLElement;
+      container.scrollLeft += e.deltaY;
+    }
+  };
+
+  useEffect(() => {
+    const container = document.querySelector(".canban-container");
+    if (container) {
+      const wheelHandler = (e: any) => handleWheel(e);
+      container?.addEventListener("wheel", wheelHandler);
+      return () => {
+        container?.removeEventListener("wheel", wheelHandler);
+      };
+    }
+  }, []);
+}

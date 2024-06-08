@@ -3,6 +3,10 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+
+echo "Building the Next.js app..."
+npm run build
+
 # Prompt for a commit message
 read -p "Enter commit message: " commit_message
 read -p "Which branch?: " branch
@@ -12,9 +16,6 @@ if [ -z "$commit_message" ]; then
   exit 1
 fi
 
-echo "Building the Next.js app..."
-npm run build
-echo "Adding changes to git..."
 git add .
 git commit -m "$commit_message"
 
