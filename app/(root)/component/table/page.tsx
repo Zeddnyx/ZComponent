@@ -12,8 +12,8 @@ export default function Page() {
         <div></div>
       </Wrapper>
       <Pagination
-        prev={ROUTES.formUrl("button")}
-        next={ROUTES.formUrl("/")}
+        prev={ROUTES.componentUrl("button")}
+        next={ROUTES.componentUrl("modal")}
       />
     </div>
   );

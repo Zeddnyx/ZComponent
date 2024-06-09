@@ -17,7 +17,7 @@ export default function Page() {
       <Wrapper>
         <ParalaxWithContent />
       </Wrapper>
-      <Pagination prev={ROUTES.formUrl("modal")} next={ROUTES.formUrl("/gallery")} />
+      <Pagination prev={ROUTES.componentUrl("modal")} next={ROUTES.componentUrl("/gallery")} />
     </div>
   );
 }

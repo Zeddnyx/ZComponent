@@ -11,5 +11,5 @@
 }
 
 .main>div:last-child {
-  @apply  p-5 sm:p-10 h-svh w-full xl:w-[calc(90vw-500px)] 2xl:w-full animate-fade-in overflow-y-auto animate-fade-in8
+  @apply  p-5 sm:p-10 h-dvh w-full xl:w-[calc(90vw-500px)] 2xl:w-full animate-fade-in overflow-y-auto animate-fade-in8
 }

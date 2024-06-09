@@ -17,7 +17,7 @@ export default function Page() {
       <Wrapper>
         <ButtonVariant />
       </Wrapper>
-      <Pagination prev={ROUTES.formUrl("otp")} next={ROUTES.formUrl("table")} />
+      <Pagination prev={ROUTES.componentUrl("button")} next={ROUTES.componentUrl("table")} />
     </div>
   );
 }

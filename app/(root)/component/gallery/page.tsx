@@ -12,7 +12,7 @@ export default function Page() {
       <Wrapper>
         <Gallery />
       </Wrapper>
-      <Pagination prev={ROUTES.formUrl("paralax")} next={ROUTES.formUrl("/canban")} />
+      <Pagination prev={ROUTES.componentUrl("paralax")} next={ROUTES.componentUrl("/canban")} />
     </div>
   );
 }
