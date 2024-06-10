@@ -1,3 +1,4 @@
+import Table from "@/components/component/table";
 import Pagination from "@/components/ui/Pagination";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
@@ -7,9 +8,9 @@ import { ROUTES } from "@/configs/routes";
 export default function Page() {
   return (
     <div>
-      <Title title="Input" subtitle="Input" />
+      <Title title="Table" subtitle="table" />
       <Wrapper>
-        <div></div>
+        <Table />
       </Wrapper>
       <Pagination
         prev={ROUTES.componentUrl("button")}

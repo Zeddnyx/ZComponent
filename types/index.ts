@@ -126,3 +126,18 @@ declare interface ICanban {
 declare interface ICanbanCard extends ICanban {
   handleDragStart: any;
 }
+
+// table
+interface ITableColumn {
+  item: string;
+  title: string;
+  sortable?: boolean;
+  width?: number;
+  render?: (rowData: any) => React.ReactNode;
+}
+interface ITable {
+  columns: ITableColumn[];
+  data: any[];
+  select: string[];
+  setSelect: React.Dispatch<React.SetStateAction<string[]>>;
+}
