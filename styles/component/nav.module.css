@@ -3,17 +3,13 @@
 }
 
 .navContent {
-  @apply bg-dark-200 flex flex-col items-start gap-5 p-5;
+  @apply fixed z-50 top-0 bottom-0 bg-dark-200 flex flex-col items-start gap-5 p-5 transition-all;
 }
 
 .navContentSidebar {
   @apply flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto;
 }
 
-.mobilenav-sheet_close {
-  @apply flex gap-3 flex-col items-center p-4 rounded-lg w-full max-w-60 h-full w-full;
-}
-
-.mobilenav-sheet_close>nav {
-  @apply flex flex-col gap-5 w-full pr-5
+.navMenu{
+  @apply flex gap-3 p-2 md:p-3 2xl:p-4 rounded-[5px] items-center justify-start hover:bg-primary transition-colors cursor-pointer
 }
