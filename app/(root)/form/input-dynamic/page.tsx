@@ -8,13 +8,13 @@ import { ROUTES } from "@/configs/routes";
 export default function Page() {
   return (
     <div>
-      <Title title="Dynamic Input" subtitle="Dynamic Input" />
+      <Title title="Input Dynamic " subtitle="Default" />
       <Wrapper>
         <Input />
       </Wrapper>
       <Pagination
-        prev={ROUTES.formUrl("input-suggest")}
-        next={ROUTES.formUrl("input-textarea")}
+        prev={ROUTES.formUrl("input-tag")}
+        next={ROUTES.formUrl("input-file")}
       />
     </div>
   );

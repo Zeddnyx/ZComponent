@@ -26,6 +26,10 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
         href: ROUTES.formUrl("input-dynamic"),
       },
       {
+        title: "Input File",
+        href: ROUTES.formUrl("input-file"),
+      },
+      {
         title: "Textarea",
         href: ROUTES.formUrl("textarea"),
       },

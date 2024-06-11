@@ -68,6 +68,23 @@ declare interface IOtp {
   disabled?: boolean;
 }
 
+interface IUploadFile {
+  accept?: string;
+  isLoading?: boolean;
+  setIsLoading?: React.Dispatch<React.SetStateAction<boolean>>;
+  file: File[];
+  setFile: React.Dispatch<React.SetStateAction<File[]>>;
+  placeholder?: string;
+  error?: string;
+  name: string;
+  label?: string;
+  preview: "img" | "file";
+  maxSize?: number;
+  className?: string;
+  isMultiple?: boolean;
+  children: React.ReactNode;
+}
+
 declare interface IButton
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
