@@ -3,24 +3,40 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Check if commit message and branch are provided as arguments
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: $0 \"commit message\" branch"
+  exit 1
+fi
+
+commit_message="$1"
+branch="$2"
 
 echo "Building the Next.js app..."
 npm run build
 
-# Prompt for a commit message
-read -p "Enter commit message: " commit_message
-read -p "Which branch?: " branch
-
-if [ -z "$commit_message" ]; then
-  echo "Commit message cannot be empty. Exiting."
-  exit 1
-fi
-
 git add .
 git commit -m "$commit_message"
 
-echo "Pushing changes to the $branch branch..."
-git push origin $branch
-
-echo " Build and push completed successfully!"
-echo ""
+while true; do
+  read -p "[1] Confirm\n[2] Change commit\nEnter your choice? (1: Default)" choice
+  case $choice in
+    1)
+      echo "Pushing changes to the $branch branch..."
+      git push origin $branch
+      echo "✔ Build and push completed successfully!"
+      break
+      ;;
+    2)
+      read -p "Enter new commit message: " new_commit_message
+      if [ -z "$new_commit_message" ]; then
+        echo "Commit message cannot be empty. Exiting."
+        exit 1
+      fi
+      git commit --amend -m "$new_commit_message"
+      ;;
+    *)
+      echo "Invalid choice. Please enter 1 or 2."
+      ;;
+  esac
+done
