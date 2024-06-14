@@ -13,13 +13,14 @@ commit_message="$1"
 branch="$2"
 
 echo "Building the Next.js app..."
-npm run build
+#npm run build
 
 git add .
 git commit -m "$commit_message"
 
 while true; do
-  read -p "[1] Confirm\n[2] Change commit\nEnter your choice? (1: Default)" choice
+  printf "[1] Confirm\n[2] Change commit\n"
+  read -p "Enter your choice? (1: Default)" choice
   case $choice in
     1)
       echo "Pushing changes to the $branch branch..."
