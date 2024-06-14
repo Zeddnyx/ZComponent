@@ -22,10 +22,15 @@ export default function Page() {
   return (
     <div>
       <Title title="Canban" subtitle="canban" />
-      <Wrapper className="overflow-x-auto no-scrollbar canban-container">
-        <Canban initialData={initialData} />
+      <Wrapper>
+        <div className="pr-3 overflow-x-auto no-scrollbar canban-container">
+          <Canban initialData={initialData} />
+        </div>
       </Wrapper>
-      <Pagination prev={ROUTES.componentUrl("gallery")} next={ROUTES.componentUrl("/")} />
+      <Pagination
+        prev={ROUTES.componentUrl("gallery")}
+        next={ROUTES.componentUrl("/")}
+      />
     </div>
   );
 }

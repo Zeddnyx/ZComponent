@@ -3,13 +3,23 @@ import Card, { DropIndicator } from "./card";
 
 const KanbanBoard = ({ initialData }: any) => {
   const [data, setData] = useState(initialData);
+  const [draggedCard, setDraggedCard] = useState(null);
+
+  const getTouchPosition = (e: TouchEvent): number => {
+    return e.touches[0].clientY;
+  };
+
+  const isDragEvent = (e: DragEvent | TouchEvent): e is DragEvent => {
+    return (e as DragEvent).dataTransfer !== undefined;
+  };
 
   const dragStart = (e: any, card: any) => {
     const { position } = card;
-    e?.dataTransfer?.setData("cardID", position);
+    if (isDragEvent(e)) e?.dataTransfer?.setData("cardID", position);
+    setDraggedCard(position);
   };
 
-  const highlightIndicator = (e: DragEvent, column: string) => {
+  const highlightIndicator = (e: DragEvent | TouchEvent, column: string) => {
     const indicator = getIndicator(column);
     clearHighlight(indicator, column);
     const el = getNearestElement(e, indicator);
@@ -29,11 +39,14 @@ const KanbanBoard = ({ initialData }: any) => {
 
   const getNearestElement = (e: any, indicator: any) => {
     const DISTANCE = 50;
+    const clientY = (e as TouchEvent).touches
+      ? (e as TouchEvent)?.touches[0]?.clientY
+      : (e as DragEvent)?.clientY;
 
     const el = indicator?.reduce(
       (prev: any, curr: any) => {
         const box = curr?.getBoundingClientRect();
-        const offset = e.clientY - (box.top + DISTANCE);
+        const offset = clientY - (box.top + DISTANCE);
 
         if (offset < 0 && offset > prev.offset) {
           return { offset, el: curr };
@@ -50,7 +63,7 @@ const KanbanBoard = ({ initialData }: any) => {
     return el;
   };
 
-  const dragOver = (e: DragEvent, column: string) => {
+  const dragOver = (e: DragEvent | TouchEvent, column: string) => {
     e.preventDefault();
     highlightIndicator(e, column);
   };
@@ -59,10 +72,11 @@ const KanbanBoard = ({ initialData }: any) => {
     clearHighlight("", column);
   };
 
-  const handleDrop = (e: DragEvent, column: string) => {
+  const handleDrop = (e: DragEvent | TouchEvent, column: string) => {
     clearHighlight("", column);
 
-    const cardID = e?.dataTransfer?.getData("cardID");
+    const cardID =
+      draggedCard || (isDragEvent(e) ? e.dataTransfer.getData("cardID") : null);
     const indicator = getIndicator(column);
     const { el } = getNearestElement(e, indicator);
     const prev = el?.dataset?.before || -1;
@@ -90,6 +104,7 @@ const KanbanBoard = ({ initialData }: any) => {
       copy.splice(insertAtIndex, 0, cardToTransfer);
 
       setData(copy);
+      setDraggedCard(null);
     }
   };
 
@@ -103,8 +118,10 @@ const KanbanBoard = ({ initialData }: any) => {
           onDragOver={(e) => dragOver(e, c)}
           onDragLeave={() => dragLeave(c)}
           onDrop={(e) => handleDrop(e, c)}
+          onTouchMove={(e) => dragOver(e as any, c)}
+          onTouchEnd={(e) => handleDrop(e as any, c)}
         >
-          <h2 className="text-lg font-bold mb-4">{c}</h2>
+          <h2 className="text-lg font-bold mb-4">{c.replace(/-/g, " ").toUpperCase()}</h2>
           {data
             .filter((d: any) => d.column == c)
             .map((task: any) => (
@@ -113,7 +130,7 @@ const KanbanBoard = ({ initialData }: any) => {
                 position={task.position}
                 title={task.title}
                 column={task.column}
-                handleDragStart={(e: any) => dragStart(e, task)}
+                handleDragStart={(e: DragEvent) => dragStart(e, task)}
               />
             ))}
           <DropIndicator column={c} before={-1} />

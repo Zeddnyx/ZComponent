@@ -4,9 +4,9 @@ import { useState } from "react";
 
 export default function Index() {
   const [form, setForm] = useState({
-    solid: "",
-    outline: "",
-    none: "",
+    solid: false,
+    outline: false,
+    none: false,
   });
 
   const checboxData = [
@@ -14,6 +14,11 @@ export default function Index() {
       value: form.solid,
       label: "solid",
       name: "solid",
+    },
+    {
+      value: form.solid,
+      label: "disable",
+      name: "disable",
     },
     {
       value: form.outline,
@@ -27,14 +32,20 @@ export default function Index() {
     },
   ];
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target;
+    setForm({ ...form, [name]: checked });
+  };
+
   return (
-    <div className="w-1/6 flex gap-10">
+    <div className="w-1/6 flex flex-row flex-wrap gap-10">
       {checboxData.map(({ value, label, name }) => (
         <Checkbox
           key={name}
           value={value}
-          checked={value === "on"}
-          onChange={() => setForm({ ...form, [name]: "on" })}
+          checked={value}
+          onChange={handleChange}
+          isDisabled={name === "disable"}
           label={label}
           variant={name as any}
           name={name}

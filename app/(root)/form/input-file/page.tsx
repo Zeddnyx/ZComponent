@@ -29,7 +29,7 @@ export default function Page() {
       </Wrapper>
       <Pagination
         prev={ROUTES.formUrl("input-dynamic")}
-        next={ROUTES.formUrl("input-textarea")}
+        next={ROUTES.formUrl("textarea")}
       />
     </div>
   );

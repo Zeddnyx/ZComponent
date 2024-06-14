@@ -33,7 +33,7 @@ export default function Index() {
     {
       value: form.md,
       size: "md",
-      label: "md",
+      label: "disable",
       name: "disable",
     },
     {
@@ -56,7 +56,7 @@ export default function Index() {
   };
 
   return (
-    <div className="w-1/6 flex gap-10">
+    <div className="w-1/6 flex flex-row flex-wrap gap-10">
       {checboxData.map(({ value, size, label, name }) => (
         <Checkbox
           key={name}

@@ -20,7 +20,7 @@ export default function Page() {
       <p className="description">You can also inrease or decrease length</p>
       <Pagination
         prev={ROUTES.formUrl("checkbox")}
-        next={ROUTES.formUrl("button")}
+        next={ROUTES.componentUrl("acordion")}
       />
     </div>
   );

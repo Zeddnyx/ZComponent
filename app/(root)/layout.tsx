@@ -1,9 +1,15 @@
 import Link from "next/link";
+import { Metadata } from "next";
 
 import MobileNav from "@/components/ui/MobileNav";
 import Sidebar from "@/components/ui/Sidebar";
 import Footer from "@/components/ui/Footer";
 import styles from "@/styles/component/layout.module.css";
+
+export const metadata: Metadata = {
+  title: "ZComp | %s",
+  description: "Component library for React with Tailwind CSS",
+};
 
 export default function RootLayout({
   children,
