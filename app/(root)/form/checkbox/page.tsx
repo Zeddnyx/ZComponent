@@ -1,4 +1,5 @@
 import Checkbox from "@/components/form/checkbox";
+import CheckboxVariant from "@/components/form/checkbox/variant";
 import Pagination from "@/components/ui/Pagination";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
@@ -11,6 +12,10 @@ export default function Page() {
       <Title title="Checkbox" subtitle="Checkbox" />
       <Wrapper>
         <Checkbox />
+      </Wrapper>
+      <Title subtitle="Variant" />
+      <Wrapper>
+        <CheckboxVariant />
       </Wrapper>
       <Pagination
         prev={ROUTES.formUrl("dropdown")}

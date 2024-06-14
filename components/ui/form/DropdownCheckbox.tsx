@@ -4,6 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import styles from "@/styles/component/form.module.css";
 import { cn, variantInput } from "@/lib/utils";
 import { useClickOutside } from "@/hooks";
+import Checkbox from "./Checkbox";
 
 export default function DropDown({
   options,
@@ -24,11 +25,25 @@ export default function DropDown({
 }: IDropDown) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
 
   const handleSelect = (value: string, label: string) => {
-    onChange({ target: { name, value } });
-    setValue(label);
-    setIsOpen(false);
+    let NEW_VALUE;
+    let NEW_LABEL;
+
+    if (selectedValues.includes(value) || selectedLabels.includes(label)) {
+      NEW_VALUE = selectedValues.filter((v) => v !== value);
+      NEW_LABEL = selectedLabels.filter((v) => v !== label);
+    } else {
+      NEW_VALUE = [...selectedValues, value];
+      NEW_LABEL = [...selectedLabels, label];
+    }
+
+    setSelectedValues(NEW_VALUE);
+    setSelectedLabels(NEW_LABEL);
+    onChange({ target: { name, value: NEW_VALUE?.join(",") } });
+    setValue(NEW_LABEL.join(","));
   };
 
   useClickOutside(setIsOpen, dropdownRef);
@@ -55,7 +70,7 @@ export default function DropDown({
         <button
           type="button"
           className={cn(
-            `flex justify-between items-center gap-2 truncate w-full ${styles.inputDefault} ${inputClassName} ${variantInput[variant]}`,
+            `w-full flex justify-between items-center gap-2 truncate ${styles.inputDefault} ${inputClassName} ${variantInput[variant]}`,
             {
               "!text-light-900": !value,
               "border !border-red-500": error,
@@ -64,7 +79,9 @@ export default function DropDown({
           disabled={isDisabled}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {value || placeholder}
+          <div className="text-left flex overflow-x-auto no-scrollbar w-4/5">
+            <p>{value || placeholder}</p>
+          </div>
           <IoIosArrowDown
             className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
           />
@@ -73,7 +90,7 @@ export default function DropDown({
         <p className={styles.inputError}>{error && error}</p>
 
         {isOpen && (
-          <div className={`${styles.dropdownContent} custom-scrollbar`}>
+          <div className={`${styles.DropdownCheckboxContent} custom-scrollbar`}>
             {isLoading && <div className="dropdown-loading" />}
             {options?.map((option, index) => (
               <div
@@ -81,7 +98,14 @@ export default function DropDown({
                 onClick={() => handleSelect(option.value, option.label)}
                 role="menuitem"
               >
-                {option.label}
+                <Checkbox
+                  label={option.label}
+                  value={option.value}
+                  name={name}
+                  labelSide={"right"}
+                  checked={selectedValues.includes(option.value)}
+                  onChange={() => handleSelect(option.value, option.label)}
+                />
               </div>
             ))}
           </div>

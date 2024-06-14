@@ -1,13 +1,18 @@
 "use client";
-import Button from "@/components/ui/component/Button";
 import FileInput from "@/components/ui/form/File";
 import { useState } from "react";
 
 export default function File() {
-  const [file, setFile] = useState();
+  const [file, setFile] = useState<File[]>([]);
   return (
-    <FileInput file={file} setFile={setFile} name="file" preview="file">
-      <Button text="Click here" />
+    <FileInput
+      file={file}
+      setFile={setFile}
+      name="file"
+      preview="file"
+      isMultiple
+    >
+      <p className="hover:underline">Click here</p>
       <p>or drag and drop</p>
     </FileInput>
   );

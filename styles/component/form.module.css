@@ -57,11 +57,34 @@
   @apply p-2 cursor-pointer hover:bg-dark-500 transition-colors;
 }
 
+.DropdownCheckboxContent {
+  @apply absolute top-14 z-10 w-full bg-dark-300 rounded-lg max-h-40 h-fit overflow-y-auto shadow;
+}
+
+.DropdownCheckboxContent>div {
+  @apply p-2 cursor-pointer hover:bg-dark-500 transition-colors flex items-center gap-2;
+}
+
 .dropdownLoading {
   @apply p-2 cursor-pointer;
 }
 
 /* end FORM Dropwdown */
+
+/* FORM Checkbox */
+.checkbox {
+  @apply flex items-center justify-between gap-2;
+}
+
+.checkbox>div {
+  @apply relative flex items-center justify-center border border-dark-900 rounded p-0.5;
+}
+
+.checkbox>label {
+  @apply text-sm font-normal text-light-200;
+}
+
+/* end FORM Checkbox */
 
 /* FORM OTP */
 .otp {

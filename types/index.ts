@@ -46,15 +46,15 @@ declare interface IDropDown {
 declare interface ICheckbox {
   name: string;
   label?: string;
-  labelSide?: "left" | "top" | "right";
-  value: string;
+  labelSide?: "left" | "right";
+  value: string | number | boolean;
   checked?: boolean;
   onChange: any;
   isRequired?: boolean;
   isDisabled?: boolean;
   error?: string;
   className?: string;
-  variant?: "solid" | "outline" | "underline" | "none";
+  variant?: "solid" | "outline" | "none";
   size?: "xs" | "sm" | "md" | "lg" | "xl";
 }
 

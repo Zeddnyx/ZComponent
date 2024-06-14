@@ -4,7 +4,7 @@ import FileInput from "@/components/ui/form/File";
 import { useState } from "react";
 
 export default function File() {
-  const [file, setFile] = useState();
+  const [file, setFile] = useState<File[]>([]);
   return (
     <FileInput file={file} setFile={setFile} name="file" preview="file">
       <Button text="Click here" />

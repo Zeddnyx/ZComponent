@@ -11,23 +11,22 @@ import { ROUTES } from "@/configs/routes";
 export default function Page() {
   return (
     <div>
-    <p>Under Maintenance</p>
-{/*       <Title title="Upload File" subtitle="Upload File" /> */}
-{/*       <Wrapper> */}
-{/*         <File /> */}
-{/*       </Wrapper> */}
-{/*       <Title subtitle="Upload File Multiple" /> */}
-{/*       <Wrapper> */}
-{/*         <FileMultiple /> */}
-{/*       </Wrapper> */}
-{/*       <Title subtitle="Upload Image" /> */}
-{/*       <Wrapper> */}
-{/*         <UploadImage /> */}
-{/*       </Wrapper> */}
-{/*       <Title subtitle="Upload Image Multiple" /> */}
-{/*       <Wrapper> */}
-{/*         <UploadImageMultiple /> */}
-{/*       </Wrapper> */}
+      <Title title="Upload File" subtitle="Upload File" />
+      <Wrapper>
+        <File />
+      </Wrapper>
+      <Title subtitle="Upload File Multiple" />
+      <Wrapper>
+        <FileMultiple />
+      </Wrapper>
+      <Title subtitle="Upload Image" />
+      <Wrapper>
+        <UploadImage />
+      </Wrapper>
+      <Title subtitle="Upload Image Multiple" />
+      <Wrapper>
+        <UploadImageMultiple />
+      </Wrapper>
       <Pagination
         prev={ROUTES.formUrl("input-dynamic")}
         next={ROUTES.formUrl("input-textarea")}

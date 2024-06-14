@@ -1,15 +1,9 @@
 "use client";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { forwardRef } from "react";
-import { cn } from "@/lib/utils";
-import styles from "@/styles/component/form.module.css";
 
-const variantInput = {
-  solid: styles.inputSolid,
-  outline: styles.inputOutline,
-  underline: styles.inputUnderline,
-  none: styles.inputNone,
-};
+import { cn, variantInput } from "@/lib/utils";
+import styles from "@/styles/component/form.module.css";
 
 const Input = forwardRef<HTMLInputElement, IInput>(
   ({
@@ -30,7 +24,7 @@ const Input = forwardRef<HTMLInputElement, IInput>(
     return (
       <div className={`${className} relative`}>
         <label
-          className={cn("flex ", {
+          className={cn("flex", {
             "items-center gap-2": labelSide === "left",
             "flex-col": labelSide === "top",
           })}
