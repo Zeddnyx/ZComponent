@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import {  DM_Mono } from "next/font/google";
+import { DM_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import "@/styles/component/sidebar.module.css";
 import "@/styles/component/nav.module.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--inter-font",
+});
 
 const mono = DM_Mono({
   subsets: ["latin"],
@@ -22,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${mono.className}`}>{children}</body>
+      <body className={`${mono.className} ${inter.className}`}>{children}</body>
     </html>
   );
 }

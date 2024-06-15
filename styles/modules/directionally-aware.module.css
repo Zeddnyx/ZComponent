@@ -1,0 +1,62 @@
+.container {
+  @apply flex flex-row gap-5 justify-center items-center;
+}
+
+.directionally {
+  @apply h-14 w-36 rounded-xl relative cursor-pointer overflow-hidden;
+
+  transition: background-color 250ms;
+  background: hsl(185, 53%, 15%);
+  border: 0.1em solid hsl(185, 53%, 34%);
+  isolation: isolate;
+}
+
+.directionally:hover,
+.directionally:focus-visible {
+  background: hsl(185, 53%, 34%);
+}
+
+.directionally>span {
+  @apply absolute w-[33.333%] h-full z-[-1];
+}
+
+.directionally> :first-child {
+  @apply left-0 top-0;
+}
+
+.directionally> :last-child {
+  @apply right-0 top-0;
+}
+
+.directionally::before {
+  @apply content-[''] absolute w-[10%] rounded-full inset-0 mx-auto z-[-1] opacity-0 bg-primary;
+  /*   background: hsl(200, 60%, 20% / 0.25); */
+  aspect-ratio: 1;
+  transition:
+    transform 1000ms 200ms,
+    opacity 200ms;
+}
+
+/* active when clicked */
+.directionally:active::before {
+  @apply opacity-100;
+  transform: scale(20);
+  transition:
+    transform 1000ms,
+    opacity 500ms;
+}
+
+.directionally:has(:first-child:active)::before {
+  @apply ml-0;
+}
+
+.directionally:has(:last-child:active)::before {
+  @apply mr-0;
+}
+
+.directionally:has(:first-child:active)::before,
+.directionally:has(:last-child:active)::before {
+  transition:
+    transform 500ms,
+    opacity 200ms;
+}

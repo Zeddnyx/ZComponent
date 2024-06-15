@@ -17,8 +17,12 @@ const config = {
         "2xl": "1400px",
       },
     },
+    backgroundSize: {
+      "scroll-reveal": "0% 100%",
+    },
     fontFamily: {
       mono: ["var(--font-mono)", "monospace"],
+      inter: ["var(--font-inter)", "sans-serif"],
     },
     extend: {
       colors: {
@@ -172,6 +176,11 @@ const config = {
             transform: "translateY(0)",
           },
         },
+        "scroll-reveal": {
+          to: {
+            backgroundSize: "100% 100%",
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -183,6 +192,7 @@ const config = {
         "zoom-out": "zoomOut 0.3s ease-in-out",
         "slide-in-up": "slideInUp 0.4s ease-in-out",
         "slide-in-down": "slideInDown 0.4s ease-in-out",
+        "scroll-reveal": "scroll-reveal linear 0.3s forwards",
       },
     },
   },

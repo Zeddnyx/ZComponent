@@ -29,7 +29,7 @@ export default function Page() {
       </Wrapper>
       <Pagination
         prev={ROUTES.componentUrl("gallery")}
-        next={ROUTES.componentUrl("/")}
+        next={ROUTES.animationUrl("/scroll-reveal")}
       />
     </div>
   );

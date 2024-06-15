@@ -1,0 +1,17 @@
+.scrollReveal span {
+  @apply inline bg-scroll-reveal bg-no-repeat animate-scroll-reveal bg-clip-text;
+  color: hsl(0 0% 100% / 0.2);
+  background-image: linear-gradient(90deg, #fff, #fff);
+  animation-timeline: view(y);
+}
+
+.scrollReveal h3 span {
+  @apply text-5xl font-semibold font-inter;
+  animation-range-start: cover 15vh;
+  animation-range-end: cover 32vh;
+}
+
+.scrollReveal p span {
+  animation-range-start: cover 25vh;
+  animation-range-end: cover 45vh;
+}

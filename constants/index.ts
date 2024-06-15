@@ -1,5 +1,6 @@
 import { AiOutlineForm } from "react-icons/ai";
 import { BiSolidComponent } from "react-icons/bi";
+import { MdOutlineAnimation } from "react-icons/md";
 
 import { ROUTES } from "@/configs/routes";
 
@@ -79,6 +80,21 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
       {
         title: "canban",
         href: ROUTES.componentUrl("canban"),
+      },
+    ],
+  },
+  {
+    icon: MdOutlineAnimation,
+    title: "Animation",
+    href: "/animation",
+    children: [
+      {
+        title: "Scroll Reveal",
+        href: ROUTES.animationUrl("scroll-reveal"),
+      },
+      {
+        title: "Directionally Aware",
+        href: ROUTES.animationUrl("directionally-aware"),
       },
     ],
   },
