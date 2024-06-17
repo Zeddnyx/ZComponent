@@ -1,0 +1,38 @@
+/* view(): will start when element appair */
+/* animation-range: (contain, cover, px, vh, vw) */
+
+.container {
+  @apply w-full h-full grid gap-10 overflow-y-auto overflow-x-hidden bg-dark-100;
+}
+
+.headerContent {
+  @apply animate-fade-out relative;
+  animation-timeline: view();
+  animation-range: exit -300px;
+}
+
+.headerContent>div {
+  @apply absolute inset-0 mx-auto flex flex-col items-center justify-center *:text-center bg-dark-100/50;
+}
+
+.headerContent>div>h2 {
+  @apply text-3xl font-bold text-light;
+}
+
+.headerImage {
+  @apply animate-image-zoom-out w-full;
+  animation-timeline: view();
+  animation-range: exit;
+}
+
+.container article {
+  @apply grid gap-5 w-full p-2 pb-96;
+}
+
+.container article p {
+  @apply animate-fade-scroll opacity-0;
+  scale: 0.9;
+  animation-timeline: view();
+  animation-range-start: contain;
+  animation-range-end: 400px;
+}

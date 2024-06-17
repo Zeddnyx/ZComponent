@@ -126,16 +126,6 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "fade-in": {
-          from: {
-            opacity: "0",
-            transform: "translateY(-10px)",
-          },
-          to: {
-            opacity: "1",
-            transform: "translateY(0px)",
-          },
-        },
         zoomIn: {
           "0%": {
             opacity: "0",
@@ -179,8 +169,38 @@ const config = {
         "scroll-reveal": {
           to: {
             backgroundSize: "100% 100%",
-          }
-        }
+          },
+        },
+        "fade-in": {
+          from: {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0px)",
+          },
+        },
+        "fade-out": {
+          to: {
+            opacity: "0",
+          },
+        },
+        "fade-scroll": {
+          to: {
+            opacity: "1",
+            scale: "1",
+          },
+        },
+        "image-zoom-out": {
+          "25%": {
+            opacity: "1",
+          },
+          "85%, 100%": {
+            opacity: "0",
+            scale: "3",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -188,8 +208,11 @@ const config = {
         "fade-in": "fade-in 0.2s ease-out",
         "fade-in5": "fade-in 0.5s ease-out",
         "fade-in8": "fade-in 0.8s ease-out",
+        "fade-out": "fade-out linear",
+        "fade-scroll": "fade-scroll linear forwards",
         "zoom-in": "zoomIn 0.3s ease-in-out",
         "zoom-out": "zoomOut 0.3s ease-in-out",
+        "image-zoom-out": "image-zoom-out linear forwards",
         "slide-in-up": "slideInUp 0.4s ease-in-out",
         "slide-in-down": "slideInDown 0.4s ease-in-out",
         "scroll-reveal": "scroll-reveal linear 0.3s forwards",

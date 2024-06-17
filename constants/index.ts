@@ -93,6 +93,10 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
         href: ROUTES.animationUrl("scroll-reveal"),
       },
       {
+        title: "Scroll Based",
+        href: ROUTES.animationUrl("scroll-based"),
+      },
+      {
         title: "Directionally Aware",
         href: ROUTES.animationUrl("directionally-aware"),
       },

@@ -13,8 +13,8 @@ export default function Page() {
         <DirectionallyAware />
       </Wrapper>
       <Pagination
-        prev={ROUTES.componentUrl("canban")}
-        next={ROUTES.animationUrl("/scroll-reveal")}
+        prev={ROUTES.animationUrl("scroll-based")}
+        next={ROUTES.animationUrl("")}
       />
     </div>
   );
