@@ -1,10 +1,7 @@
 import ButtonSizes from "@/components/component/button/button-sizes";
 import ButtonVariant from "@/components/component/button/button-variant";
-import Pagination from "@/components/ui/Pagination";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
-
-import { ROUTES } from "@/configs/routes";
 
 export default function Page() {
   return (
@@ -17,7 +14,6 @@ export default function Page() {
       <Wrapper>
         <ButtonVariant />
       </Wrapper>
-      <Pagination prev={ROUTES.componentUrl("button")} next={ROUTES.componentUrl("table")} />
     </div>
   );
 }

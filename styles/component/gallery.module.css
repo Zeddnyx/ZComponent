@@ -3,7 +3,7 @@
 }
 
 .column {
-  @apply flex flex-col gap-2 ;
+  @apply flex flex-col gap-2;
   flex: 0 0 22%;
 }
 

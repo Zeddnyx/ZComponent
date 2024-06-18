@@ -3,6 +3,7 @@ import { Metadata } from "next";
 
 import MobileNav from "@/components/ui/MobileNav";
 import Sidebar from "@/components/ui/Sidebar";
+import Pagination from "@/components/ui/Pagination";
 import Footer from "@/components/ui/Footer";
 import styles from "@/styles/component/layout.module.css";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         </div>
         <div className="no-scrollbar ">
           {children}
+          <Pagination />
           <Footer />
         </div>
       </div>

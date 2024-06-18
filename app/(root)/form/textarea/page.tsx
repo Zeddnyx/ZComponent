@@ -1,9 +1,6 @@
 import Textarea from "@/components/form/textarea";
-import Pagination from "@/components/ui/Pagination";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
-
-import { ROUTES } from "@/configs/routes";
 
 export default function Page() {
   return (
@@ -12,10 +9,6 @@ export default function Page() {
       <Wrapper>
         <Textarea />
       </Wrapper>
-      <Pagination
-        prev={ROUTES.formUrl("input-dynamic")}
-        next={ROUTES.formUrl("dropdown")}
-      />
     </div>
   );
 }

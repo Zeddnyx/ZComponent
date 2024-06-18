@@ -19,13 +19,7 @@ function Acordion({ title, children, variant = "solid" }: IAcordion) {
         {title}
         <IoIosArrowUp size={20} className={isOpen ? "" : "rotate-180"} />
       </button>
-      <div
-        className={
-          isOpen ? "max-h-fit py-5" : "max-h-0"
-        }
-      >
-        {children}
-      </div>
+      <div className={isOpen ? "max-h-fit py-5" : "max-h-0"}>{children}</div>
     </div>
   );
 }

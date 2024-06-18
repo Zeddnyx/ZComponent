@@ -36,3 +36,58 @@ export const variantInput = {
   underline: styles.inputUnderline,
   none: styles.inputNone,
 };
+
+export const findPath = (path: string, sidebarItems: ISidebar[]) => {
+  let currentIndex = -1;
+  let prevPath = "/";
+  let nextPath = "/";
+
+  const flatSidebar: (ISidebar & { isParent?: boolean })[] =
+    sidebarItems.flatMap((item) =>
+      item.children ? [...item.children] : [item],
+    );
+
+  currentIndex = flatSidebar.findIndex((item) => item.href === path);
+
+  if (currentIndex > -1) {
+    const currentItem = flatSidebar[currentIndex];
+
+    // previous path
+    if (currentIndex > 0) {
+      const prevItem = flatSidebar[currentIndex - 1];
+      if (
+        currentItem.isParent &&
+        currentItem.children &&
+        currentItem.children.length > 0
+      ) {
+        prevPath = currentItem.children[currentItem.children.length - 1].href;
+      } else if (prevItem.isParent) {
+        prevPath = prevItem.href;
+      } else {
+        prevPath = prevItem.href;
+      }
+    } else {
+      prevPath = "/";
+    }
+
+    // next path
+    if (currentIndex < flatSidebar.length - 1) {
+      const nextItem = flatSidebar[currentIndex + 1];
+      if (
+        currentItem.isParent &&
+        currentItem.children &&
+        currentItem.children.length > 0
+      ) {
+        nextPath = currentItem.children[0].href;
+      } else if (nextItem.isParent) {
+        nextPath = nextItem.href;
+      } else {
+        nextPath = nextItem.href;
+      }
+    } else {
+      nextPath = "/";
+    }
+  }
+
+  return { prevPath, nextPath };
+};

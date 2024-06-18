@@ -4,9 +4,6 @@ import UploadImage from "@/components/form/input-file/image";
 import UploadImageMultiple from "@/components/form/input-file/image-multiple";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
-import Pagination from "@/components/ui/Pagination";
-
-import { ROUTES } from "@/configs/routes";
 
 export default function Page() {
   return (
@@ -27,10 +24,6 @@ export default function Page() {
       <Wrapper>
         <UploadImageMultiple />
       </Wrapper>
-      <Pagination
-        prev={ROUTES.formUrl("input-dynamic")}
-        next={ROUTES.formUrl("textarea")}
-      />
     </div>
   );
 }

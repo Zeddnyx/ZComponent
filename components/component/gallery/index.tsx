@@ -3,7 +3,7 @@ import { RANDOM_IMAGE } from "@/constants";
 import styles from "@/styles/component/gallery.module.css";
 
 export default function Index() {
-  const columns = 4; // Number of columns you want to create
+  const columns = 4;
   const imagesPerColumn = Math.ceil(RANDOM_IMAGE.length / columns);
 
   return (
@@ -23,4 +23,3 @@ export default function Index() {
     </div>
   );
 }
-

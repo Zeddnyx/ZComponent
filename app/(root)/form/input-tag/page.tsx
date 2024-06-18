@@ -2,9 +2,6 @@ import InputTag from "@/components/form/input-tag";
 import InputTagSearch from "@/components/form/input-tag/tag-search";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
-import Pagination from "@/components/ui/Pagination";
-
-import { ROUTES } from "@/configs/routes";
 
 export default function Page() {
   return (
@@ -17,10 +14,6 @@ export default function Page() {
       <Wrapper>
         <InputTagSearch />
       </Wrapper>
-      <Pagination
-        prev={ROUTES.formUrl("input-suggest")}
-        next={ROUTES.formUrl("input-dynamic")}
-      />
     </div>
   );
 }

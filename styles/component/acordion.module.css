@@ -6,8 +6,8 @@
   @apply border-b border-dark-800;
 }
 
-.acordion{
-  @apply p-2 py-3
+.acordion {
+  @apply p-2 py-3;
 }
 
 .acordion>button:first-child {
@@ -20,4 +20,29 @@
 
 .acordion>div:nth-child(2) {
   @apply transition-all duration-300 ease-in-out overflow-hidden;
+}
+
+/* accordion image */
+.acordionImageContainer {
+  @apply flex flex-col md:flex-row gap-3 overflow-x-scroll ;
+}
+
+.acordionImage {
+  @apply w-20 h-80 relative overflow-hidden transition-all;
+}
+
+.acordionImage>img {
+  @apply w-20 h-80 rounded-lg object-cover;
+}
+
+.acordionImage>div:nth-child(2) {
+  @apply absolute top-3 left-3;
+}
+
+.acordionImage>div:nth-child(2) {
+  @apply absolute top-3 left-3;
+}
+
+.acordionImage>div:nth-child(3) {
+  @apply absolute top-10 left-3 transition-all duration-300 ease-in-out overflow-hidden;
 }

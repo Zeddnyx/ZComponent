@@ -101,11 +101,18 @@ declare interface IAcordion {
   children: React.ReactNode;
   variant?: "solid" | "underline" | "none";
 }
+declare interface IAcordionImage {
+  image: string | any;
+  logo?: React.ReactNode  ;
+  title: string;
+  description: string;
+  className?: string;
+}
 
 // Pagination
 declare interface IPagination {
-  prev: string;
-  next: string;
+  prev: string | null;
+  next: string | null;
 }
 declare interface IBtnAction {
   action: "prev" | "next";

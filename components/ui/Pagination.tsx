@@ -1,16 +1,19 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { IoIosArrowBack } from "react-icons/io";
 
-import { getLastPath } from "@/lib/utils";
+import { getLastPath, findPath } from "@/lib/utils";
+import { SIDEBAR_ITEMS } from "@/constants";
 
-//TODO make the pagination automate get the prev path and next path
-export default function Pagination({ prev, next }: IPagination) {
+export default function Pagination() {
+  const pathname = usePathname();
+  const { prevPath, nextPath } = findPath(pathname, SIDEBAR_ITEMS);
+
   return (
     <div className="flex justify-between gap-5 my-5">
-      <BtnAction action="prev" title={prev} />
-      <BtnAction action="next" title={next} />
+      <BtnAction action="prev" title={prevPath || ""} />
+      <BtnAction action="next" title={nextPath || ""} />
     </div>
   );
 }

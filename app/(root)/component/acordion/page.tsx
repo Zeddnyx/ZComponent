@@ -1,9 +1,7 @@
 import Acordion from "@/components/component/acordion";
-import Pagination from "@/components/ui/Pagination";
+import AcordionImage from "@/components/component/acordion/image";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
-
-import { ROUTES } from "@/configs/routes";
 
 export default function Page() {
   return (
@@ -12,7 +10,10 @@ export default function Page() {
       <Wrapper>
         <Acordion />
       </Wrapper>
-      <Pagination prev={ROUTES.formUrl("otp")} next={ROUTES.componentUrl("button")} />
+      <Title subtitle="Acordion Image" />
+      <Wrapper>
+        <AcordionImage />
+      </Wrapper>
     </div>
   );
 }

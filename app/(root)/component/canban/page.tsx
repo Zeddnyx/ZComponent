@@ -1,11 +1,9 @@
 "use client";
 
 import Canban from "@/components/component/canban";
-import Pagination from "@/components/ui/Pagination";
 import Title from "@/components/ui/Title";
 import Wrapper from "@/components/ui/Wrapper";
 
-import { ROUTES } from "@/configs/routes";
 import { useScrollX } from "@/hooks";
 
 export default function Page() {
@@ -27,10 +25,6 @@ export default function Page() {
           <Canban initialData={initialData} />
         </div>
       </Wrapper>
-      <Pagination
-        prev={ROUTES.componentUrl("gallery")}
-        next={ROUTES.animationUrl("/scroll-reveal")}
-      />
     </div>
   );
 }
