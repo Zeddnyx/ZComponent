@@ -10,6 +10,7 @@ export default function Checkbox({
   name,
   checked,
   isDisabled,
+  id,
   labelSide = "left",
   variant = "solid",
   size = "md",
@@ -23,11 +24,12 @@ export default function Checkbox({
 
   return (
     <div
-      className={cn(`${styles.checkbox}`, {
+      className={cn(`  ${styles.checkbox}`, {
         "cursor-not-allowed": isDisabled,
       })}
       onClick={handleAction}
-      role="button"
+      role="checkbox"
+      id={id}
     >
       {label && labelSide === "left" && <label>{label}</label>}
 

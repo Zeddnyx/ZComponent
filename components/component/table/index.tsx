@@ -17,6 +17,18 @@ export default function Index() {
       sortable: true,
     },
     {
+      title: "Title",
+      item: "title",
+      width: 50,
+      sortable: true,
+    },
+    {
+      title: "Title",
+      item: "title",
+      width: 50,
+      sortable: true,
+    },
+    {
       title: "Description",
       item: "description",
       width: 100,
@@ -25,29 +37,41 @@ export default function Index() {
     {
       title: "Image",
       item: "image",
-      width: 50,
+      width: 80,
       sortable: true,
       render: (row: any) => {
         return (
-          <Image
-            src={logo}
-            alt={row.title}
-            width={50}
-            height={50}
-          />
+          <div className="flex justify-center w-20">
+            <Image
+              className="w-40"
+              src={logo}
+              alt={row.title}
+              width={50}
+              height={50}
+            />
+          </div>
+        );
+      },
+    },
+    {
+      title: "Title",
+      item: "title",
+      width: 80,
+      sortable: true,
+      render: () => {
+        return (
+          <div className="rounded-full p-0.5 px-2 bg-red-500/50">title</div>
         );
       },
     },
   ];
 
   return (
-    <div>
-      <Table
-        select={select}
-        setSelect={setSelect}
-        columns={columns}
-        data={RANDOM_ITEMS}
-      />
-    </div>
+    <Table
+      select={select}
+      setSelect={setSelect}
+      columns={columns}
+      data={RANDOM_ITEMS}
+    />
   );
 }

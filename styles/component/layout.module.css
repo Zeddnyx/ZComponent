@@ -1,15 +1,16 @@
 .layout {
-  @apply flex h-screen max-w-5xl mx-auto overflow-hidden
+  @apply flex h-screen max-w-5xl mx-auto overflow-hidden;
 }
+
 .main {
-  @apply flex size-full flex-col
+  @apply flex size-full flex-col;
 }
 
 /* root layout */
 .main>div:first-child {
-  @apply  flex h-16 items-center justify-between p-5 shadow-md sm:p-8 lg:hidden;
+  @apply flex h-16 items-center justify-between p-5 shadow-md sm:p-8 lg:hidden;
 }
 
 .main>div:last-child {
-  @apply  p-5 sm:p-10 h-dvh w-full animate-fade-in overflow-y-auto animate-fade-in8
+  @apply p-5 sm:p-10 h-dvh w-full  animate-fade-in overflow-y-auto animate-fade-in8;
 }

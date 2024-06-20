@@ -1,15 +1,15 @@
 import { TbTableMinus } from "react-icons/tb";
+import Checkbox from "../form/Checkbox";
+import { shortText } from "@/lib/utils";
 
 export default function Table({ select, setSelect, columns, data }: ITable) {
   const handleCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
-    const id = e.target.id;
+    const id = e.target.name;
 
     if (id === "select-all") {
       if (isChecked) {
-        const allIds = Array.from(document.querySelectorAll(".checkbox"))
-          .filter((checkbox) => checkbox !== e.target)
-          .map((checkbox) => checkbox.id);
+        const allIds = data.map((_, index) => String(index));
         setSelect(allIds);
       } else {
         setSelect([]);
@@ -26,20 +26,17 @@ export default function Table({ select, setSelect, columns, data }: ITable) {
   };
 
   return (
-    <div className="border border-dark-800 rounded-t-lg overflow-x-auto">
+    <div className="border border-dark-800 rounded-t-lg overflow-x-auto custom-scrollbar w-[98vh]">
       <table className="table w-full">
         <thead>
-          <tr className="[&>th]:text-left bg-dark-350 rounded-t-lg bg-light *:font-semibold [&>th]:py-5">
+          <tr className="[&>th]:text-left bg-dark-200 rounded-t-lg bg-light *:font-semibold [&>th]:py-5">
             <th className="flex justify-center">
-              <label>
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  onChange={handleCheckboxClick}
-                  id="select-all"
-                  style={{ width: 18, height: 18 }}
-                />
-              </label>
+              <Checkbox
+                name="select-all"
+                checked={select.length === data?.length}
+                onChange={handleCheckboxClick}
+                className="checkbox"
+              />
             </th>
             {columns.map((column) => (
               <th
@@ -52,40 +49,31 @@ export default function Table({ select, setSelect, columns, data }: ITable) {
             ))}
           </tr>
         </thead>
-        <tbody className="[&>tr]:border-t [&>tr]:border-dark-800 [&>tr>th]:py-4 [&>tr>td]:p-2">
-          {data?.length === 0 &&
-            columns.map((column) => (
-              <th
-                style={{ width: column.width }}
-                key={column.item}
-                className={`${column.sortable ? "max-w-20 truncate pr-10" : ""
-                  }`}
-              ></th>
-            ))}
+        <tbody className="[&>tr]:border-t [&>tr]:border-dark-800 [&>tr>td]:py-4 bg-dark-300">
           {data?.map((item, id) => (
             <tr
               key={id}
-              className="hover:bg-dark-300 [&>td:last-child]:!rounded-b-lg"
+              className="hover:bg-dark-200 [&>td:last-child]:!rounded-b-lg"
             >
-              <th className="min-w-20 md:min-w-10 w-10">
-                <label>
-                  <input
-                    type="checkbox"
-                    className="checkbox"
-                    id={String(id)}
-                    checked={select.includes(String(id))}
-                    onChange={handleCheckboxClick}
-                    style={{ width: 18, height: 18 }}
-                  />
-                </label>
-              </th>
+              <td className="w-1 *:flex *:items-center *:!justify-center px-4">
+                <Checkbox
+                  name={String(id)}
+                  className="checkbox"
+                  checked={select.includes(String(id))}
+                  onChange={handleCheckboxClick}
+                />
+              </td>
               {columns.map((column) => (
                 <td
                   key={column.item}
-                  className={`${column.sortable ? "max-w-20 truncate pr-10" : ""
-                    } text-[13px] sm:text-sm`}
+                  style={{ width: column.width }}
+                  className={` ${
+                    column.sortable ? "w-20 truncate !pr-10" : ""
+                  } text-[13px] sm:text-sm`}
                 >
-                  {column.render ? column.render(item) : item[column.item]}
+                  {column.render
+                    ? column.render(item)
+                    : shortText(item[column.item], 30)}
                 </td>
               ))}
             </tr>
@@ -96,7 +84,7 @@ export default function Table({ select, setSelect, columns, data }: ITable) {
         <div className="flex flex-col gap-4 items-center justify-center *:text-dark-900 py-16">
           <TbTableMinus className="text-5xl " />
           <p className="text-center font-semibold text-xl">
-          {"Hmm, looks like there's no data to show."}
+            {"Hmm, looks like there's no data to show."}
           </p>
         </div>
       )}

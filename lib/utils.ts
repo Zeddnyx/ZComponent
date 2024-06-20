@@ -17,6 +17,13 @@ export function convertSizeBytes(size: number) {
   return parseFloat((size / Math.pow(1024, i)).toFixed(2)) + " " + sizes[i];
 }
 
+export const shortText = (text: string, maxLength: number) => {
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength) + "...";
+  }
+  return text;
+};
+
 export const sizes = {
   xs: "w-3 h-3",
   sm: "w-4 h-4",
