@@ -69,7 +69,7 @@ declare interface IOtp {
   disabled?: boolean;
 }
 
-interface IUploadFile {
+interface IUploadFile extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   accept?: string;
   isLoading?: boolean;
   setIsLoading?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -104,7 +104,7 @@ declare interface IAcordion {
 }
 declare interface IAcordionImage {
   image: string | any;
-  logo?: React.ReactNode  ;
+  logo?: React.ReactNode;
   title: string;
   description: string;
   className?: string;

@@ -1,14 +1,20 @@
 "use client";
-import Button from "@/components/ui/component/Button";
-import FileInput from "@/components/ui/form/File";
 import { useState } from "react";
+
+import FileInput from "@/components/ui/form/File";
+import { cn } from "@/lib/utils";
 
 export default function File() {
   const [file, setFile] = useState<File[]>([]);
+
   return (
     <FileInput file={file} setFile={setFile} name="file" preview="file">
-      <Button text="Click here" />
-      <p>or drag and drop</p>
+      <div
+        className={cn(`h-20 flex items-center flex-col justify-center p-2`, {})}
+      >
+        <p>Click here</p>
+        <p>or drag and drop here</p>
+      </div>
     </FileInput>
   );
 }

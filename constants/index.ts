@@ -101,6 +101,10 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
         href: ROUTES.animationUrl("scroll-based"),
       },
       {
+        title: "Scroll Opacity",
+        href: ROUTES.animationUrl("scroll-opacity"),
+      },
+      {
         title: "Directionally Aware",
         href: ROUTES.animationUrl("directionally-aware"),
       },
