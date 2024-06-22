@@ -1,9 +1,9 @@
 .layout {
-  @apply flex h-screen max-w-5xl mx-auto overflow-hidden;
+  @apply flex h-screen max-w-5xl 2xl:max-w-7xl mx-auto overflow-hidden;
 }
 
 .main {
-  @apply flex size-full flex-col;
+  @apply flex w-8/12 flex-col;
 }
 
 /* root layout */
@@ -12,5 +12,5 @@
 }
 
 .main>div:last-child {
-  @apply p-5 sm:p-10 h-dvh w-full  animate-fade-in overflow-y-auto animate-fade-in8;
+  @apply p-5 sm:p-10 h-dvh w-full animate-fade-in overflow-y-auto animate-fade-in8;
 }

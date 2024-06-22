@@ -1,0 +1,32 @@
+.tableContainer {
+  @apply border border-dark-800 rounded-t-lg;
+}
+
+/* table head parent */
+.tableContainer thead tr {
+  @apply bg-dark-200 rounded-t-lg;
+}
+
+/* table head title */
+.tableContainer thead th {
+  @apply text-left text-sm text-light-500 font-semibold py-5;
+}
+
+/* table body parent */
+.tableContainer tbody {
+  @apply bg-dark-300;
+}
+
+/* table body item row */
+.tableContainer tbody tr {
+  @apply border-t border-dark-800 hover:bg-dark-200;
+}
+
+.tableContainer tbody tr:last-child {
+  @apply !rounded-b-lg;
+}
+
+/* table body item item */
+.tableContainer tbody td {
+  @apply text-[13px] sm:text-sm py-4;
+}

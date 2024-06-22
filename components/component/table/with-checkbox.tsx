@@ -1,10 +1,14 @@
-import Image from "next/image";
+"use client";
 
 import Table from "@/components/ui/component/Table";
 import { RANDOM_ITEMS } from "@/constants";
 import { logo } from "@/lib/image";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Index() {
+  const [select, setSelect] = useState<string[]>([]);
+
   const columns = [
     {
       title: "Title",
@@ -62,5 +66,12 @@ export default function Index() {
     },
   ];
 
-  return <Table columns={columns} data={RANDOM_ITEMS} />;
+  return (
+    <Table
+      select={select}
+      setSelect={setSelect}
+      columns={columns}
+      data={RANDOM_ITEMS}
+    />
+  );
 }

@@ -25,11 +25,11 @@ export const shortText = (text: string, maxLength: number) => {
 };
 
 export const sizes = {
-  xs: "w-3 h-3",
-  sm: "w-4 h-4",
-  md: "w-5 h-5",
-  lg: "w-6 h-6",
-  xl: "w-7 h-7",
+  xs: "min-w-3 min-h-3",
+  sm: "min-w-4 min-h-4",
+  md: "min-w-5 min-h-5",
+  lg: "min-w-6 min-h-6",
+  xl: "min-w-7 min-h-7",
 };
 export const variantCheckbox = {
   solid: "bg-dark-200",

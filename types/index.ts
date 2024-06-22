@@ -163,6 +163,7 @@ interface ITableColumn {
 interface ITable {
   columns: ITableColumn[];
   data: any[];
-  select: string[];
-  setSelect: React.Dispatch<React.SetStateAction<string[]>>;
+  select?: string[];
+  setSelect?: React.Dispatch<React.SetStateAction<string[]>>;
+  className?: string;
 }

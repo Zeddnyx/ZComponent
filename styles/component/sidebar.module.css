@@ -1,5 +1,5 @@
 .sidebarParent {
-  @apply h-screen w-96 2xl:w-[355px] bg-dark-200 max-lg:hidden;
+  @apply h-screen min-w-80 2xl:min-w-[200px] bg-dark-200 max-lg:hidden;
 }
 
 .sidebarParent>a>div {

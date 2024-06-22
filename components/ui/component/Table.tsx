@@ -1,8 +1,16 @@
 import { TbTableMinus } from "react-icons/tb";
-import Checkbox from "../form/Checkbox";
-import { shortText } from "@/lib/utils";
 
-export default function Table({ select, setSelect, columns, data }: ITable) {
+import Checkbox from "../form/Checkbox";
+import styles from "@/styles/component/table.module.css";
+import { cn, shortText } from "@/lib/utils";
+
+export default function Table({
+  select,
+  setSelect,
+  columns,
+  data,
+  className,
+}: ITable) {
   const handleCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
     const id = e.target.name;
@@ -10,66 +18,74 @@ export default function Table({ select, setSelect, columns, data }: ITable) {
     if (id === "select-all") {
       if (isChecked) {
         const allIds = data.map((_, index) => String(index));
-        setSelect(allIds);
+        setSelect && setSelect(allIds);
       } else {
-        setSelect([]);
+        setSelect && setSelect([]);
       }
     } else {
-      setSelect((prev) => {
-        if (isChecked) {
-          return [...prev, id];
-        } else {
-          return prev.filter((item) => item !== id);
-        }
-      });
+      setSelect &&
+        setSelect((prev) => {
+          if (isChecked) {
+            return [...prev, id];
+          } else {
+            return prev.filter((item) => item !== id);
+          }
+        });
     }
   };
 
   return (
-    <div className="border border-dark-800 rounded-t-lg overflow-x-auto custom-scrollbar w-[98vh]">
-      <table className="table w-full">
+    <div
+      className={`${styles.tableContainer} ${className} block w-full overflow-y-hidden overflow-x-auto custom-scrollbar`}
+    >
+      <table className="w-full">
         <thead>
-          <tr className="[&>th]:text-left bg-dark-200 rounded-t-lg bg-light *:font-semibold [&>th]:py-5">
-            <th className="flex justify-center">
-              <Checkbox
-                name="select-all"
-                checked={select.length === data?.length}
-                onChange={handleCheckboxClick}
-                className="checkbox"
-              />
-            </th>
-            {columns.map((column) => (
+          <tr>
+            {select && (
+              <th className="flex justify-center">
+                <Checkbox
+                  name="select-all"
+                  checked={select && select.length === data?.length}
+                  onChange={handleCheckboxClick}
+                  className="checkbox"
+                />
+              </th>
+            )}
+            {columns?.map((column) => (
               <th
+                className={cn("", {
+                  "px-2": !select,
+                })}
                 style={{ width: column.width }}
                 key={column.item}
-                className="text-sm text-light-500"
               >
                 {column.title}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="[&>tr]:border-t [&>tr]:border-dark-800 [&>tr>td]:py-4 bg-dark-300">
+        <tbody>
           {data?.map((item, id) => (
-            <tr
-              key={id}
-              className="hover:bg-dark-200 [&>td:last-child]:!rounded-b-lg"
-            >
-              <td className="w-1 *:flex *:items-center *:!justify-center px-4">
-                <Checkbox
-                  name={String(id)}
-                  className="checkbox"
-                  checked={select.includes(String(id))}
-                  onChange={handleCheckboxClick}
-                />
-              </td>
-              {columns.map((column) => (
+            <tr key={id}>
+              {select && (
+                <td className="w-1 *:flex *:items-center *:!justify-center px-4">
+                  <Checkbox
+                    name={String(id)}
+                    className="checkbox"
+                    checked={select?.includes(String(id))}
+                    onChange={handleCheckboxClick}
+                  />
+                </td>
+              )}
+
+              {columns?.map((column) => (
                 <td
                   key={column.item}
                   style={{ width: column.width }}
-                  className={` ${
-                    column.sortable ? "w-20 truncate !pr-10" : ""
-                  } text-[13px] sm:text-sm`}
+                  className={cn("", {
+                    "px-2": !select,
+                    "w-20 truncate !pr-10": column.sortable,
+                  })}
                 >
                   {column.render
                     ? column.render(item)
