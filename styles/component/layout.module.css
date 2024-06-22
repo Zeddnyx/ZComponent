@@ -3,7 +3,7 @@
 }
 
 .main {
-  @apply flex w-8/12 flex-col;
+  @apply flex w-full xl:w-8/12 flex-col;
 }
 
 /* root layout */
