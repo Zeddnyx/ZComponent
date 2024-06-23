@@ -98,3 +98,67 @@ export const findPath = (path: string, sidebarItems: ISidebar[]) => {
 
   return { prevPath, nextPath };
 };
+
+
+export const getInitialMonth = (startMonth?: string) => {
+  const DATE = new Date();
+
+  const MONTH = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  if (startMonth) {
+    const startMonthIndex = MONTH.indexOf(startMonth);
+    return startMonthIndex !== -1 ? startMonthIndex : DATE.getMonth();
+  }
+  return DATE.getMonth();
+};
+
+export const handleGetAllDays = (year: number, month: number) => {
+  const DAYS = [];
+  const CURRENT_MONTH_DAYS = new Date(year, month + 1, 0).getDate();
+  const FIRST_DAY_MONTH = new Date(year, month, 1).getDay();
+  const PREV_MONTH_DAYS = new Date(year, month, 0).getDate();
+
+  for (let i = FIRST_DAY_MONTH; i > 0; i--) {
+    DAYS.push({
+      fulldate: `${year}-${month < 9 ? "0" : ""}${month + 1}-${PREV_MONTH_DAYS - i + 1
+        }`,
+      day: i,
+      isCurrentMonth: false,
+      isNextMonth: false,
+    });
+  }
+
+  for (let i = 1; i <= CURRENT_MONTH_DAYS; i++) {
+    DAYS.push({
+      fulldate: `${year}-${month < 9 ? "0" : ""}${month + 1}-${i}`,
+      day: i,
+      isCurrentMonth: true,
+      isNextMonth: false,
+    });
+  }
+
+  const NEXT_DAYS = 42 - DAYS.length; // Ensure 6 rows of 7 days each
+  for (let i = 1; i <= NEXT_DAYS; i++) {
+    DAYS.push({
+      fulldate: `${year}-${month < 9 ? "0" : ""}${month + 2}-${i}`,
+      day: i,
+      isCurrentMonth: false,
+      isNextMonth: true,
+    });
+  }
+
+  return DAYS;
+};

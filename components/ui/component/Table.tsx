@@ -53,7 +53,7 @@ export default function Table({
             )}
             {columns?.map((column) => (
               <th
-                className={cn("", {
+                className={cn("none", {
                   "px-2": !select,
                 })}
                 style={{ width: column.width }}
@@ -82,7 +82,7 @@ export default function Table({
                 <td
                   key={column.item}
                   style={{ width: column.width }}
-                  className={cn("", {
+                  className={cn("none", {
                     "px-2": !select,
                     "w-20 truncate !pr-10": column.sortable,
                   })}

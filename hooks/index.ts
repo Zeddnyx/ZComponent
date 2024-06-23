@@ -133,3 +133,31 @@ export function useScrollableSlider() {
     scrollToTheLeft,
   };
 }
+
+
+export const useCheckPosition = (
+  setPosition: (position: "top" | "bottom") => void,
+  REF: React.RefObject<HTMLDivElement>,
+  isActive: boolean,
+) => {
+  const check = () => {
+    const RECT = REF.current?.getBoundingClientRect();
+    if (!RECT) return;
+
+    const SPACE_ABOVE = RECT.top;
+    const SPACE_BELOW = window.innerHeight - RECT.bottom;
+    const HEIGHT = 200;
+
+    if (SPACE_BELOW >= HEIGHT || SPACE_BELOW >= SPACE_ABOVE) {
+      setPosition("bottom");
+    } else {
+      setPosition("top");
+    }
+  };
+
+  useEffect(() => {
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [isActive]);
+};
