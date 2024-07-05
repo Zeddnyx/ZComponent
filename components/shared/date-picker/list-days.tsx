@@ -2,31 +2,32 @@ import { cn, handleGetAllDays } from "@/lib/utils";
 import { Dispatch, SetStateAction, useState } from "react";
 
 export default function ListDays({
-  selectedDay,
-  setSelectedDay,
+  selectedDate,
+  setSelectedDate,
   month,
   year,
   higlightDay,
 }: {
-  selectedDay: string[];
-  setSelectedDay: Dispatch<SetStateAction<string[]>>;
+  selectedDate: string[]; // ['Jul 01 2024', 'Aug 02 2024']
+  setSelectedDate: Dispatch<SetStateAction<string[]>>;
   month: number;
   year: number;
   higlightDay?: boolean;
 }) {
   const [hoveredDay, setHoveredDay] = useState<string | null>(null);
-  const [clickedDay, setClickedDay] = useState<string | null>(null);
+  const [startDate, setStartDate] = useState<string | null>(null);
+  const [endDate, setEndDate] = useState<string | null>(null);
 
+  console.log(hoveredDay);
   const isHighlighted = (
     day: string,
     isCurrentMonth: boolean,
     isNextMonth: boolean,
   ) => {
-    if (!higlightDay || selectedDay.length === 0 || hoveredDay === null)
-      return false;
+    if (!higlightDay || !startDate || !endDate) return false;
 
-    const START_DAY = selectedDay[0];
-    const END_DAY = hoveredDay;
+    const START_DAY = startDate;
+    const END_DAY = endDate;
 
     if (isCurrentMonth) {
       if (START_DAY <= END_DAY) {
@@ -42,7 +43,24 @@ export default function ListDays({
   };
 
   const isDisabled = (isCurrentMonth: boolean, isNextMonth: boolean) => {
-    return selectedDay.length !== 0 && !isCurrentMonth && !isNextMonth;
+    return selectedDate.length !== 0 && !isCurrentMonth && !isNextMonth;
+  };
+
+  const handleDayClick = (item: any) => {
+    if (item.isCurrentMonth) {
+      if (!startDate) {
+        setStartDate(item.fulldate);
+        setSelectedDate([item.fulldate]);
+      } else if (!endDate) {
+        setEndDate(item.fulldate);
+        setSelectedDate([startDate, item.fulldate]);
+      } else {
+        // Reset and start a new range selection
+        setStartDate(item.fulldate);
+        setEndDate(null);
+        setSelectedDate([item.fulldate]);
+      }
+    }
   };
 
   return (
@@ -51,18 +69,9 @@ export default function ListDays({
         return (
           <p
             key={id}
-            onClick={() => {
-              if (item.isCurrentMonth) {
-                const index = selectedDay.indexOf(item.fulldate);
-                if (index === -1) {
-                  setSelectedDay([...selectedDay, item.fulldate]);
-                } else {
-                  setSelectedDay(selectedDay.filter((day) => day !== item.fulldate));
-                }
-              }
-            }}
+            onClick={() => handleDayClick(item)}
             onMouseEnter={() => {
-              if (clickedDay !== null && item.isCurrentMonth) {
+              if (startDate !== null && item.isCurrentMonth) {
                 setHoveredDay(item.fulldate);
               }
             }}
@@ -71,12 +80,15 @@ export default function ListDays({
               `size-8 flex justify-center items-center hover:bg-dark-400`,
               {
                 "opacity-50": !item.isCurrentMonth || item.isNextMonth,
-                "bg-dark-400": isHighlighted(
-                  item.fulldate,
-                  item.isCurrentMonth,
-                  item.isNextMonth,
-                ) || (selectedDay.length === 1 && selectedDay[0] === item.fulldate),
-                "hover:bg-dark-400": item.isCurrentMonth && clickedDay !== null,
+                "bg-dark-400":
+                  isHighlighted(
+                    item.fulldate,
+                    item.isCurrentMonth,
+                    item.isNextMonth,
+                  ) ||
+                  (selectedDate.length === 1 &&
+                    selectedDate[0] === item.fulldate),
+                "hover:bg-dark-400": item.isCurrentMonth && startDate !== null,
                 "pointer-events-none": isDisabled(
                   item.isCurrentMonth,
                   item.isNextMonth,

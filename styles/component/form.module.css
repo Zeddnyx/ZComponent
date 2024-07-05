@@ -131,3 +131,28 @@
 }
 
 /* end FORM Input tag */
+
+/* FORM Time picker */
+.timePicker {
+  @apply absolute top-16 left-0;
+}
+
+.timePickerContent {
+  @apply bg-dark-300 rounded-lg w-full flex gap-5 p-4 max-h-[180px] overflow-y-hidden;
+}
+
+.timePickerContent>div {
+  @apply overflow-y-auto snap-y;
+  -mask: linear-gradient(to top, transparent, #000 20%, #000 80%, transparent);
+  mask: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+}
+
+.timePickerContent>span {
+  @apply py-[62px];
+}
+
+.timePickerContent>div>p {
+  @apply snap-center;
+}
+
+/* end FORM Time picker */

@@ -1,0 +1,13 @@
+.container {
+  @apply overflow-hidden flex;
+  -mask: linear-gradient(to left, transparent, #000 20%, #000 80%, transparent);
+  mask: linear-gradient(to left, transparent, #000 20%, #000 80%, transparent);
+}
+
+.scroller {
+  @apply flex gap-8 pt-10 animate-scroll hover:animate-none;
+}
+
+.scroller > * {
+  @apply min-w-fit flex-1 text-14 md:text-16 text-light-200 cursor-pointer hover:text-primary transition-colors;
+}

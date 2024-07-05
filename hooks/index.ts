@@ -134,7 +134,6 @@ export function useScrollableSlider() {
   };
 }
 
-
 export const useCheckPosition = (
   setPosition: (position: "top" | "bottom") => void,
   REF: React.RefObject<HTMLDivElement>,
@@ -160,4 +159,18 @@ export const useCheckPosition = (
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, [isActive]);
+};
+
+export const useDisableScroll = (isOpen: boolean) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isOpen]);
 };

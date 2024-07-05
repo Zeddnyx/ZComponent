@@ -1,3 +1,4 @@
+import ListScroller from "@/components/ui/ListScroller";
 import Button from "@/components/ui/component/Button";
 import { FaGithub } from "react-icons/fa";
 
@@ -25,6 +26,7 @@ export default function Page() {
           }
         />
       </div>
+      <ListScroller />
     </div>
   );
 }

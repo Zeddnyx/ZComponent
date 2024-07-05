@@ -44,6 +44,10 @@
     @apply bg-dark-200 text-light-200 font-mono;
   }
 
+  body.no-scroll {
+    overflow: hidden !important;
+  }
+
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -53,7 +57,6 @@
   button {
     @apply outline-none focus:outline-none;
   }
-
 }
 
 @layer utilities {

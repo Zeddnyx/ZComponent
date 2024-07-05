@@ -201,6 +201,14 @@ const config = {
             scale: "3",
           },
         },
+        scroll: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -216,6 +224,7 @@ const config = {
         "slide-in-up": "slideInUp 0.4s ease-in-out",
         "slide-in-down": "slideInDown 0.4s ease-in-out",
         "scroll-reveal": "scroll-reveal linear 0.3s forwards",
+        scroll: "scroll linear 100s infinite forwards",
       },
     },
   },

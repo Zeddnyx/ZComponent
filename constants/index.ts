@@ -38,10 +38,14 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
         title: "Dropdown",
         href: ROUTES.formUrl("dropdown"),
       },
-      {
-        title: "Date Picker",
-        href: ROUTES.formUrl("date-picker"),
-      },
+      // {
+      //   title: "Date Picker",
+      //   href: ROUTES.formUrl("date-picker"),
+      // },
+      // {
+      //   title: "Time Picker",
+      //   href: ROUTES.formUrl("time-picker"),
+      // },
       {
         title: "Checkbox",
         href: ROUTES.formUrl("checkbox"),

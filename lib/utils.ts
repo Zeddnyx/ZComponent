@@ -99,6 +99,13 @@ export const findPath = (path: string, sidebarItems: ISidebar[]) => {
   return { prevPath, nextPath };
 };
 
+export function formatDate(date: Date, locale = "en-US") {
+  return date.toLocaleDateString(locale, {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  });
+}
 
 export const getInitialMonth = (startMonth?: string) => {
   const DATE = new Date();
@@ -133,8 +140,9 @@ export const handleGetAllDays = (year: number, month: number) => {
 
   for (let i = FIRST_DAY_MONTH; i > 0; i--) {
     DAYS.push({
-      fulldate: `${year}-${month < 9 ? "0" : ""}${month + 1}-${PREV_MONTH_DAYS - i + 1
-        }`,
+      fulldate: `${year}-${month < 9 ? "0" : ""}${month + 1}-${
+        PREV_MONTH_DAYS - i + 1
+      }`,
       day: i,
       isCurrentMonth: false,
       isNextMonth: false,
