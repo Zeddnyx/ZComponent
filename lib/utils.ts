@@ -49,9 +49,12 @@ export const findPath = (path: string, sidebarItems: ISidebar[]) => {
   let prevPath = "/";
   let nextPath = "/";
 
+  // Flatten and filter out items with isMaintenance true
   const flatSidebar: (ISidebar & { isParent?: boolean })[] =
-    sidebarItems.flatMap((item) =>
-      item.children ? [...item.children] : [item],
+    sidebarItems.flatMap((item) => 
+      item.children 
+        ? item.children.filter(child => !child.isMaintenance) 
+        : !item.isMaintenance ? [item] : []
     );
 
   currentIndex = flatSidebar.findIndex((item) => item.href === path);
@@ -59,40 +62,20 @@ export const findPath = (path: string, sidebarItems: ISidebar[]) => {
   if (currentIndex > -1) {
     const currentItem = flatSidebar[currentIndex];
 
-    // previous path
-    if (currentIndex > 0) {
-      const prevItem = flatSidebar[currentIndex - 1];
-      if (
-        currentItem.isParent &&
-        currentItem.children &&
-        currentItem.children.length > 0
-      ) {
-        prevPath = currentItem.children[currentItem.children.length - 1].href;
-      } else if (prevItem.isParent) {
-        prevPath = prevItem.href;
-      } else {
-        prevPath = prevItem.href;
+    // Find the previous path
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      if (!flatSidebar[i].isMaintenance) {
+        prevPath = flatSidebar[i].href;
+        break;
       }
-    } else {
-      prevPath = "/";
     }
 
-    // next path
-    if (currentIndex < flatSidebar.length - 1) {
-      const nextItem = flatSidebar[currentIndex + 1];
-      if (
-        currentItem.isParent &&
-        currentItem.children &&
-        currentItem.children.length > 0
-      ) {
-        nextPath = currentItem.children[0].href;
-      } else if (nextItem.isParent) {
-        nextPath = nextItem.href;
-      } else {
-        nextPath = nextItem.href;
+    // Find the next path
+    for (let i = currentIndex + 1; i < flatSidebar.length; i++) {
+      if (!flatSidebar[i].isMaintenance) {
+        nextPath = flatSidebar[i].href;
+        break;
       }
-    } else {
-      nextPath = "/";
     }
   }
 

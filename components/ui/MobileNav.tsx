@@ -80,7 +80,7 @@ export default function MobileNav() {
                         return (
                           <Link
                             key={child.href}
-                            href={child.href}
+                            href={child.isMaintenance ? "#" : child.href}
                             onClick={() => setIsOpen(false)}
                             className={cn(
                               "hover:bg-primary rounded-md p-3 text-light-200 text-sm",
@@ -91,6 +91,11 @@ export default function MobileNav() {
                           >
                             <p className="capitalize text-start ">
                               {child.title}
+                              {child.isMaintenance && (
+                                <span className="text-red-500 text-xs">
+                                  (under maintenance)
+                                </span>
+                              )}
                             </p>
                           </Link>
                         );

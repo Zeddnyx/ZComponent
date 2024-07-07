@@ -3,6 +3,7 @@ declare interface ISidebar {
   title: string;
   color?: string;
   href: string;
+  isMaintenance: boolean;
   children?: ISidebar[];
 }
 declare interface IInput

@@ -36,7 +36,7 @@ export default function AcordionImage({
       </div>
       <div
         className={cn(
-          "group-hover:max-h-fit group-hover:py-5 group-hover:md:max-w-fit ",
+          "group-hover:max-h-fit group-hover:py-10 group-hover:md:max-w-fit ",
           {
             "max-h-fit py-5 md:max-w-fit": isOpen,
             "max-h-0 md:max-w-0": !isOpen,

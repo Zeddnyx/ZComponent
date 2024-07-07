@@ -9,50 +9,62 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
     icon: AiOutlineForm,
     title: "Form",
     href: "/form",
+    isMaintenance: false,
     children: [
       {
         title: "Input",
         href: ROUTES.formUrl("input"),
+        isMaintenance: false,
       },
       {
         title: "Input Suggestion",
         href: ROUTES.formUrl("input-suggest"),
+        isMaintenance: false,
       },
       {
         title: "Input Tag",
         href: ROUTES.formUrl("input-tag"),
+        isMaintenance: false,
       },
       {
         title: "Input Dynamic",
         href: ROUTES.formUrl("input-dynamic"),
+        isMaintenance: false,
       },
       {
         title: "Input File",
         href: ROUTES.formUrl("input-file"),
+        isMaintenance: false,
       },
       {
         title: "Textarea",
         href: ROUTES.formUrl("textarea"),
+        isMaintenance: false,
       },
       {
         title: "Dropdown",
         href: ROUTES.formUrl("dropdown"),
+        isMaintenance: false,
       },
-      // {
-      //   title: "Date Picker",
-      //   href: ROUTES.formUrl("date-picker"),
-      // },
-      // {
-      //   title: "Time Picker",
-      //   href: ROUTES.formUrl("time-picker"),
-      // },
+      {
+        title: "Date Picker",
+        href: ROUTES.formUrl("date-picker"),
+        isMaintenance: true,
+      },
+      {
+        title: "Time Picker",
+        href: ROUTES.formUrl("time-picker"),
+        isMaintenance: true,
+      },
       {
         title: "Checkbox",
         href: ROUTES.formUrl("checkbox"),
+        isMaintenance: false,
       },
       {
         title: "Otp",
         href: ROUTES.formUrl("otp"),
+        isMaintenance: false,
       },
     ],
   },
@@ -60,38 +72,47 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
     icon: BiSolidComponent,
     title: "Component",
     href: "/component",
+    isMaintenance: false,
     children: [
       {
         title: "acordion",
         href: ROUTES.componentUrl("acordion"),
+        isMaintenance: false,
       },
       {
         title: "button",
         href: ROUTES.componentUrl("button"),
+        isMaintenance: false,
       },
       {
         title: "table",
         href: ROUTES.componentUrl("table"),
+        isMaintenance: false,
       },
       {
         title: "modal",
         href: ROUTES.componentUrl("modal"),
+        isMaintenance: false,
       },
       {
         title: "paralax",
         href: ROUTES.componentUrl("paralax"),
+        isMaintenance: false,
       },
       {
         title: "gallery",
         href: ROUTES.componentUrl("gallery"),
+        isMaintenance: false,
       },
       {
         title: "carousel",
         href: ROUTES.componentUrl("carousel"),
+        isMaintenance: true,
       },
       {
         title: "canban",
         href: ROUTES.componentUrl("canban"),
+        isMaintenance: false,
       },
     ],
   },
@@ -99,22 +120,27 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
     icon: MdOutlineAnimation,
     title: "Animation",
     href: "/animation",
+    isMaintenance: false,
     children: [
       {
         title: "Scroll Reveal",
         href: ROUTES.animationUrl("scroll-reveal"),
+        isMaintenance: false,
       },
       {
         title: "Scroll Based",
         href: ROUTES.animationUrl("scroll-based"),
+        isMaintenance: false,
       },
       {
         title: "Scroll Opacity",
         href: ROUTES.animationUrl("scroll-opacity"),
+        isMaintenance: true,
       },
       {
         title: "Directionally Aware",
         href: ROUTES.animationUrl("directionally-aware"),
+        isMaintenance: false,
       },
     ],
   },

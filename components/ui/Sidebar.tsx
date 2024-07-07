@@ -53,15 +53,23 @@ export default function Sidebar() {
                     item.children.length > 0 &&
                     item.children.map((child) => {
                       const isChildActive = path === child.href;
+
                       return (
                         <Link
                           key={child.href}
-                          href={child.href}
+                          href={child.isMaintenance ? "#" : child.href}
                           className={cn("", {
                             "bg-primary": isChildActive,
                           })}
                         >
-                          <p className="capitalize">{child.title}</p>
+                          <p className="capitalize">
+                            {child.title}
+                            {child.isMaintenance && (
+                              <span className="text-red-500 text-xs">
+                              (under maintenance)
+                              </span>
+                            )}
+                          </p>
                         </Link>
                       );
                     })}

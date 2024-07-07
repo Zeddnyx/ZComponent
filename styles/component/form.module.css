@@ -7,6 +7,10 @@
   @apply pl-2 absolute left-0 top-0 bottom-0 flex items-center text-xl text-dark-700;
 }
 
+.inputLogoTextarea {
+  @apply pl-2 absolute left-0 top-[10px] bottom-0 flex text-xl text-dark-700;
+}
+
 .inputLoading {
   @apply absolute right-2 top-0 bottom-0 text-xs text-dark-700 flex items-center animate-spin text-lg;
 }
@@ -16,7 +20,7 @@
 }
 
 .inputDefault {
-  @apply h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:h-11 xl:h-[50px];
+  @apply min-h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:min-h-11 xl:min-h-[50px];
 }
 
 .inputSolid {
@@ -144,7 +148,11 @@
 .timePickerContent>div {
   @apply overflow-y-auto snap-y;
   -mask: linear-gradient(to top, transparent, #000 20%, #000 80%, transparent);
-  mask: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+  mask: linear-gradient(to bottom,
+      transparent,
+      #000 20%,
+      #000 80%,
+      transparent);
 }
 
 .timePickerContent>span {
