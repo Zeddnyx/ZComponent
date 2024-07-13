@@ -11,10 +11,8 @@ export default function DropDown({
   name,
   label,
   labelSide = "top",
-  value,
   placeholder = "Select",
   variant = "solid",
-  setValue,
   onChange,
   error,
   isRequired = false,
@@ -43,14 +41,13 @@ export default function DropDown({
     setSelectedValues(NEW_VALUE);
     setSelectedLabels(NEW_LABEL);
     onChange({ target: { name, value: NEW_VALUE?.join(",") } });
-    setValue(NEW_LABEL.join(","));
   };
 
   useClickOutside(setIsOpen, dropdownRef);
 
   return (
     <div
-      className={cn(`${className} flex w-full`, {
+      className={cn(`${className}`, {
         "items-center gap-2": labelSide === "left",
         "flex-col": labelSide === "top",
       })}
@@ -66,21 +63,27 @@ export default function DropDown({
           {isRequired && "*"}
         </p>
       )}
-      <div className="relative w-full">
+      <div className="w-full h-fit relative">
         <button
           type="button"
           className={cn(
             `w-full flex justify-between items-center gap-2 truncate ${styles.inputDefault} ${inputClassName} ${variantInput[variant]}`,
             {
-              "!text-light-900": !value,
+              "!text-light-900": !selectedValues,
               "border !border-red-500": error,
             },
           )}
           disabled={isDisabled}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <div className="text-left flex overflow-x-auto no-scrollbar w-4/5">
-            <p>{value || placeholder}</p>
+          <div className="text-left flex gap-1 flex-wrap">
+            {!!selectedLabels.length ? (
+              selectedLabels.map((item, id) => {
+                return <p key={id}>{item},</p>;
+              })
+            ) : (
+              <p> {placeholder}</p>
+            )}
           </div>
           <IoIosArrowDown
             className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
@@ -89,27 +92,31 @@ export default function DropDown({
 
         <p className={styles.inputError}>{error && error}</p>
 
-        {isOpen && (
-          <div className={`${styles.DropdownCheckboxContent} custom-scrollbar`}>
-            {isLoading && <div className="dropdown-loading" />}
-            {options?.map((option, index) => (
-              <div
-                key={index}
-                onClick={() => handleSelect(option.value, option.label)}
-                role="menuitem"
-              >
-                <Checkbox
-                  label={option.label}
-                  value={option.value}
-                  name={name}
-                  labelSide={"right"}
-                  checked={selectedValues.includes(option.value)}
-                  onChange={() => handleSelect(option.value, option.label)}
-                />
-              </div>
-            ))}
-          </div>
-        )}
+        <div
+          className={cn(`custom-scrollbar transition-all`, {
+            [styles.dropdownCheckboxContent]: true,
+            "scale-100 max-h-40 h-fit overflow-y-auto": isOpen,
+            "scale-0 max-h-0": !isOpen,
+          })}
+        >
+          {isLoading && <div className="dropdown-loading" />}
+          {options?.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => handleSelect(option.value, option.label)}
+              role="menuitem"
+            >
+              <Checkbox
+                label={option.label}
+                value={option.value}
+                name={name}
+                labelSide={"right"}
+                checked={selectedValues.includes(option.value)}
+                onChange={() => handleSelect(option.value, option.label)}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

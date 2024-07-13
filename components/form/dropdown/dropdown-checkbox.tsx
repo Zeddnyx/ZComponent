@@ -11,7 +11,7 @@ export default function Index() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setForm({ ...form, [name]: value });
+    setForm({ ...form, [name]: [value] });
   };
 
   return (

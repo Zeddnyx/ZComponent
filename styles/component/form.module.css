@@ -20,7 +20,7 @@
 }
 
 .inputDefault {
-  @apply min-h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:min-h-11 xl:min-h-[50px];
+  @apply min-h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:min-h-11 xl:min-h-[50px] disabled:cursor-not-allowed disabled:opacity-80;
 }
 
 .inputSolid {
@@ -54,18 +54,18 @@
 
 /* FORM Dropwdown */
 .dropdownContent {
-  @apply absolute top-12 z-10 w-full bg-dark-300 rounded-lg max-h-40 h-fit overflow-y-auto shadow;
+  @apply absolute top-14 z-10 w-full bg-dark-300 rounded-lg max-h-40 h-fit overflow-y-auto shadow;
 }
 
 .dropdownContent>div {
   @apply p-2 cursor-pointer hover:bg-dark-500 transition-colors;
 }
 
-.DropdownCheckboxContent {
-  @apply absolute top-14 z-10 w-full bg-dark-300 rounded-lg max-h-40 h-fit overflow-y-auto shadow;
+.dropdownCheckboxContent {
+  @apply absolute top-14 z-10 w-full bg-dark-300 rounded-lg shadow;
 }
 
-.DropdownCheckboxContent>div {
+.dropdownCheckboxContent>div {
   @apply p-2 cursor-pointer hover:bg-dark-500 transition-colors flex items-center gap-2;
 }
 
