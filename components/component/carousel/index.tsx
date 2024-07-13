@@ -1,50 +1,38 @@
-"use client";
-import { useScrollableSlider } from "@/hooks";
-import { useState } from "react";
+import CarouselContent from "@/components/shared/carousel";
 
 const Carousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const {
-    sliderEl,
-    sliderPrevBtn,
-    sliderNextBtn,
-    scrollToTheRight,
-    scrollToTheLeft,
-  } = useScrollableSlider();
-
-  const LENGTH = 10;
+  const img = ["1", "2", "3", "4", "5"];
 
   return (
-    <div className="relative w-full">
-      <div className="overflow-hidden">
-        <div
-          className="flex w-full gap-5 overflow-x-scroll no-scrollbar"
-          ref={sliderEl}
-        >
-          {Array.from({ length: LENGTH }).map((_, index) => (
+    <div className="relative w-full flex flex-col gap-5">
+      <CarouselContent item={img}>
+        {img?.map((_, id) => {
+          return (
             <div
-              key={index}
-              className="w-96 h-20 shrink-0 bg-gray-300 flex items-center justify-center"
+              key={id}
+              className="w-full flex-shrink-0 bg-primary p-5 rounded-xl"
             >
-              <p className="font-bold text-dark">{index}</p>
+              Lorem ipsum dolor sit amet, officia excepteur ex fugiat
+              reprehenderit
             </div>
-          ))}
-        </div>
-      </div>
-      <button ref={sliderPrevBtn} onClick={() => scrollToTheLeft()}>
-        Prev
-      </button>
-      <button ref={sliderNextBtn} onClick={() => scrollToTheRight()}>
-        Next
-      </button>
+          );
+        })}
+      </CarouselContent>
       <div>
-        {Array.from({ length: LENGTH }).map((_, index) => (
-          <span
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={currentSlide === index ? "w-10" : "w-5"}
-          />
-        ))}
+        <p>With dot</p>
+        <CarouselContent item={img} showDots>
+          {img?.map((_, id) => {
+            return (
+              <div
+                key={id}
+                className="w-full flex-shrink-0 bg-primary p-5 rounded-xl"
+              >
+                Lorem ipsum dolor sit amet, officia excepteur ex fugiat
+                reprehenderit
+              </div>
+            );
+          })}
+        </CarouselContent>
       </div>
     </div>
   );

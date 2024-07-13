@@ -107,7 +107,7 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
       {
         title: "carousel",
         href: ROUTES.componentUrl("carousel"),
-        isMaintenance: true,
+        isMaintenance: false,
       },
       {
         title: "canban",
