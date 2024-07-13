@@ -31,8 +31,6 @@ declare interface IDropDown {
   name: string;
   label?: string;
   labelSide?: "left" | "top";
-  value: string;
-  setValue: any;
   placeholder?: string;
   onChange: any;
   isRequired?: boolean;

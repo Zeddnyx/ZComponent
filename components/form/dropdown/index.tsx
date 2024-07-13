@@ -5,7 +5,6 @@ import DropDown from "@/components/ui/form/Dropdown";
 import { OPTOONS } from "@/constants/index";
 
 export default function Index() {
-  const [label, setLabel] = useState("");
   const [form, setForm] = useState({
     name: "",
   });
@@ -17,17 +16,9 @@ export default function Index() {
 
   return (
     <div className="grid gap-4">
+      <DropDown options={OPTOONS} name="name" onChange={handleChange} />
       <DropDown
         options={OPTOONS}
-        value={label}
-        setValue={setLabel}
-        name="name"
-        onChange={handleChange}
-      />
-      <DropDown
-        options={OPTOONS}
-        value={label}
-        setValue={setLabel}
         name="name"
         onChange={handleChange}
         error="Please select name!"

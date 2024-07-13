@@ -6,7 +6,6 @@ import DropDown from "@/components/ui/form/Dropdown";
 import { OPTOONS } from "@/constants/index";
 
 export default function Index() {
-  const [label, setLabel] = useState("");
   const [form, setForm] = useState({
     name: "",
   });
@@ -22,8 +21,6 @@ export default function Index() {
         label="Solid"
         labelSide="left"
         options={OPTOONS}
-        value={label}
-        setValue={setLabel}
         name="name"
         onChange={handleChange}
       />
@@ -32,8 +29,6 @@ export default function Index() {
         labelSide="left"
         variant="outline"
         options={OPTOONS}
-        value={label}
-        setValue={setLabel}
         name="name"
         onChange={handleChange}
       />
@@ -42,8 +37,6 @@ export default function Index() {
         labelSide="left"
         variant="underline"
         options={OPTOONS}
-        value={label}
-        setValue={setLabel}
         name="name"
         onChange={handleChange}
       />
@@ -52,8 +45,6 @@ export default function Index() {
         labelSide="left"
         variant="none"
         options={OPTOONS}
-        value={label}
-        setValue={setLabel}
         name="name"
         onChange={handleChange}
       />

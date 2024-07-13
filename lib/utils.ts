@@ -51,10 +51,12 @@ export const findPath = (path: string, sidebarItems: ISidebar[]) => {
 
   // Flatten and filter out items with isMaintenance true
   const flatSidebar: (ISidebar & { isParent?: boolean })[] =
-    sidebarItems.flatMap((item) => 
-      item.children 
-        ? item.children.filter(child => !child.isMaintenance) 
-        : !item.isMaintenance ? [item] : []
+    sidebarItems.flatMap((item) =>
+      item.children
+        ? item.children.filter((child) => !child.isMaintenance)
+        : !item.isMaintenance
+        ? [item]
+        : [],
     );
 
   currentIndex = flatSidebar.findIndex((item) => item.href === path);

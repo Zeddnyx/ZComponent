@@ -19,8 +19,21 @@ export default function Index() {
 
   return (
     <div className="flex flex-col gap-8">
-      <Input name="name" label="default" value={form.name} onChange={handleChange} placeholder="Name" />
-      <Input name="name" label="Required" isRequired value={form.name} onChange={handleChange} placeholder="Name" />
+      <Input
+        name="name"
+        label="default"
+        value={form.name}
+        onChange={handleChange}
+        placeholder="Name"
+      />
+      <Input
+        name="name"
+        label="Required"
+        isRequired
+        value={form.name}
+        onChange={handleChange}
+        placeholder="Name"
+      />
       <Input
         name="name"
         value={form.name}

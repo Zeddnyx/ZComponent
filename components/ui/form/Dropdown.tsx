@@ -10,10 +10,8 @@ export default function DropDown({
   name,
   label,
   labelSide = "top",
-  value,
   placeholder = "Select",
   variant = "solid",
-  setValue,
   onChange,
   error,
   isRequired = false,
@@ -24,10 +22,11 @@ export default function DropDown({
 }: IDropDown) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [getLabel, setGetLabel] = useState("");
 
   const handleSelect = (value: string, label: string) => {
     onChange({ target: { name, value } });
-    setValue(label);
+    setGetLabel(label);
     setIsOpen(false);
   };
 
@@ -57,14 +56,14 @@ export default function DropDown({
           className={cn(
             `flex justify-between items-center gap-2 truncate w-full ${styles.inputDefault} ${inputClassName} ${variantInput[variant]}`,
             {
-              "!text-light-900": !value,
+              "!text-light-900": !getLabel,
               "border !border-red-500": error,
             },
           )}
           disabled={isDisabled}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {value || placeholder}
+          {getLabel || placeholder}
           <IoIosArrowDown
             className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
           />
