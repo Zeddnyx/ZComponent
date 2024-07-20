@@ -32,7 +32,7 @@ declare interface IDropDown {
   label?: string;
   labelSide?: "left" | "top";
   placeholder?: string;
-  value?: string;
+  value?: string | number;
   onChange: any;
   isRequired?: boolean;
   isDisabled?: boolean;
@@ -41,6 +41,7 @@ declare interface IDropDown {
   inputClassName?: string;
   isLoading?: boolean;
   variant?: "solid" | "outline" | "underline" | "none";
+  isArrow?: boolean;
 }
 
 declare interface ICheckbox {
@@ -122,6 +123,11 @@ declare interface IPagination {
 declare interface IBtnAction {
   action: "prev" | "next";
   title: string;
+}
+
+declare interface IPaginationComponent {
+  total_page: number;
+  current_page: number;
 }
 
 interface IModal {

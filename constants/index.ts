@@ -114,6 +114,11 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
         href: ROUTES.componentUrl("canban"),
         isMaintenance: false,
       },
+      {
+        title: "pagination",
+        href: ROUTES.componentUrl("pagination"),
+        isMaintenance: false,
+      },
     ],
   },
   {

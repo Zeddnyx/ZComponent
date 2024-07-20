@@ -20,6 +20,7 @@ export default function DropDown({
   inputClassName,
   className,
   isLoading,
+  isArrow = true,
 }: IDropDown) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -72,9 +73,11 @@ export default function DropDown({
           onClick={() => setIsOpen(!isOpen)}
         >
           {getLabel || placeholder}
-          <IoIosArrowDown
-            className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
-          />
+          {isArrow && (
+            <IoIosArrowDown
+              className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+            />
+          )}
         </button>
 
         <p className={styles.inputError}>{error && error}</p>
