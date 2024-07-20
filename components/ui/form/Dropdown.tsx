@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 import styles from "@/styles/component/form.module.css";
@@ -12,6 +12,7 @@ export default function DropDown({
   labelSide = "top",
   placeholder = "Select",
   variant = "solid",
+  value,
   onChange,
   error,
   isRequired = false,
@@ -23,6 +24,13 @@ export default function DropDown({
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [getLabel, setGetLabel] = useState("");
+
+  useEffect(() => {
+    const initialOption = options?.find((option) => option.value === value);
+    if (initialOption) {
+      setGetLabel(initialOption.label);
+    }
+  }, [value, options]);
 
   const handleSelect = (value: string, label: string) => {
     onChange({ target: { name, value } });
