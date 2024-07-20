@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import PaginationUi from "@/components/ui/component/Pagination";
+import { Suspense } from "react";
 
 export default function Index() {
   const pagination = {
@@ -8,7 +9,10 @@ export default function Index() {
   };
   return (
     <div>
-      <PaginationUi pagination={pagination} />
+      {/* Since we use useSearchParams, need to wrap with suspense */}
+      <Suspense>
+        <PaginationUi pagination={pagination} />
+      </Suspense>
     </div>
   );
 }
