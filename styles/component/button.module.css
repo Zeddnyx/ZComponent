@@ -1,5 +1,5 @@
 .btnDefault {
-  @apply h-11 w-full flex items-center justify-center appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light text-center  focus:outline-none placeholder:text-dark-700 md:h-12 lg:px-3 xl:h-[50px];
+  @apply h-11 w-full flex items-center justify-center appearance-none rounded-lg px-2 py-2 pl-3 text-14 text-light text-center focus:outline-none placeholder:text-dark-700 md:h-12 lg:px-3 xl:h-[50px];
 }
 
 .btn {

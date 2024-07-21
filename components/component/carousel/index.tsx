@@ -10,7 +10,7 @@ const Carousel = () => {
           return (
             <div
               key={id}
-              className="w-full flex-shrink-0 bg-primary p-5 rounded-xl"
+              className="w-full flex-shrink-0 bg-dark-700 p-5 rounded-xl"
             >
               Lorem ipsum dolor sit amet, officia excepteur ex fugiat
               reprehenderit
@@ -25,7 +25,7 @@ const Carousel = () => {
             return (
               <div
                 key={id}
-                className="w-full flex-shrink-0 bg-primary p-5 rounded-xl"
+                className="w-full flex-shrink-0 bg-dark-700 p-5 rounded-xl"
               >
                 Lorem ipsum dolor sit amet, officia excepteur ex fugiat
                 reprehenderit

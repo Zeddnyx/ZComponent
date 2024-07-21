@@ -5,7 +5,7 @@ import Wrapper from "@/components/ui/Wrapper";
 export default function Page() {
   return (
     <div>
-      <Title title="Canban" subtitle="canban" />
+      <Title title="Carousel" subtitle="Carousel" />
       <Wrapper>
         <Carousel />
       </Wrapper>

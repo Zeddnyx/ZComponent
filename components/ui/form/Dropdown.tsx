@@ -75,27 +75,34 @@ export default function DropDown({
           {getLabel || placeholder}
           {isArrow && (
             <IoIosArrowDown
-              className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+              className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                }`}
             />
           )}
         </button>
 
         <p className={styles.inputError}>{error && error}</p>
 
-        {isOpen && (
-          <div className={`${styles.dropdownContent} custom-scrollbar`}>
-            {isLoading && <div className="dropdown-loading" />}
-            {options?.map((option, index) => (
-              <div
-                key={index}
-                onClick={() => handleSelect(option.value, option.label)}
-                role="menuitem"
-              >
-                {option.label}
-              </div>
-            ))}
-          </div>
-        )}
+        <div
+          className={cn(
+            "transition-all duration-300 ease-in-out custom-scrollbar",
+            {
+              [styles.dropdownContent]: isOpen,
+              [styles.dropdownInactive]: !isOpen,
+            },
+          )}
+        >
+          {isLoading && <div className={styles.dropdownLoading} />}
+          {options?.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => handleSelect(option.value, option.label)}
+              role="menuitem"
+            >
+              {option.label}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -53,6 +53,10 @@
 /* end FORM Input suggest */
 
 /* FORM Dropwdown */
+.dropdownInactive {
+  @apply -z-10 h-0 invisible -translate-y-20 opacity-0 !duration-0;
+}
+
 .dropdownContent {
   @apply absolute top-14 z-10 w-full bg-dark-300 rounded-lg max-h-40 h-fit overflow-y-auto shadow;
 }
@@ -70,7 +74,12 @@
 }
 
 .dropdownLoading {
-  @apply p-2 cursor-pointer;
+  @apply p-2 cursor-not-allowed;
+}
+
+.dropdownLoading::after {
+  @apply animate-pulse;
+  content: "loading...";
 }
 
 /* end FORM Dropwdown */

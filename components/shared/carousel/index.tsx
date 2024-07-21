@@ -108,7 +108,7 @@ export default function CarouselContent({
           {item.map((_, index) => (
             <button
               key={index}
-              className={`w-2 h-2 rounded-full ${index === currentIndex ? "bg-gray-800" : "bg-gray-400"
+              className={`w-2 h-2 rounded-full ${index === currentIndex ? "bg-dark-100 !w-4" : "bg-dark-600"
                 }`}
               onClick={() => goToSlide(index)}
             />
