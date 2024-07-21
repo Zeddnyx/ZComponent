@@ -1,4 +1,4 @@
-import Acordion from "@/components/ui/component/Acordion";
+import Acordion from "@/components/shared/component/Acordion";
 
 export default function Index() {
   return (

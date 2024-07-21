@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import DropDown from "@/components/ui/form/DropdownCheckbox";
+import DropDown from "@/components/shared/form/DropdownCheckbox";
 import { OPTOONS } from "@/constants/index";
 
 export default function Index() {

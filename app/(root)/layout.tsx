@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Metadata } from "next";
 
-import MobileNav from "@/components/ui/MobileNav";
-import Sidebar from "@/components/ui/Sidebar";
-import Pagination from "@/components/ui/Pagination";
-import Footer from "@/components/ui/Footer";
+import MobileNav from "@/components/shared/MobileNav";
+import Sidebar from "@/components/shared/Sidebar";
+import Pagination from "@/components/shared/Pagination";
+import Footer from "@/components/shared/Footer";
 import styles from "@/styles/component/layout.module.css";
 
 export const metadata: Metadata = {

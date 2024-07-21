@@ -1,6 +1,6 @@
 "use client";
 
-import Table from "@/components/ui/component/Table";
+import Table from "@/components/shared/component/Table";
 import { RANDOM_ITEMS } from "@/constants";
 import { logo } from "@/lib/image";
 import Image from "next/image";

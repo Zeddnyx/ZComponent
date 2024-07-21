@@ -1,7 +1,7 @@
 import Acordion from "@/components/component/acordion";
 import AcordionImage from "@/components/component/acordion/image";
-import Title from "@/components/ui/Title";
-import Wrapper from "@/components/ui/Wrapper";
+import Title from "@/components/shared/Title";
+import Wrapper from "@/components/shared/Wrapper";
 
 export default function Page() {
   return (

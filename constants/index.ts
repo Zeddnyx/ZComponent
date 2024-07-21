@@ -49,7 +49,7 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
       {
         title: "Date Picker",
         href: ROUTES.formUrl("date-picker"),
-        isMaintenance: true,
+        isMaintenance: false,
       },
       {
         title: "Time Picker",

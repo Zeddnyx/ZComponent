@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { KEYBOARD } from "@/configs/keyboard";
 import { RANDOM_NAME } from "@/constants";
 
-import Input from "@/components/ui/form/Input";
+import Input from "@/components/shared/form/Input";
 import SuggestList from "./SuggestList";
 import { useClickOutside } from "@/hooks";
 

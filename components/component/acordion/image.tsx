@@ -1,6 +1,6 @@
 import { GiSummits } from "react-icons/gi";
 
-import AcordionImage from "@/components/ui/component/AcordionImage";
+import AcordionImage from "@/components/shared/component/AcordionImage";
 import { aurora } from "@/lib/image";
 import styles from "@/styles/component/acordion.module.css";
 

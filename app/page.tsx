@@ -1,5 +1,5 @@
-import ListScroller from "@/components/ui/ListScroller";
-import Button from "@/components/ui/component/Button";
+import ListScroller from "@/components/shared/ListScroller";
+import Button from "@/components/shared/component/Button";
 import { FaGithub } from "react-icons/fa";
 
 export default function Page() {

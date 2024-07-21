@@ -1,4 +1,4 @@
-import Modal from "@/components/ui/component/Modal";
+import Modal from "@/components/shared/component/Modal";
 
 export default function Index() {
   return (

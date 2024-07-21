@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { MdDelete, MdOutlineAdd } from "react-icons/md";
 
-import Input from "@/components/ui/form/Input";
-import Button from "@/components/ui/component/Button";
+import Input from "@/components/shared/form/Input";
+import Button from "@/components/shared/component/Button";
 
 export default function Index() {
   const [form, setForm] = useState([

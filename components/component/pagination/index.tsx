@@ -1,5 +1,5 @@
 "use client";
-import PaginationUi from "@/components/ui/component/Pagination";
+import PaginationUi from "@/components/shared/component/Pagination";
 import { Suspense } from "react";
 
 export default function Index() {

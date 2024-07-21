@@ -1,7 +1,7 @@
 import InputTag from "@/components/form/input-tag";
 import InputTagSearch from "@/components/form/input-tag/tag-search";
-import Title from "@/components/ui/Title";
-import Wrapper from "@/components/ui/Wrapper";
+import Title from "@/components/shared/Title";
+import Wrapper from "@/components/shared/Wrapper";
 
 export default function Page() {
   return (

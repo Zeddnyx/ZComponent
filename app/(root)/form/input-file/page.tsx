@@ -2,8 +2,8 @@ import File from "@/components/form/input-file/file";
 import FileMultiple from "@/components/form/input-file/file-multiple";
 import UploadImage from "@/components/form/input-file/image";
 import UploadImageMultiple from "@/components/form/input-file/image-multiple";
-import Title from "@/components/ui/Title";
-import Wrapper from "@/components/ui/Wrapper";
+import Title from "@/components/shared/Title";
+import Wrapper from "@/components/shared/Wrapper";
 
 export default function Page() {
   return (

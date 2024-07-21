@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import FileInput from "@/components/ui/form/File";
+import FileInput from "@/components/shared/form/File";
 
 export default function File() {
   const [file, setFile] = useState<File[]>([]);

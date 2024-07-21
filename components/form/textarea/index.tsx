@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FaAudioDescription } from "react-icons/fa6";
 
-import Textarea from "@/components/ui/form/Textarea";
+import Textarea from "@/components/shared/form/Textarea";
 
 export default function Index() {
   const [form, setForm] = useState({

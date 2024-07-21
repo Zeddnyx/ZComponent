@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import Input from "@/components/ui/form/Input";
+import Input from "@/components/shared/form/Input";
 import Tag from "@/components/form/input-tag/tag";
 import SuggestList from "../../input-suggest/SuggestList";
 import styles from "@/styles/component/form.module.css";

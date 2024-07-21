@@ -1,8 +1,8 @@
 "use client";
 
 import Canban from "@/components/component/canban";
-import Title from "@/components/ui/Title";
-import Wrapper from "@/components/ui/Wrapper";
+import Title from "@/components/shared/Title";
+import Wrapper from "@/components/shared/Wrapper";
 
 import { useScrollX } from "@/hooks";
 

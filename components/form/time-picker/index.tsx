@@ -1,4 +1,4 @@
-import TimePicker from "@/components/ui/form/TimePicker";
+import TimePicker from "@/components/shared/form/TimePicker";
 
 export default function Index() {
   return (

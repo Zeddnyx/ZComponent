@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import FileInput from "@/components/ui/form/File";
+import FileInput from "@/components/shared/form/File";
 import { cn } from "@/lib/utils";
 
 export default function Image() {

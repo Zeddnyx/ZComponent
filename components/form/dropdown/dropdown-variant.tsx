@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import DropDown from "@/components/ui/form/Dropdown";
+import DropDown from "@/components/shared/form/Dropdown";
 
 import { OPTOONS } from "@/constants/index";
 

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import OTP from "@/components/ui/form/OTP";
+import OTP from "@/components/shared/form/OTP";
 
 export default function Index() {
   const [otp, setOtp] = useState("");

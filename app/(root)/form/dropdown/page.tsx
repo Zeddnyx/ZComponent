@@ -1,8 +1,8 @@
 import Dropdown from "@/components/form/dropdown";
 import DropdownVariant from "@/components/form/dropdown/dropdown-variant";
 import DropdownCheckbox from "@/components/form/dropdown/dropdown-checkbox";
-import Title from "@/components/ui/Title";
-import Wrapper from "@/components/ui/Wrapper";
+import Title from "@/components/shared/Title";
+import Wrapper from "@/components/shared/Wrapper";
 
 export default function Page() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import Input from "@/components/ui/form/Input";
+import Input from "@/components/shared/form/Input";
 import Tag from "@/components/form/input-tag/tag";
 import styles from "@/styles/component/form.module.css";
 

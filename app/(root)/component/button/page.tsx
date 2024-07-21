@@ -1,7 +1,7 @@
 import ButtonSizes from "@/components/component/button/button-sizes";
 import ButtonVariant from "@/components/component/button/button-variant";
-import Title from "@/components/ui/Title";
-import Wrapper from "@/components/ui/Wrapper";
+import Title from "@/components/shared/Title";
+import Wrapper from "@/components/shared/Wrapper";
 
 export default function Page() {
   return (

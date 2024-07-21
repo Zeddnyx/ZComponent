@@ -4,7 +4,7 @@ import { useState } from "react";
 import { IoPersonSharp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 
-import Input from "@/components/ui/form/Input";
+import Input from "@/components/shared/form/Input";
 
 export default function Index() {
   const [form, setForm] = useState({

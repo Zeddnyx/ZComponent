@@ -1,8 +1,8 @@
 import OTP from "@/components/form/otp";
 import OtpDivide from "@/components/form/otp/OtpDivide";
 
-import Title from "@/components/ui/Title";
-import Wrapper from "@/components/ui/Wrapper";
+import Title from "@/components/shared/Title";
+import Wrapper from "@/components/shared/Wrapper";
 
 export default function Page() {
   return (

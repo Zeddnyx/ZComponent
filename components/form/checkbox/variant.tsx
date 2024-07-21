@@ -1,5 +1,5 @@
 "use client";
-import Checkbox from "@/components/ui/form/Checkbox";
+import Checkbox from "@/components/shared/form/Checkbox";
 import { useState } from "react";
 
 export default function Index() {
