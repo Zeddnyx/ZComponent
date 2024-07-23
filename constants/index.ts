@@ -49,7 +49,7 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
       {
         title: "Date Picker",
         href: ROUTES.formUrl("date-picker"),
-        isMaintenance: false,
+        isMaintenance: true,
       },
       {
         title: "Time Picker",
@@ -112,6 +112,11 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
       {
         title: "canban",
         href: ROUTES.componentUrl("canban"),
+        isMaintenance: false,
+      },
+      {
+        title: "movable",
+        href: ROUTES.componentUrl("movable"),
         isMaintenance: false,
       },
       {

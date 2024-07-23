@@ -24,7 +24,7 @@
 
 /* accordion image */
 .acordionImageContainer {
-  @apply flex flex-row gap-3 overflow-x-scroll ;
+  @apply flex flex-row gap-3 overflow-x-scroll;
 }
 
 .acordionImage {
