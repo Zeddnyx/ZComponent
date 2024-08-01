@@ -62,6 +62,11 @@ export const SIDEBAR_ITEMS: ISidebar[] = [
         isMaintenance: false,
       },
       {
+        title: "Switch",
+        href: ROUTES.formUrl("switch"),
+        isMaintenance: false,
+      },
+      {
         title: "Otp",
         href: ROUTES.formUrl("otp"),
         isMaintenance: false,

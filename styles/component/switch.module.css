@@ -1,0 +1,32 @@
+.switch {
+  @apply relative inline-block w-[50px] h-[25px];
+}
+
+.checkbox {
+  @apply opacity-0 size-0;
+}
+
+.slider {
+  @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-dark-900 rounded-full;
+  transition: 0.3s;
+}
+
+.slider:before {
+  @apply absolute size-[23px] bg-light rounded-full;
+  content: "";
+  left: 1px;
+  bottom: 1px;
+  transition: 0.3s;
+}
+
+.checkbox:checked+.slider {
+  @apply bg-primary;
+}
+
+.checkbox:checked+.slider:before {
+  transform: translateX(25px);
+}
+
+.always_on+.slider {
+  @apply bg-primary;
+}
