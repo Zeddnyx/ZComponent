@@ -14,13 +14,34 @@ export default function Index() {
   };
 
   return (
-    <div className="">
-      <Switch name="switch" onChange={handleChange} checked={form.switch} />
+    <div className="flex flex-wrap items-center gap-10">
       <Switch
+        label="Default"
+        name="switch"
+        onChange={handleChange}
+        checked={form.switch}
+      />
+      <Switch
+        label="Always On"
         name="always_active"
         onChange={handleChange}
         checked={form.always_active}
-        awlaysOn
+        isAlwaysOn
+      />
+      <Switch
+        label="Default inline"
+        name="switch"
+        onChange={handleChange}
+        checked={form.switch}
+        isInline
+      />
+      <Switch
+        label="Always On inline"
+        name="always_active"
+        onChange={handleChange}
+        checked={form.always_active}
+        isAlwaysOn
+        isInline
       />
     </div>
   );

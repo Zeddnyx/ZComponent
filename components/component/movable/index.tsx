@@ -44,24 +44,24 @@ export default function Index() {
   return (
     <div>
       <div className="flex flex-col gap-2">
-        {items.map((item, index) => {
-          return (
-            <div
-              key={index}
-              draggable
-              onDragStart={(e) => handleDragStart(e, index)}
-              onDragOver={(e) => handleDragOver(e, index)}
-              onDrop={(e) => handleDrop(e, index)}
-              className={`${draggingIndex === index ? "bg-dark-400" : ""
-                } transition-all duration-500 ease-in-out`}
-            >
-              <div className="bg-dark-300 rounded p-2 hover:bg-dark-400 ">
-                {item}
-              </div>
-              {overIndex === index && <div className="h-10" />}
+        {items.map((item, index) => (
+          <div
+            key={index}
+            draggable
+            onDragStart={(e) => handleDragStart(e, index)}
+            onDragOver={(e) => handleDragOver(e, index)}
+            onDrop={(e) => handleDrop(e, index)}
+            className={`${draggingIndex === index ? "opacity-50" : ""
+              } transition-all duration-500 ease-in-out`}
+          >
+            {overIndex === index && draggingIndex !== index && (
+              <div className="h-10 bg-transparent" />
+            )}
+            <div className="bg-dark-300 rounded p-2 hover:bg-dark-400">
+              {item}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );

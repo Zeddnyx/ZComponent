@@ -20,7 +20,8 @@
 }
 
 .inputDefault {
-  @apply min-h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary md:min-h-11 xl:min-h-[50px] disabled:cursor-not-allowed disabled:opacity-80;
+  @apply min-h-10 w-full appearance-none rounded-lg px-3 py-2 text-14 text-light border-[0.5px] border-dark-900 md:min-h-11 xl:min-h-[50px];
+  @apply disabled:opacity-80 disabled:cursor-not-allowed focus:outline-none placeholder:text-dark-700 focus:border-[0.5px] focus:border-primary;
 }
 
 .inputSolid {

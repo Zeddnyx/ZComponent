@@ -11,7 +11,9 @@ export default function Index() {
     error: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, // since i use the same type as input so i must include type for input elelemnt:)
+  ) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
   };
@@ -23,6 +25,13 @@ export default function Index() {
         value={form.description}
         onChange={handleChange}
         label="Description"
+      />
+      <Textarea
+        name="description"
+        value={form.description}
+        onChange={handleChange}
+        label="Description auto resize"
+        isAutoResize
       />
       <Textarea
         name="logo"

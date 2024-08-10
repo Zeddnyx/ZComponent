@@ -1,32 +1,58 @@
+import { cn } from "@/lib/utils";
 import styles from "@/styles/component/switch.module.css";
 
-const Switch = ({
-  name,
-  checked,
-  onChange,
-  awlaysOn = false,
-}: {
-  name: string;
-  checked: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  awlaysOn?: boolean;
-}) => {
+export default function CSwitch({
+  isAlwaysOn,
+  isInline,
+  className,
+  label,
+  classNameWrap,
+  ...props
+}: ISwitch) {
+  return (
+    <div
+      className={cn("flex", classNameWrap, {
+        "flex-col items-start gap-1": !isInline,
+        "flex-row items-center gap-2": isInline,
+      })}
+    >
+      {label && (
+        <label htmlFor={props.name} className="text-sm capitalize">
+          {label}
+        </label>
+      )}
+      <Switch
+        name={props.name}
+        checked={props.checked}
+        onChange={props.onChange}
+        isAlwaysOn={isAlwaysOn}
+      />
+    </div>
+  );
+}
+
+function Switch({ isAlwaysOn = false, className, ...props }: ISwitch) {
   const handleToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event);
+    props.onChange && props.onChange(event);
   };
 
   return (
     <label className={styles.switch}>
       <input
         type="checkbox"
-        name={name}
-        checked={checked}
+        name={props.name && props.name}
+        checked={props.checked}
         onChange={handleToggle}
-        className={`${styles.checkbox} ${awlaysOn && styles.always_on}`}
+        className={cn(
+          `${isAlwaysOn && styles.isAways_on}`,
+          className,
+          styles.checkbox,
+          {
+            [styles.always_on]: isAlwaysOn,
+          },
+        )}
       />
-      <span className={`${styles.slider} ${checked ? styles.on : ""}`} />
+      <span className={`${styles.slider} ${props.checked && styles.on}`} />
     </label>
   );
-};
-
-export default Switch;
+}

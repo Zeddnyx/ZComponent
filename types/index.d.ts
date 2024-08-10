@@ -15,10 +15,11 @@ declare interface IInput
   isRequired?: boolean;
   className?: string;
   inputClassName?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   logo?: React.ReactNode;
   disabled?: boolean;
   variant?: "solid" | "outline" | "underline" | "none";
+  isAutoResize?: boolean;
 }
 
 declare interface IDropDown {
@@ -176,4 +177,12 @@ interface ITable {
   select?: string[];
   setSelect?: React.Dispatch<React.SetStateAction<string[]>>;
   className?: string;
+}
+
+// switch
+declare interface ISwitch extends React.ComponentProps<"input"> {
+  label?: string;
+  classNameWrap?: string;
+  isAlwaysOn?: boolean;
+  isInline?: boolean;
 }

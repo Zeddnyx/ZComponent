@@ -2,43 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
-  border-radius: 2px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-dark-500;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-primary;
-  border-radius: 50px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary;
-}
-
-.stripes.diagonal {
-  @apply bg-dark-500;
-  background-image: repeating-linear-gradient(45deg,
-      transparent,
-      transparent 2px,
-      #212121 2px,
-      #212121 70px);
-}
-
 @layer base {
   body {
     @apply bg-dark-200 text-light-200 font-mono;
@@ -52,6 +15,10 @@
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+  textarea {
+    resize: none;
+    overflow: hidden;
   }
 
   button {
@@ -93,4 +60,41 @@
   }
 
   /* end Pagination */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-dark-500;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-primary;
+  border-radius: 50px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+.stripes.diagonal {
+  @apply bg-dark-500;
+  background-image: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 2px,
+      #212121 2px,
+      #212121 70px);
 }

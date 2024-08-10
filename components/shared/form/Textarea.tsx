@@ -1,6 +1,7 @@
 "use client";
 import { cn, variantInput } from "@/lib/utils";
 import styles from "@/styles/component/form.module.css";
+import { useEffect, useRef } from "react";
 
 export default function Textarea({
   value,
@@ -8,15 +9,23 @@ export default function Textarea({
   labelSide = "top",
   error,
   className,
-  isLoading = false,
-  isRequired = false,
-  onChange,
   inputClassName,
   logo,
-  disabled,
   variant = "solid",
+  isLoading = false,
+  isRequired = false,
+  isAutoResize = false,
   ...props
 }: IInput) {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (textareaRef.current && isAutoResize) {
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  }, [value]);
+
   return (
     <div className={`${className} relative`}>
       <label
@@ -36,21 +45,23 @@ export default function Textarea({
           </span>
         )}
         <span className="flex relative w-full">
-          <span className={cn(styles.inputLogoTextarea, { "!text-red-500": error })}>
+          <span
+            className={cn(styles.inputLogoTextarea, { "!text-red-500": error })}
+          >
             {logo && logo}
           </span>
           <textarea
             {...props}
-            defaultValue={value}
+            ref={textareaRef}
             className={cn(
-              `${variantInput[variant]} ${styles.inputDefault} ${inputClassName}`,
+              `${inputClassName} custom-scrollbar`,
+              variantInput[variant],
+              styles.inputDefault,
               {
-                "opacity-50 cursor-not-allowed": disabled,
                 "!pl-8": logo,
                 "border !border-red-500 !bg-red-500/10": error,
               },
             )}
-            disabled={disabled}
           />
         </span>
       </label>
