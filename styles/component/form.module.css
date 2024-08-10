@@ -1,4 +1,4 @@
-/* FORM Input */
+/* FORM INPUT */
 .inputLabel {
   @apply block cursor-pointer pb-1.5 font-medium text-light/70 rtl:text-right text-14;
 }
@@ -40,9 +40,9 @@
   @apply bg-transparent !border-0;
 }
 
-/* end FORM Input */
+/* END FORM INPUT */
 
-/* FORM Input suggest */
+/* FORM INPUT SUGGEST */
 .inputSuggest {
   @apply absolute top-14 z-10 bg-white w-full max-h-40 h-fit overflow-y-auto shadow rounded-lg bg-dark-300 hidden;
 }
@@ -51,9 +51,9 @@
   @apply !p-2 hover:bg-dark-500 w-full text-left;
 }
 
-/* end FORM Input suggest */
+/* END FORM INPUT SUGGEST */
 
-/* FORM Dropwdown */
+/* FORM DROPWDOWN */
 .dropdownInactive {
   @apply -z-10 h-0 invisible -translate-y-20 opacity-0 !duration-0;
 }
@@ -83,9 +83,9 @@
   content: "loading...";
 }
 
-/* end FORM Dropwdown */
+/* END FORM DROPWDOWN */
 
-/* FORM Checkbox */
+/* FORM CHECKBOX */
 .checkbox {
   @apply flex items-center justify-between gap-2;
 }
@@ -98,7 +98,7 @@
   @apply text-sm font-normal text-light-200;
 }
 
-/* end FORM Checkbox */
+/* END FORM CHECKBOX */
 
 /* FORM OTP */
 .otp {
@@ -121,9 +121,9 @@
   @apply w-full font-bold text-center;
 }
 
-/* end FORM OTP */
+/* END FORM OTP */
 
-/* FORM Input tag */
+/* FORM INPUT TAG */
 .parentTag {
   @apply w-full flex flex-wrap items-center rounded-md p-1;
 }
@@ -144,9 +144,9 @@
   @apply bg-dark-500;
 }
 
-/* end FORM Input tag */
+/* END FORM INPUT TAG */
 
-/* FORM Time picker */
+/* FORM TIME PICKER */
 .timePicker {
   @apply absolute top-16 left-0;
 }
@@ -173,4 +173,4 @@
   @apply snap-center;
 }
 
-/* end FORM Time picker */
+/* END FORM TIME PICKER */

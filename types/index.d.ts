@@ -15,7 +15,6 @@ declare interface IInput
   isRequired?: boolean;
   className?: string;
   inputClassName?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   logo?: React.ReactNode;
   disabled?: boolean;
   variant?: "solid" | "outline" | "underline" | "none";
